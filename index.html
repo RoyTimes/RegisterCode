@@ -146,14 +146,14 @@
 				    	        </form>
 				    	        <br/>
 
-				    	        <input name="Curriculum" type="text" style="display: none;" />
+				    	        <input id="Curriculum" type="text" style="display: none;" />
 				    	     
 				    	 <script type="text/javascript">
                             function showSelectValue(){
                             	if(document.myForm.mySet.value=='other'){
-                            		document.getElementsByName('Curriculum').style.display="block";
+                            		document.getElementById('Curriculum').style.display="block";
                             	}else{
-                            		document.getElementsByName('Curriculum').style.display="none";
+                            		document.getElementById('Curriculum').style.display="none";
                             	}
                             }
                             	</script> 
