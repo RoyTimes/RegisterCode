@@ -8,7 +8,6 @@
 </head>
 
 <body>
-
 	<div id="all">
 
 		<div id="titlebar">
@@ -117,7 +116,7 @@
 				    </div>
 
 				    <div class="item">   	
-				    	<h3 class="module_name">Faculty educational background breakdown (percentage of faculty holding advanced degrees):</h3>
+				    	<h3 class="module_name">Faculty educational background breakdown (percentage of faculty holding advanced degrees, e.g. bachelors and up):</h3>
 				    		<input class="entrytext" type="text" name="Background"></input>
 				    </div>
 
@@ -127,13 +126,38 @@
 				    </div>
 
 				    <div class="item">
-				    	<h3 class="module_name">School Calendar:</h3>
+				    	<h3 class="module_name">School Calendar(semester/quarter/other):</h3>
 				    		<input class="entrytext" type="text" name="Calendar"></input>
 				    </div>
 
 				    <div class="item">
-				    	<h3 class="module_name">School Curriculum (AP/IB/A-Level/Canadian/Australian/etc):</h3>
-				    		<input class="entrytext" type="text" name="Curriculum"></input>
+				    	<h3 class="module_name">School Curriculum:</h3>
+				    	    <form action="" method="get" id="frm" name="myForm">
+				    	    	<select name="mySet" onchange="showSelectValue(this)">
+				    	    	 <option value ="0">--------------------</option> 
+				    	         <option value ="Chinese Gaokao">Chinese Gaokao</option>  
+				    	         <option value ="AP">AP</option>  
+				    	         <option value="IB">IB</option>  
+				    	         <option value="A-Level">A-Level</option>  
+				    	         <option value="Canadian">Canadian</option>
+				    	         <option value="Australian">Australian</option>
+				    	         <option value="other">other</option>
+				    	        </select>  
+				    	        </form>
+				    	        <br/>
+
+				    	        <input name="Curriculum" type="text" style="display: none;" />
+				    	     
+				    	 <script type="text/javascript">
+                            function showSelectValue(){
+                            	if(document.myForm.mySet.value=='other'){
+                            		document.getElementsByName('Curriculum').style.display="block";
+                            	}else{
+                            		document.getElementsByName('Curriculum').style.display="none";
+                            	}
+                            }
+                            	</script> 
+				    	        
 				    </div>
 
 				    <div class="item">	
@@ -159,39 +183,11 @@
 				    </div>
 
 				    <div class="item">
-				    	<h3 class="module_name">Distribution of GPA (percentage A, B, C, D…):</h3>
+				    	<h3 class="module_name">Distribution of GPA (please provide more information on the distribution of students on your grading scale. e.g. if your school uses the A-F scale, then provide the % of students getting A vs. B vs. C vs. D...):</h3>
 				    		<input class="entrytext" type="text" name="GPA"></input>
 				    </div>
 				</div>
-			</div>
-
-			<div class="module">
-				<div class="module_heading">
-			    	<h2 class="module_title">Graduating Class Student Size</h2>
-			    </div>
-
-				<div class="module_info">
-				    <div class="item">
-				    	<h3 class="module_name">Class of 2016 (students graduating in 2016):</h3>
-				    		<input class="entrynum" type="number" name="Class2016"></input>
-				    </div>
-
-				    <div class="item">
-				    	<h3 class="module_name">Class of 2017 (students graduating in 2017):</h3>
-				    		<input class="entrynum" type="number" name="Class2017"></input>
-				    </div>
-
-				    <div class="item">
-				    	<h3 class="module_name">Class of 2018 (students graduating in 2018):</h3>
-				    		<input class="entrynum" type="number" name="Class2018"></input>
-				    </div>
-
-				    <div class="item">
-				    	<h3 class="module_name">Class of 2019 (students graduating in 2019):</h3>
-				    		<input class="entrynum" type="number" name="Class2019"></input>
-				    </div>
-				</div>
-			</div>		  
+			</div>  
 		</div> <!-- main -->
 	</div> <!-- all -->
 </body>
