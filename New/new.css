@@ -1,0 +1,101 @@
+h1,h2,h3,h4,label{
+	font-family: "Helvetica Nenu";
+}
+.onepage{
+	height:750px;
+}
+.onepage-bg{
+	height: 800;
+	width: 100%;
+	position:absolute;
+	background-position: center center;
+	background-size: cover;
+}
+#onepagebg{
+	background-image: url("image/bg1.jpg");
+}
+.headh1content{
+	margin-top: 150px;
+	line-height: 75px;
+}
+.title-text{
+	margin-left: 200px;
+}
+.headfontsize h1{
+	margin-left: 175px;
+	font-size: 50pt;
+	color: white;
+}
+.headfontsize label{
+	font-size: 15pt;
+	color: white;
+}
+.form-control{
+	width: 250px;
+}
+
+
+.twopage{
+	padding: 2px 0 0 2px;
+	height: auto;
+}
+.twopage-bg{
+	width: 100%;
+	position:relative;
+	background-position: center center;
+	background-size: cover;
+}
+#twopagebg{
+	background-image: url("image/bg2.jpg");
+}
+.headh2content{
+	margin-top: 75px;
+}
+.headh1content{
+	margin-top: 100px;
+	line-height: 75px;
+}
+.headfontsize h2{
+	margin-left: 150px;
+	margin-top: 150px;
+	font-size: 40pt;
+	color: white;
+}
+.headfontsize h3{
+	font-size: 30pt;
+	margin-bottom: 125px;
+	color: white;
+}
+.form-horizontal{
+	margin-bottom: 200px;
+}
+
+
+.threepage{
+	padding: 2px 0 0 2px;
+	height: auto;
+}
+.threepage-bg{
+	width: 100%;
+	position:relative;
+	background-position: center center;
+	background-size: cover;
+}
+#threepagebg{
+	background-image: url("image/bg2.jpg");
+}
+.headh4content{
+	margin-top: 150px;
+}
+.headh2content{
+	margin-top: 350px;
+	line-height: 75px;
+}
+.headfontsize h4{
+	margin-left: 125px;
+	font-size: 40pt;
+	color: white;
+}
+.container{
+	margin-bottom: 125px;
+}
