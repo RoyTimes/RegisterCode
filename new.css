@@ -12,7 +12,7 @@ h1,h2,h3,h4,label{
 	background-size: cover;
 }
 #onepagebg{
-	background-image: url("image/bg1.jpg");
+	background-color: black;
 }
 .headh1content{
 	margin-top: 150px;
@@ -46,7 +46,7 @@ h1,h2,h3,h4,label{
 	background-size: cover;
 }
 #twopagebg{
-	background-image: url("image/bg2.jpg");
+	background-color: black;
 }
 .headh2content{
 	margin-top: 75px;
@@ -82,7 +82,7 @@ h1,h2,h3,h4,label{
 	background-size: cover;
 }
 #threepagebg{
-	background-image: url("image/bg2.jpg");
+	background-color: black;
 }
 .headh4content{
 	margin-top: 150px;
@@ -92,10 +92,11 @@ h1,h2,h3,h4,label{
 	line-height: 75px;
 }
 .headfontsize h4{
-	margin-left: 125px;
+	margin-left: 150px;
+	margin-bottom: 100px;
 	font-size: 40pt;
 	color: white;
 }
-.container{
-	margin-bottom: 125px;
+.form-group label{
+	text-align: left;
 }
