@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<link href="http://cdn.bootcss.com/materialize/0.97.5/css/materialize.min.css" rel="stylesheet">
+
+	<style type="text/css">
+	.info_seg {
+		margin-left: 50px;
+		margin-right: 50px;
+
+		margin-top: 60px;
+		margin-bottom: 60px;
+
+		padding: 20px;
+	}
+	.submit_btn {
+		margin-left: 80px;
+		margin-bottom: 80px;
+	}
+	.seg_header {
+		padding: 10px;
+		font-size: 15pt;
+		color: rgb(90,90,90);
+	}
+	</style>
+</head>
+<body>
+
+	<div class="card info_seg">
+		<div class="seg_header">
+			What will we do with your school profile?
+		</div>
+
+		We understand that branding your school professionally and effectively to so many international universities can be challenging and exhausting. Through the school profiling on SMP, your school profiling will be improved with professional guidance and tailored strategies. It will also be part of our combined school branding campaigns to overseas universities this summer. Your information here will be the primary source of school profiling for admission officers. We plan to start this year's high school branding trip to international colleges from March to September 2016.
+
+		<br/><br/><hr/><br/>
+		<div class="seg_header">
+			How will we help you to complete your school profile?
+		</div>
+
+		We have carefully designed a school profile template for you to complete and fill in necessary information. We will also offer free service to help you analyze your raw data and input information into the template if information the template asks is not readily available in your school yet. School representatives are also more than welcome to contact us directly to get more help and guidance on profile completion.
+	</div>
+
+	<form class="col s12">
+
+		<!-- school info -->
+		<div class="card info_seg">
+			<div class="seg_header">
+				School Profile
+			</div>
+
+			<div class="row">
+				<div class="input-field col s6">
+					<input id="school_name" type="text" class="validate">
+					<label for="school_name">School Name</label>
+				</div>
+				<div class="input-field col s6">
+					<input id="school_address" type="text" class="validate">
+					<label for="school_address">School Address</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s6">
+					<input id="school_website" type="text" class="validate">
+					<label for="school_website">School Website</label>
+				</div>
+				<div class="input-field col s6">
+					<input id="school_accreditation" type="text" class="validate">
+					<label for="school_accreditation">Accreditation</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s12">
+					<textarea id="school_background" class="materialize-textarea"></textarea>
+					<label for="school_background">School Background (history, student selection process, student body composition, etc)</label>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="input-field col s4">
+					<input id="contact_name" type="text" class="validate">
+					<label for="contact_name">Contact Person Name</label>
+				</div>
+				<div class="input-field col s4">
+					<input id="contact_phone" type="text" class="validate">
+					<label for="contact_phone">Accreditation</label>
+				</div>
+				<div class="input-field col s4">
+					<input id="contact_email" type="text" class="validate">
+					<label for="contact_email">Email</label>
+				</div>
+			</div>
+		</div>
+
+		<!-- END of school info  -->
+		<!-- Student Enrollment -->
+		<div class="card info_seg">
+
+			<div class="seg_header">
+				Student Enrollment
+			</div>
+			<div class="row">
+				<div class="input-field col s3">
+					<input id="class_size_9" type="text" class="validate">
+					<label for="class_size_9">Class size-9th grade</label>
+				</div>
+				<div class="input-field col s3">
+					<input id="class_size_10" type="text" class="validate">
+					<label for="class_size_10">Class size-10th grade</label>
+				</div>
+				<div class="input-field col s3">
+					<input id="class_size_11" type="text" class="validate">
+					<label for="class_size_11">Class size-11th grade</label>
+				</div>
+				<div class="input-field col s3">
+					<input id="class_size_12" type="text" class="validate">
+					<label for="class_size_12">Class size-12th grade</label>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="input-field col s7">
+					<input placeholder="Percent of graduating students going to 4-year colleges"id="percent_graduate" type="text" class="validate">
+					<label for="percent_graduate"></label>
+				</div>
+				<div class="input-field col s3">
+					<input id="faculty_student_ratio" type="text" class="validate">
+					<label for="faculty_student_ratio">Faculty-student ratio</label>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="input-field col s7">
+					<input placeholder="Percent of students from first generation college family (neither of the students' parents have a college degree or above)" id="precent_first_graduate" type="text" class="validate">
+					<label for="precent_first_graduate"></label>
+				</div>
+				<div class="input-field col s3">
+					<input id="school_calendar" type="text" class="validate">
+					<label for="school_calendar">School Calendar</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s7">
+					<input placeholder="Faculty educational background breakdown (percentage of faculty holding advanced degrees)" id="faculty_education" type="text" class="validate">
+					<label for="faculty_education"></label>
+				</div>
+				<div class="input-field col s3">
+					<input id="primary_language" type="text" class="validate">
+					<label for="primary_language">Primary Language of Instruction</label>
+				</div>
+
+			</div>
+			<div class="row">
+				<div class="input-field col s7">
+					<input placeholder="School Curriculum (AP/IB/A-Level/Canadian/Australian/etc)"  id="school_curriculum" type="text" class="validate">
+					<label for="school_curriculum"></label>
+				</div>
+				<div class="input-field col s3">
+					<input id="grade_scale" type="text" class="validate">
+					<label for="grade_scale">Grading Scale (4.0? A,B,C,D? 0-100?)</label>
+				</div>
+			</div>
+
+			<div class="row">
+				<p>
+					<br/>
+					&nbsp;&nbsp;<input type="checkbox" id="exam_based_promotion" />
+      				<label for="exam_based_promotion">Exam-Based Promotion?</label>
+      				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      				<input type="checkbox" id="leaving_exams" />
+      				<label for="leaving_exams">Leaving Exams Required?</label>
+      				<br/>
+				</p>
+			</div>
+			<div class="row">
+				<div class="input-field col s12">
+					<textarea id="national_composition" class="materialize-textarea"></textarea>
+					<label for="national_composition">Student nationality composition (percentage by country of nationality)</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s12">
+					<textarea id="gpa_distribution" class="materialize-textarea"></textarea>
+					<label for="gpa_distribution">Distribution of GPA (percentage A, B, C, D)</label>
+				</div>
+			</div>
+		</div>
+		<!-- END of Student Enrollment -->
+		<!-- Graduating Class Student Size -->
+
+		<div class="card info_seg">
+			<div class="seg_header">
+				Graduating Class Student Size
+			</div>
+
+
+			<div class="row">
+				<div class="input-field col s3">
+					<input placeholder="Class of 2016 (students graduating in 2016)" id="class_size_2016" type="text" class="validate">
+					<label for="class_size_2016"></label>
+				</div>
+				<div class="input-field col s3">
+					<input placeholder="Class of 2017 (students graduating in 2016)" id="class_size_2017" type="text" class="validate">
+					<label for="class_size_2017"></label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s3">
+					<input placeholder="Class of 2018 (students graduating in 2016)" id="class_size_2018" type="text" class="validate">
+					<label for="class_size_2018"></label>
+				</div>
+				<div class="input-field col s3">
+					<input placeholder="Class of 2019 (students graduating in 2016)" id="class_size_2019" type="text" class="validate">
+					<label for="class_size_2019"></label>
+				</div>
+			</div>
+		</div>
+
+		<a class="waves-effect waves-light btn submit_btn">Submit</a>
+
+
+	</form>
+
+
+	<script src="http://cdn.bootcss.com/jquery/2.2.0/jquery.min.js"></script>
+	<script src="http://cdn.bootcss.com/materialize/0.97.5/js/materialize.min.js"></script>
+</body>
+</html>
+
+
+
+
