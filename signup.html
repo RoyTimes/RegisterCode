@@ -8,8 +8,9 @@
 
 	<style type="text/css">
 	body{
-		/*background-color: rgb(145,54,73);*/
-		/*background-color: rgb(0,0,0);*/
+		/*background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(red), to(#FFFFFF));/*谷歌*/ */
+		/*background-color: rgb(165,74,93);*/
+		/*background-color: teal;*/
 	}
 	.info_seg {
 		margin-left: 5%;
@@ -45,11 +46,17 @@
 			<div class="row">
 				<div class="input-field col s12 m3">
 					<input id="Name(CN)" type="text" class="validate">
-					<label for="Name(CN)">Name(CN)</label>
+					<label for="Name(CN)">Name(In Chinese Character)</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s12 m3">
+					<input id="first_name" type="text" class="validate">
+					<label for="first_name">First Name(EN)</label>
 				</div>
 				<div class="input-field col s12 m3">
-					<input id="Name(EN)" type="text" class="validate">
-					<label for="Name(EN)">Name(EN)</label>
+					<input id="last_name" type="text" class="validate">
+					<label for="last_name">Last Name(EN)</label>
 				</div>
 				<div class="input-field col s12 m3">
 					<select>
@@ -69,6 +76,8 @@
  					<label for="city">City</label>
  					<input id="city" type="text"/>
 				</div>
+			</div>
+			<div class="row">
 				<div class="input-field col s12 m3">
  					<label for="institution">Institution</label>
  					<input id="institution" type="text"/>
@@ -89,7 +98,7 @@
 				</div>
 				<div class="input-field col s12 m3">
 					<select>
-						<option value="" disabled selected>You know these contsets from</option>
+						<option value="" disabled selected>How did you know these contests</option>
 						<option value="teacher">Teacher/Conselor</option>
 						<option value="classmate">Classmate/Friends</option>
 						<option value="SNS">SNS(Wechat\QQ)</option>
@@ -97,6 +106,7 @@
 						
 					</select>
 				</div>
+				
 			</div>
 
 			<div class="row">
@@ -124,16 +134,12 @@
 
 		<div class="card info_seg">
 			<div class="seg_header">
-				Guardian Information
+				Guardian Information (Please fill this part in Chinese character)
 			</div>
 			<div class="row">
 				<div class="input-field col s12 m3">
  					<label for="father_name">Guardian(Father)</label>
  					<input id="father_name" type="text"/>
-				</div>
-				<div class="input-field col s12 m3">
- 					<label for="father_unit">Guardian Unit(Father) </label>
- 					<input id="father_unit" type="text"/>
 				</div>
 				<div class="input-field col s12 m3">
  					<label for="father_mobile">Guardian Mobile(Father) </label>
@@ -142,7 +148,26 @@
 			</div>
 			<div class="row">
 				<div class="input-field col s12 m3">
- 					<label for="mother_name">Guardian(Mother)</label>
+					<select>
+						<option value="" disabled selected>Employment status</option>
+						<option value="father_employed">Employed</option>
+						<option value="father_unemployed">Unemployed</option>
+						<option value="father_retired">Retired</option>
+						<option value="father_self_employed">Self-Employed</option>
+					</select>
+				</div>
+				<div class="input-field col s12 m3">
+ 					<label for="father_employer">Name of employer</label>
+ 					<input id="father_employer" type="text"/>
+				</div>
+				<div class="input-field col s12 m3">
+ 					<label for="father_position">Position/Title</label>
+ 					<input id="father_position" type="text"/>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s12 m3">
+ 					<label for="mother_name">Guardian(Mother) (In Chinese Character)</label>
  					<input id="mother_name" type="text"/>
 				</div>
 				<div class="input-field col s12 m3">
@@ -154,7 +179,29 @@
  					<input id="mother_mobile" type="text"/>
 				</div>
 			</div>
+			<div class="row">
+				<div class="input-field col s12 m3">
+					<select>
+						<option value="" disabled selected>Employment status</option>
+						<option value="mother_employed">Employed</option>
+						<option value="mother_unemployed">Unemployed</option>
+						<option value="mother_retired">Retired</option>
+						<option value="mother_self_employed">Self-Employed</option>
+					</select>
+				</div>
+				<div class="input-field col s12 m3">
+ 					<label for="mother_employer">Name of employer</label>
+ 					<input id="mother_employer" type="text"/>
+				</div>
+				<div class="input-field col s12 m3">
+ 					<label for="mother_position">Position/Title</label>
+ 					<input id="mother_position" type="text"/>
+				</div>
+			</div>
 		</div>
+
+		
+
 		<div class="card info_seg">
 			<div class="seg_header">
 				Contests
