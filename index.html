@@ -7,16 +7,23 @@
 	<link href="http://cdn.bootcss.com/materialize/0.97.5/css/materialize.min.css" rel="stylesheet">
 
 	<style type="text/css">
+	body{
+		background-color: rgb(145,54,73);
+		/*background-color: rgb(0,0,0);*/
+	}
 	.info_seg {
 		margin-left: 50px;
 		margin-right: 50px;
 		margin-top: 60px;
 		margin-bottom: 60px;
 		padding: 20px;
+
+		background-color: white;
 	}
 	.submit_btn {
 		margin-left: 80px;
 		margin-bottom: 80px;
+		background-color: grey;
 	}
 	.seg_header {
 		padding: 10px;
@@ -40,6 +47,11 @@
 		</div>
 
 		We have carefully designed a school profile template for you to complete and fill in necessary information. We will also offer free service to help you analyze your raw data and input information into the template if information the template asks is not readily available in your school yet. School representatives are also more than welcome to contact us directly to get more help and guidance on profile completion.
+	</div>
+	<div class="card info_seg">
+		<div class="seg_header" style="text-align: center">
+			----&nbsp;&nbsp;&nbsp;PLEASE USE ENGLISH TO COMPLETE THE FORM&nbsp;&nbsp;&nbsp;----
+		</div>
 	</div>
 
 	<form class="col s12">
@@ -66,8 +78,8 @@
 					<label for="school_website">School Website</label>
 				</div>
 				<div class="input-field col s6">
-					<input id="school_accreditation" type="text" class="validate">
-					<label for="school_accreditation">Accreditation</label>
+					<input id="school_phoneNumber" type="text" class="validate">
+					<label for="school_phoneNumber">Phone Number</label>
 				</div>
 			</div>
 			<div class="row">
@@ -84,7 +96,7 @@
 				</div>
 				<div class="input-field col s4">
 					<input id="contact_phone" type="text" class="validate">
-					<label for="contact_phone">Accreditation</label>
+					<label for="contact_phone">Phone Number</label>
 				</div>
 				<div class="input-field col s4">
 					<input id="contact_email" type="text" class="validate">
@@ -189,7 +201,7 @@
 		<!-- END of Student Enrollment -->
 		<!-- Graduating Class Student Size -->
 
-		<div class="card info_seg">
+		<!-- <div class="card info_seg">
 			<div class="seg_header">
 				Graduating Class Student Size
 			</div>
@@ -215,13 +227,13 @@
 					<label for="class_size_2019"></label>
 				</div>
 			</div>
-		</div>
+		</div> -->
         <!-- End of Graduating Class Student Size -->
         <!-- Average Class of 2016 student SAT Scores-->
 
 		<div class="card info_seg">
 			<div class="seg_header">
-				Average Class of 2016 student SAT Scores
+				Average Class of 2016 (students graduating in 2016) student SAT Scores
 			</div>
 			<div class="row">
 				<div class="input-field col s4">
@@ -285,7 +297,7 @@
 
 		<div class="card info_seg">
 			<div class="seg_header">
-				Average Class of 2016 student SAT II (subject tests)
+				Average Class of 2016 (students graduating in 2016) student SAT II (subject tests)
 			</div>
 			<div class="row">
 				<div class="input-field col s4">
@@ -446,7 +458,7 @@
 
 		<div class="card info_seg">
 			<div class="seg_header">
-				Average Class of 2016 student ACT Scores
+				Average Class of 2016 student (students graduating in 2016) ACT Scores
 			</div>
 			<div class="row">
 				<div class="input-field col s4">
@@ -627,7 +639,7 @@
 			</div>
 			<div class="row">
 				<div class="input-field col s4">
-					<label>Art History</label>
+					<label>AP - Art History</label>
 				</div>
 				<div class="input-field col s1">
 					<input id="Art_History_5" type="text" class="validate">
@@ -652,7 +664,7 @@
 			</div>
 			<div class="row">
 				<div class="input-field col s4">
-					<label>Biology</label>
+					<label>AP - Biology</label>
 				</div>
 				<div class="input-field col s1">
 					<input id="Biology_5" type="text" class="validate">
@@ -677,7 +689,7 @@
 			</div>
 			<div class="row">
 				<div class="input-field col s4">
-					<label>Calculus AB</label>
+					<label>AP - Calculus AB</label>
 				</div>
 				<div class="input-field col s1">
 					<input id="Calculus_AB_5" type="text" class="validate">
@@ -702,7 +714,7 @@
 			</div>
 			<div class="row">
 				<div class="input-field col s4">
-					<label>Calculus BC</label>
+					<label>AP - Calculus BC</label>
 				</div>
 				<div class="input-field col s1">
 					<input id="Calculus_BC_5" type="text" class="validate">
@@ -727,7 +739,7 @@
 			</div>
 			<div class="row">
 				<div class="input-field col s4">
-					<label>Chemistry</label>
+					<label>AP - Chemistry</label>
 				</div>
 				<div class="input-field col s1">
 					<input id="Chemistry_5" type="text" class="validate">
@@ -752,7 +764,7 @@
 			</div>
 			<div class="row">
 				<div class="input-field col s4">
-					<label>Computer Science A</label>
+					<label>AP - Computer Science A</label>
 				</div>
 				<div class="input-field col s1">
 					<input id="Computer_Science_A_5" type="text" class="validate">
@@ -777,7 +789,7 @@
 			</div>
 			<div class="row">
 				<div class="input-field col s4">
-					<label>English Lang&Comp</label>
+					<label>AP - English Lang&amp;Comp</label>
 				</div>
 				<div class="input-field col s1">
 					<input id="English_Lang_Comp_5" type="text" class="validate">
@@ -802,7 +814,7 @@
 			</div>
 			<div class="row">
 				<div class="input-field col s4">
-					<label>English Lit&Comp</label>
+					<label>AP - English Lit&amp;Comp</label>
 				</div>
 				<div class="input-field col s1">
 					<input id="English_Lit_Comp_5" type="text" class="validate">
@@ -827,7 +839,7 @@
 			</div>
 			<div class="row">
 				<div class="input-field col s4">
-					<label>Environmental Science</label>
+					<label>AP - Environmental Science</label>
 				</div>
 				<div class="input-field col s1">
 					<input id="Environmental_Science_5" type="text" class="validate">
@@ -852,7 +864,7 @@
 			</div>
 			<div class="row">
 				<div class="input-field col s4">
-					<label>European History</label>
+					<label>AP - European History</label>
 				</div>
 				<div class="input-field col s1">
 					<input id="European_History_5" type="text" class="validate">
@@ -877,7 +889,7 @@
 			</div>
 			<div class="row">
 				<div class="input-field col s4">
-					<label>Gov't & Politics Comparative</label>
+					<label>AP - Gov't &amp; Politics Comparative</label>
 				</div>
 				<div class="input-field col s1">
 					<input id="Comparative_5" type="text" class="validate">
@@ -902,7 +914,7 @@
 			</div>
 			<div class="row">
 				<div class="input-field col s4">
-					<label>Gov't & Politics US</label>
+					<label>AP - Gov't &amp; Politics US</label>
 				</div>
 				<div class="input-field col s1">
 					<input id="US_5" type="text" class="validate">
@@ -927,7 +939,7 @@
 			</div>
 			<div class="row">
 				<div class="input-field col s4">
-					<label>Human Geography</label>
+					<label>AP - Human Geography</label>
 				</div>
 				<div class="input-field col s1">
 					<input id="Human_Geography_5" type="text" class="validate">
@@ -952,7 +964,7 @@
 			</div>
 			<div class="row">
 				<div class="input-field col s4">
-					<label>Macroeconomics</label>
+					<label>AP - Macroeconomics</label>
 				</div>
 				<div class="input-field col s1">
 					<input id="Macroeconomics_5" type="text" class="validate">
@@ -977,7 +989,7 @@
 			</div>
 			<div class="row">
 				<div class="input-field col s4">
-					<label>Microeconomics</label>
+					<label>AP - Microeconomics</label>
 				</div>
 				<div class="input-field col s1">
 					<input id="Microeconomics_5" type="text" class="validate">
@@ -1002,7 +1014,7 @@
 			</div>
 			<div class="row">
 				<div class="input-field col s4">
-					<label>Physics B</label>
+					<label>AP - Physics B</label>
 				</div>
 				<div class="input-field col s1">
 					<input id="Physics_B_5" type="text" class="validate">
@@ -1027,7 +1039,7 @@
 			</div>
 			<div class="row">
 				<div class="input-field col s4">
-					<label>Physics C: E&M</label>
+					<label>AP - Physics C: E&amp;M</label>
 				</div>
 				<div class="input-field col s1">
 					<input id="Physics_EM_5" type="text" class="validate">
@@ -1052,7 +1064,7 @@
 			</div>
 			<div class="row">
 				<div class="input-field col s4">
-					<label>Physics C: Mechanics</label>
+					<label>AP - Physics C: Mechanics</label>
 				</div>
 				<div class="input-field col s1">
 					<input id="Physics_Mechanics_5" type="text" class="validate">
@@ -1077,7 +1089,7 @@
 			</div>
 			<div class="row">
 				<div class="input-field col s4">
-					<label>Psychology</label>
+					<label>AP - Psychology</label>
 				</div>
 				<div class="input-field col s1">
 					<input id="Psychology_5" type="text" class="validate">
@@ -1102,7 +1114,7 @@
 			</div>
 			<div class="row">
 				<div class="input-field col s4">
-					<label>Statistics</label>
+					<label>AP - Statistics</label>
 				</div>
 				<div class="input-field col s1">
 					<input id="Statistics_5" type="text" class="validate">
@@ -1127,7 +1139,7 @@
 			</div>
 			<div class="row">
 				<div class="input-field col s4">
-					<label>Stuidio Art 2D</label>
+					<label>AP - Stuidio Art 2D</label>
 				</div>
 				<div class="input-field col s1">
 					<input id="Stuidio_Art_5" type="text" class="validate">
@@ -1152,7 +1164,7 @@
 			</div>
 			<div class="row">
 				<div class="input-field col s4">
-					<label>US History</label>
+					<label>AP - US History</label>
 				</div>
 				<div class="input-field col s1">
 					<input id="US_History_5" type="text" class="validate">
@@ -1177,7 +1189,7 @@
 			</div>
 			<div class="row">
 				<div class="input-field col s4">
-					<label>World Historys</label>
+					<label>AP - World Historys</label>
 				</div>
 				<div class="input-field col s1">
 					<input id="World_History_5" type="text" class="validate">
@@ -1376,7 +1388,7 @@
 		<!-- END of student clubs  -->
 
 
-		<a class="waves-effect waves-light btn submit_btn">Submit</a>
+		<a class="waves-effect waves-grey btn-flat submit_btn">Submit</a>
 
 
 	</form>
