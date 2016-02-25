@@ -8,7 +8,7 @@
 
 	<style type="text/css">
 	body{
-		/*background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(red), to(#FFFFFF));/*谷歌*/ */
+		background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#c5e1a5), to(#FFFFFF));/*谷歌 */
 		/*background-color: rgb(165,74,93);*/
 		/*background-color: teal;*/
 	}
@@ -35,9 +35,14 @@
 		color: rgb(140,140,140);
 		text-align: bottom;
 	}
+	#result {
+		color: rgb(140,140,140);
+		font-size: 30pt;
+	}
 	</style>
 </head>
 <body>
+	
 	<form>
 		<div class="card info_seg">
 			<div class="seg_header">
@@ -69,7 +74,7 @@
 
 			<div class="row">
 				<div class="input-field col s12 m3">
- 					<label for="birth_date">Birth Date</label>
+ 					<label for="birth_date">Birth Date(DD-MM-YYYY)</label>
  					<input id="birth_date" type="text"/>
 				</div>
 				<div class="input-field col s12 m3">
@@ -89,21 +94,32 @@
 			</div>
 			<div class="row">
 				<div class="input-field col s12 m3">
- 					<label for="graduation_year">Graduation Year</label>
- 					<input id="graduation_year" type="text"/>
+					<select>
+						<option value="" disabled selected>Gruaduation Year</option>
+						<option value="2016">2016</option>
+						<option value="2017">2017</option>
+						<option value="2018">2018</option>
+						<option value="2019">2019</option>
+					</select>
 				</div>
 				<div class="input-field col s12 m3">
- 					<label for="grade">Grade</label>
- 					<input id="grade" type="text"/>
+					<select>
+						<option value="" disabled selected>Student Grade</option>
+						<option value="7th">7th Grade</option>
+						<option value="8th">8th Grade</option>
+						<option value="9th">9th Grade</option>
+						<option value="10th">10th Grade</option>
+						<option value="11th">11th Grade</option>
+						<option value="12th">12th Grade</option>
+					</select>
 				</div>
 				<div class="input-field col s12 m3">
 					<select>
 						<option value="" disabled selected>How did you know these contests</option>
-						<option value="teacher">Teacher/Conselor</option>
-						<option value="classmate">Classmate/Friends</option>
+						<option value="teacher">Teacher/Counselor</option>
+						<option value="classmate">Classmate/Friend</option>
 						<option value="SNS">SNS(Wechat\QQ)</option>
-						<option value="Other">Other ways</option>
-						
+						<option value="Other">Other way</option>
 					</select>
 				</div>
 				
@@ -206,32 +222,121 @@
 			<div class="seg_header">
 				Contests
 			</div>
+			<div class="row label_like" style="margin-left: 10px;font-size: 13pt;">
+				Bundle price is available when you select one of the program on the left and the YLDW program on the right. 
+			</div>
+
+
 			<div class="row">
-				<div class="input-field col s12 m8">
-					<select>
-						<option value="" disabled selected>Contests</option>
-						<option value="NSC">National Scholar Cup(NSC)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;July.29-August.2</option>
-						<option value="ICIC">Innovative Communication Initiative Conference(ICIC)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;July.29-August.2</option>
-						<option value="YBO">Youth Business Olympics(YBO)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;July.29-August.2</option>
-						<option value="FTTS">Future Think Tank Summit(FTTS)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;July.29-August.2</option>
-						<option value="YLDW">Youth Leadership Discovery Week (YLDW)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;July.31-August.4</option>
-						
-					</select>
+				<div class="input-field col s12 m4">
+					<p>
+						<input type="radio" name="contest" id="NSC" onchange="add('NSC');" />
+						<label for="NSC">National Scholar Cup(NSC)</label>
+					</p>
+					<p>
+						<input type="radio" name="contest" id="ICIC" onchange="add('ICIC');" />
+						<label for="ICIC">Innovative Communication Initiative Conference(ICIC)</label>
+					</p>
+					<p>
+						<input type="radio" name="contest" id="FTTS" onchange="add('FTTS');" />
+						<label for="FTTS">Future Think Tank Summit(FTTS)</label>
+					</p>
+				</div>
+
+				<div class="input-field col s12 m1">
+					<br/><br/>
+					<div class="label_like" style="font-size: 30pt;text-align: center;">
+						+
+					</div>
+				</div>
+
+				<div class="input-field col s12 m4">
+					<p>&nbsp;</p>
+					<p>
+						<input type="checkbox" name="contest" id="YLDW" onchange="add('YLDW');"/>
+						<label for="YLDW">Youth Leadership Discovery Week (YLDW)</label>
+					</p>
+				</div>
+
+				<div class="input-field col s12 m3">
+					<br/>
+					<div class="label_like" style="font-size: 12pt;">Sum:&nbsp;</div>
+					<div id="result">0</div>
 				</div>
 			</div>
 		</div>
 	</form>
 
-
-
 	<script src="http://cdn.bootcss.com/jquery/2.2.0/jquery.min.js"></script>
 	<script src="http://cdn.bootcss.com/materialize/0.97.5/js/materialize.min.js"></script>
 	<script type="text/javascript">
-		$(document).ready(function() {
-			$('select').material_select();
-		});
-	</script>
+		var result = document.getElementById('result');
+
+		var NSC = document.getElementById('NSC');
+		var ICIC = document.getElementById('ICIC');
+		var FTTS = document.getElementById('FTTS');
+
+		var YLDW = document.getElementById('YLDW');
+
+		var sum = 0, old_sum = 0;
+		function add (name) {
+			if (name === "NSC") {
+				if (YLDW.checked) {
+					sum = 7260;
+					result.innerHTML = sum;
+				} else { 
+					sum = 4910;
+					result.innerHTML = sum;
+				}
+
+			} else if (name === 'ICIC') {
+				if (YLDW.checked) {
+					sum = 7260;
+					result.innerHTML = sum;
+				} else { 
+					sum = 4960;
+					result.innerHTML = sum;
+				}		
+			} else if (name === 'FTTS') {
+				if (YLDW.checked) {
+					sum = 7260;
+					result.innerHTML = sum;
+				} else { 
+					sum = 5100;
+					result.innerHTML = sum;
+				}			
+			} else if(name === 'YLDW') {
+				if (YLDW.checked) {
+					if (sum == 0) {
+						sum = 4860;
+						result.innerHTML = sum;
+					} else {
+						old_sum = sum;
+						sum = 7260;
+						result.innerHTML = sum;
+					}
+				} else {
+					if (sum == 7260) {
+						sum = old_sum;
+						result.innerHTML = sum;
+					} else {
+						sum = 0;
+						result.innerHTML = sum;
+					}
+				}	
+			}
+		}
+	</script>	
+
 </body>
 </html>
 
 
+<!-- 
+Leadership 4860
+Journalism and Media  4960
+Hybrid  4910
+Social Development 5100
+
+7260
+ -->
