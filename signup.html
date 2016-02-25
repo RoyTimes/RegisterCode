@@ -8,7 +8,7 @@
 
 	<style type="text/css">
 	body{
-		background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#c5e1a5), to(#FFFFFF));/*谷歌 */
+		background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(rgb(65,176,202)), to(#FFFFFF));
 		/*background-color: rgb(165,74,93);*/
 		/*background-color: teal;*/
 	}
@@ -183,12 +183,8 @@
 			</div>
 			<div class="row">
 				<div class="input-field col s12 m3">
- 					<label for="mother_name">Guardian(Mother) (In Chinese Character)</label>
+ 					<label for="mother_name">Guardian(Mother)</label>
  					<input id="mother_name" type="text"/>
-				</div>
-				<div class="input-field col s12 m3">
- 					<label for="mother_unit">Guardian Unit(Mother) </label>
- 					<input id="mother_unit" type="text"/>
 				</div>
 				<div class="input-field col s12 m3">
  					<label for="mother_mobile">Guardian Mobile(Mother) </label>
@@ -257,6 +253,7 @@
 				<div class="input-field col s12 m4">
 					<br/><br/>
 					<p>
+						&nbsp;&nbsp;&nbsp;&nbsp;
 						<input type="checkbox" name="contest" id="YLDW" onchange="add('YLDW');"/>
 						<label for="YLDW">Youth Leadership Discovery Week (YLDW)</label>
 					</p>
@@ -274,6 +271,10 @@
 	<script src="http://cdn.bootcss.com/jquery/2.2.0/jquery.min.js"></script>
 	<script src="http://cdn.bootcss.com/materialize/0.97.5/js/materialize.min.js"></script>
 	<script type="text/javascript">
+		$(document).ready(function() {
+			$('select').material_select();
+		});
+
 		var result = document.getElementById('result');
 
 		var NSC = document.getElementById('NSC');
