@@ -241,17 +241,21 @@
 						<input type="radio" name="contest" id="FTTS" onchange="add('FTTS');" />
 						<label for="FTTS">Future Think Tank Summit(FTTS)</label>
 					</p>
+					<p>
+						<input type="radio" name="contest" id="NONE" onchange="add('None');" />
+						<label for="NONE">None</label>
+					</p>
 				</div>
 
 				<div class="input-field col s12 m1">
-					<br/><br/>
+					<br/><br/><br/>
 					<div class="label_like" style="font-size: 30pt;text-align: center;">
 						+
 					</div>
 				</div>
 
 				<div class="input-field col s12 m4">
-					<p>&nbsp;</p>
+					<br/><br/>
 					<p>
 						<input type="checkbox" name="contest" id="YLDW" onchange="add('YLDW');"/>
 						<label for="YLDW">Youth Leadership Discovery Week (YLDW)</label>
@@ -280,6 +284,15 @@
 
 		var sum = 0, old_sum = 0;
 		function add (name) {
+			if (name === 'None') {
+				if (YLDW.checked) {
+					sum = 4860;
+					result.innerHTML = sum;
+				} else {
+					sum = 0;
+					result.innerHTML = sum;
+				}
+			}
 			if (name === "NSC") {
 				if (YLDW.checked) {
 					sum = 7260;
