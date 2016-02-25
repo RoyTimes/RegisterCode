@@ -8,7 +8,7 @@
 
 	<style type="text/css">
 	body{
-		background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(rgb(60,152,136)), to(#FFFFFF));
+		/*background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(rgb(60,152,136)), to(#FFFFFF));*/
 		/*background-color: rgb(165,74,93);*/
 		/*background-color: teal;*/
 	}
@@ -273,6 +273,13 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('select').material_select();
+
+			var Colors = ["rgb(60,152,136)",'#33FF99','#33CCCC','#00CCFF','#CC6666','#CC99FF','#CCCCFF','#FFCC33','#FFFFCC'];
+			var index = Math.floor((Math.random()*Colors.length)); 
+			var pickColor = Colors[index];
+
+
+			document.body.style.background = "-webkit-gradient(linear, 0% 0%, 0% 100%,from(" + pickColor + "), to(#FFFFFF))"
 		});
 
 		var result = document.getElementById('result');
@@ -344,13 +351,3 @@
 
 </body>
 </html>
-
-
-<!-- 
-Leadership 4860
-Journalism and Media  4960
-Hybrid  4910
-Social Development 5100
-
-7260
- -->
