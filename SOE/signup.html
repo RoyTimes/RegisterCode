@@ -1,0 +1,80 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="hackcraft" />
+    <meta name="author" content="Song Zhou" />
+    <!--[if IE]>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<![endif]-->
+    <title>SOE | SignUp</title>
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+    <link href="assets/login/main.css" rel="stylesheet" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+    <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+</head>
+
+<body style="font-family:StructrMe;">
+    <header id="login_header">
+        <h1 style="font-size:400%;">Signup for SOE</h1>
+    </header>
+    <form class="form-horizontal">
+        <div class="row col-md-4" style="font-family:StructrBo;">
+			<input id="email" type="email" name="user" autocomplete="off" value="" placeholder="Email">
+            <br>
+			<input id="user" type="text" name="user" autocomplete="off" value="" placeholder="User Name">
+            <br>
+			<input id="password" type="password" name="password" autocomplete="off" value="" placeholder="Password">
+			<br>
+            <input type="submit" id="signup" value="Signup" />
+        </div>
+    </form>
+    <script src="assets/js/jquery-1.11.1.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
+    <script src="assets/js/jquery.easing.min.js"></script>
+    <script src="assets/login/js/login.js"></script>
+    <script src="assets/js/sha1.min.js"></script>
+    <script src="assets/js/xml2on.min.js"></script>
+    <script src="assets/js/jquery.soap.min.js"></script>
+
+	<script type="text/javascript">
+		document.getElementById('signup').addEventListener("click", signupFun, false);
+		function signupFun(evt) {
+			evt.preventDefault();
+
+            var email = document.getElementById("email").value;
+            var user_name = document.getElementById('user').value;
+            var password = hex_sha1(hex_sha1(hex_sha1(hex_sha1(document.getElementById("password").value + "yiquan")+"yidaquan")));
+            $.soap({
+    		    url: 'http://yiquandev.oneto-tech.com/MoSession_server.php',
+    		    method: 'registerSOE',
+    		    appendMethodToURL: false,
+    		    enableLogging: false,
+    		    data: {
+                    "user_name": user_name,
+                    "email": email,
+                    "password": password
+    		    },
+    		    envAttributes: {
+    		        'xmlns:soap': 'http://schemas.xmlsoap.org/soap/envelope/'
+    		    },
+    		    success: function (soapResponse) {
+    				var getResult = soapResponse.toJSON()["#document"]["SOAP-ENV:Envelope"]["SOAP-ENV:Body"]["ns1:registerSOEResponse"]["return"]["_"];
+
+    				console.log(getResult);
+
+                    location.href = "index.html";
+    			},
+    			error: function (SOAPResponse) {
+    				console.error(SOAPResponse);
+    			}
+    		});
+			// alert("just send form to server");
+
+		}
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="hackcraft" />
+    <meta name="author" content="Song Zhou" />
+    <!--[if IE]>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<![endif]-->
+    <title>SOE | Login</title>
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+    <link href="assets/login/main.css" rel="stylesheet" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+    <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+</head>
+
+<body style="font-family:StructrMe;">
+    <header id="login_header">
+        <h1 style="font-size:400%;">Login for SOE</h1>
+    </header>
+    <form class="form-horizontal">
+        <div class="row col-md-4" style="font-family:StructrBo;">
+			<input id="user" type="text" name="user" autocomplete="off" value="" placeholder="User Name">
+            <br>
+			<input id="password" type="password" name="password" autocomplete="off" value="" placeholder="Password">
+			<br>
+
+            <input type="button" id='login' value="Login" />&nbsp;&nbsp;&nbsp;
+            <input type="button" id="redir" value="Signup First!"/>
+        </div>
+    </form>
+    <script src="assets/js/jquery-1.11.1.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
+    <script src="assets/js/jquery.easing.min.js"></script>
+    <script src="assets/login/js/login.js"></script>
+    <script src="assets/js/sha1.min.js"></script>
+    <script src="assets/js/xml2on.min.js"></script>
+    <script src="assets/js/jquery.soap.min.js"></script>
+    <script src="assets/js/jquery.cookie.js"></script>
+
+
+    <script type="text/javascript">
+        document.getElementById('redir').addEventListener("click", redirFun,
+        false);
+        document.getElementById('login').addEventListener("click", loginFun, false);
+
+        function loginFun(evt) {
+            var password = document.getElementById('password').value;
+            var user_name = document.getElementById('user').value;
+            var user_password = hex_sha1(hex_sha1(hex_sha1(hex_sha1(password + "yiquan")+"yidaquan")));
+
+            $.soap({
+    		    url: 'http://yiquandev.oneto-tech.com/MoSession_server.php',
+    		    method: 'loginSOE',
+    		    appendMethodToURL: false,
+    		    enableLogging: false,
+    		    data: {
+                    "user_name": user_name,
+                    "password": user_password
+    		    },
+    		    envAttributes: {
+    		        'xmlns:soap': 'http://schemas.xmlsoap.org/soap/envelope/'
+    		    },
+    		    success: function (soapResponse) {
+    				var getResult = soapResponse.toJSON()["#document"]["SOAP-ENV:Envelope"]["SOAP-ENV:Body"]["ns1:loginSOEResponse"]["return"]["_"];
+
+                    if (getResult == 'success') {
+                        $.cookie('user', user_name);
+                        location.href = "instructions.html";
+                    }
+
+    			},
+    			error: function (SOAPResponse) {
+    				console.error(SOAPResponse);
+    			}
+    		});
+        }
+        function redirFun(evt) {
+            location.href = "signup.html";
+        }
+    </script>
+</body>
+</html>

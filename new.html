@@ -8,11 +8,13 @@
 
 	<style type="text/css">
 	.info_seg {
-		margin-left: 50px;
-		margin-right: 50px;
-		margin-top: 60px;
-		margin-bottom: 60px;
+		margin-left: 5%;
+		margin-right: 5%;
+		margin-top: 7%;
+		margin-bottom: 7%;
 		padding: 20px;
+
+		background-color: white;
 	}
 	.submit_btn {
 		margin-left: 80px;
@@ -23,17 +25,36 @@
 		font-size: 15pt;
 		color: rgb(90,90,90);
 	}
+	.res_header {
+		padding: 10px;
+		padding-left: 0px;
+		font-size: 12pt;
+		color: rgb(110,110,110);
+	}
+	.description {
+		padding: 10px;
+		font-size: 12pt;
+		color: rgb(110,110,110);
+	}
 	</style>
 </head>
 <body>
+	
+	<div class="card info_seg">
+		<div class="seg_header" style="text-align: center;font-size: 25pt;padding-top: 10px;">
+			Application Form
+		</div><br/><br/>
+		<div class="seg_header" style="text-align: center;">
+		Program:&nbsp;&nbsp;&nbsp;&nbsp;Student Organizations of Excellence(SOE)
+		</div><br/><br/>
+	</div>
 
 	<div class="card info_seg">
+		
 		<div class="seg_header">
-			Student Organizations of Excellence Application
+			To Know Before You Start:
 		</div>
 		<br/>
-		To Know Before You Start:
-		<br/><br/>
 
 		Leadership quality is always one of the top qualities foreign university admissions officers look for when evaluating applicants. However, due to the fact that China is huge and there are great language and cultural barriers between Chinese candidates and foreign admissions officers, it is very difficult for foreign university to evaluate applicant's involvement and achievement through extracurricular activities. We are here to help! After discussing with AOs aboard, they suggested us to create a system where student leaders can describe their activities and impacts in a more detailed and transparent manner.
 		<br/><br/>
@@ -41,22 +62,19 @@
 		As such, we have created this application for student leaders to register their activities free of charge. After registration, we will collaborate with foreign universities and other experts in education to evaluate and select the best activities and their leaders from our applicant pool to further present to universities aboard. We will also host additional conferences (Youth Leadership Discovery Week) for interested student leaders to attend and further horn their leadership skills.
 		<br/><br/>
 
-		Once you register your activity, your activity will be automatically entering our competition pool for best activities contest in your region/sector. Some of the selection criteria we will adopt are:<br/>
-        1) Originality: how innovative is the activity in its process of achieving its goal<br/>
-        2) Impact: the level of contribution the activity has made to its community<br/>
-        3) Sustainability: how well the activity can achieve lasting effect on its community/goal<br/>
-        4) Engagement: how engaged are the members in the activity as measured by how many members in the activitity will also register the same activity and contribute content on the application here with us.
+		Once you register your activity, your activity will be automatically entering our competition pool for best activities contest in your region/sector. Some of the selection criteria we will adopt are:<br/><br/><br/>
 
-
-		<br/><br/><br/>
-	</div>
-
-	<div class="card info_seg">
-		<div class="seg_header">
-			Report:
+		<div class="res_header">
+			1) Originality: how innovative is the activity in its process of achieving its goal
 		</div>
-		<div class="input-field col s12">
-			<textarea id="report_1" class="materialize-textarea"></textarea>
+		<div class="res_header">
+			2) Impact: the level of contribution the activity has made to its community
+		</div>
+		<div class="res_header">
+			3) Sustainability: how well the activity can achieve lasting effect on its community/goal
+		</div>
+		<div class="res_header">
+			4) Engagement: how engaged are the members in the activity as measured by how many members in the activitity will also register the same activity and contribute content on the application here with us.
 		</div>
 	</div>
 
@@ -65,82 +83,79 @@
 		<!-- Student Organizations of Excellence Application Form -->
 		<div class="card info_seg">
 			<div class="seg_header">
-				Student Organizations of Excellence Application Form
+				Basic Infomation
 			</div>
 
 			<div class="row">
-				<div class="input-field col s4">
+				<div class="input-field col s12 m4">
 					<input id="First_Name_in_English" type="text" class="validate">
 					<label for="First_Name_in_English">First Name in English</label>
 				</div>
-				<div class="input-field col s4">
+				<div class="input-field col s12 m4">
 					<input id="Last_Name_in_English" type="text" class="validate">
 					<label for="Last_Name_in_English">Last Name in English</label>
 				</div>
-				<div class="input-field col s4">
+				<div class="input-field col s12 m4">
 					<input id="Full_Name_in_Chinese" type="text" class="validate">
 					<label for="Full_Name_in_Chinese">Full Name in Chinese</label>
 				</div>
 			</div>
 			<div class="row">
-				<div class="input-field col s4">
-					<label>Sex</label>
-				</div>
-				<div class="input-field col s2">
+				<div class="input-field col s12 m2">
 					<input name="sex" id="male" type="radio" class="validate">
 					<label for="male">Male</label>
 				</div>
-				<div class="input-field col s2">
+				<div class="input-field col s12 m2">
 					<input name="sex" id="female" type="radio" class="validate">
 					<label for="female">Female</label>
 				</div>
-				<div class="input-field col s2">
+				<div class="input-field col s12 m2">
 					<input name="sex" id="prefer" type="radio" class="validate">
 					<label for="prefer">Prefer Not to Mention</label>
 				</div>
-			</div>
+			</div><br/>
 			<div class="row">
-				<div class="input-field col s4">
+				<div class="input-field col s12 m4">
 					<input id="email" type="text" class="validate">
 					<label for="email">Email</label>
 				</div>
-				<div class="input-field col s4">
+				<div class="input-field col s12 m4">
 					<input id="phone" type="text" class="validate">
 					<label for="phone">Phone</label>
 				</div>
-				<div class="input-field col s4">
+				<div class="input-field col ss12 m44">
 					<input id="qq" type="text" class="validate">
 					<label for="qq">QQ</label>
 				</div>
 			</div>
 
 			<div class="row">
-				<div class="input-field col s6">
+				<div class="input-field col s12 m6">
 					<input id="wechat" type="text" class="validate">
 					<label for="wechat">Wechat</label>
 				</div>
-				<div class="input-field col s6">
+				<div class="input-field col s12 m6">
 					<input id="Mailing_Address" type="text" class="validate">
 					<label for="Mailing_Address">Mailing Address</label>
 				</div>
 			</div>
 
 			<div class="row">
-				<div class="input-field col s6">
+				<div class="input-field col s12 m6">
 					<input id="high_school_Chinese_name" type="text" class="validate">
 					<label for="high_school_Chinese_name">High School Name in Chinese Character</label>
 				</div>
-				<div class="input-field col s6">
+				<div class="input-field col s12 m6">
 					<input id="high_school_English_name" type="text" class="validate">
 					<label for="high_school_English_name">High School Name in English</label>
 				</div>
 			</div>
 			<div class="row">
-				<div class="input-field col s6">
+				<div class="input-field col s12 m6">
 					<input id="city" type="text" class="validate">
 					<label for="city">High School City</label>
 				</div>
-				<div class="input-field col s6">
+				<div class="input-field col s12 m6">
 					<input id="province" type="text" class="validate">
 					<label for="province">High School Province</label>
 				</div>
@@ -157,42 +172,55 @@
 					<label for="expected_year">Expected Year of Graduation from High School</label>
 				</div>
 			</div>
-			<div class="row">
-				<div class="input-field col s12">
-					<label>Extracurricular Type:<br/>Student Council: only official student body representative in the school, or xueshenghui.<br/>Student Club: official student club sponsored by the school with a leadership team and active member base. Have a general club mission and continues club activities.<br/>Student Project: unofficial projects created and organized by the student for a given mission within a given time period. Project will have a final deliverable and project will terminate after the release of the deliverable.</label>
-				</div>
+		</div>
+		<div class="card info_seg">
+
+			<div class="seg_header">
+				Extracurricular Infomation
 			</div>
-			<br/><br/><br/><br/><br/>
+			<div class="description">
+				Extracurricular Type:<br/><br/>
+
+				Student Council: only official student body representative in the school, or xueshenghui.<br/><br/>
+
+				Student Club: official student club sponsored by the school with a leadership team and active member base. Have a general club mission and continues club activities.<br/><br/>
+
+				Student Project: unofficial projects created and organized by the student for a given mission within a given time period. Project will have a final deliverable and project will terminate after the release of the deliverable.
+			</div><br/><hr/>
+			
 			<div class="row">
-				<div class="input-field col s3">
+				<div class="input-field col s12 m3">
 					<input name="enroll_type" id="council" type="radio" class="validate">
 					<label for="council">Student Council</label>
 				</div>
-				<div class="input-field col s3">
+				<div class="input-field col s12 m3">
 					<input name="enroll_type" id="club" type="radio" class="validate">
 					<label for="club">Student Club</label>
 				</div>
-				<div class="input-field col s3">
+				<div class="input-field col s12 m3">
 					<input name="enroll_type" id="project" type="radio" class="validate">
 					<label for="project">Student Project</label>
 				</div>
 			</div>
+
+
 			<div class="row">
-				<div class="input-field col s6">
+				<div class="input-field col s12 m6">
 					<input id="activity_Chinese_name" type="text" class="validate">
 					<label for="activity_Chinese_name">Activity Name in Chinese Character</label>
 				</div>
-				<div class="input-field col s6">
+				<div class="input-field col s12 m6">
 					<input id="activity_English_name" type="text" class="validate">
 					<label for="activity_English_name">Activity Name in English</label>
 				</div>
 			</div>
+
 			<div class="row">
-				<div class="input-field col s6">
+				<div class="input-field col s12 m6">
 					<input id="position_held" type="text" class="validate">
 					<label for="position_held">Position Held Inside the Activity</label>
 				</div>
-				<div class="input-field col s6">
+				<div class="input-field col s12 m6">
 					<input id="num_of_members" type="text" class="validate">
 					<label for="num_of_members">Number of Members of the Activity</label>
 				</div>
@@ -205,21 +233,21 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="input-field col s6">
+				<div class="input-field col s12 m6">
 					<input id="supervising_name" type="text" class="validate">
 					<label for="supervising_name">Supervisng Teacher's Name in English</label>
 				</div>
-				<div class="input-field col s6">
+				<div class="input-field col s12 m6">
 					<input id="mail_of_sup" type="text" class="validate">
 					<label for="mail_of_sup">Email of Supervising Teacher</label>
 				</div>
 			</div>
 			<div class="row">
-				<div class="input-field col s6">
+				<div class="input-field col s12 m6">
 					<input id="mobile_phone" type="text" class="validate">
 					<label for="mobile_phone">Mobile Phone No. of Supervising Teacher</label>
 				</div>
-				<div class="input-field col s6">
+				<div class="input-field col s12 m6">
 					<input id="activity_website" type="text" class="validate">
 					<label for="activity_website">Activity Website (if available)</label>
 				</div>
@@ -231,7 +259,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="input-field col s6">
+				<div class="input-field col s12 m6">
 					<input id="awards_honors" type="text" class="validate">
 					<label for="awards_honors">Awards and Honors Received by the Activity</label>
 				</div>
@@ -244,91 +272,91 @@
 				Other members in your activity
 			</div>
 			<div class="row">
-				<div class="input-field col s3">
+				<div class="input-field col s12 m3">
 					<input id="name" type="text" class="validate">
 					<label for="name">Name</label>
 				</div>
-				<div class="input-field col s3">
+				<div class="input-field col s12 m3">
 					<input id="pos_held" type="text" class="validate">
 					<label for="pos_held">Position Held</label>
 				</div>
-				<div class="input-field col s3">
+				<div class="input-field col s12 m3">
 					<input id="exp_gra" type="text" class="validate">
 					<label for="exp_gra">Expected Graduation Year</label>
 				</div>
-				<div class="input-field col s3">
+				<div class="input-field col s12 m3">
 					<input id="em" type="text" class="validate">
 					<label for="em">Email</label>
 				</div>
 			</div>
 			<div class="row">
-				<div class="input-field col s3">
+				<div class="input-field col s12 m3">
 					<input id="name" type="text" class="validate">
 					<label for="name">Name</label>
 				</div>
-				<div class="input-field col s3">
+				<div class="input-field col s12 m3">
 					<input id="pos_held" type="text" class="validate">
 					<label for="pos_held">Position Held</label>
 				</div>
-				<div class="input-field col s3">
+				<div class="input-field col s12 m3">
 					<input id="exp_gra" type="text" class="validate">
 					<label for="exp_gra">Expected Graduation Year</label>
 				</div>
-				<div class="input-field col s3">
+				<div class="input-field col s12 m3">
 					<input id="em" type="text" class="validate">
 					<label for="em">Email</label>
 				</div>
 			</div>
 			<div class="row">
-				<div class="input-field col s3">
+				<div class="input-field col s12 m3">
 					<input id="name" type="text" class="validate">
 					<label for="name">Name</label>
 				</div>
-				<div class="input-field col s3">
+				<div class="input-field col s12 m3">
 					<input id="pos_held" type="text" class="validate">
 					<label for="pos_held">Position Held</label>
 				</div>
-				<div class="input-field col s3">
+				<div class="input-field col s12 m3">
 					<input id="exp_gra" type="text" class="validate">
 					<label for="exp_gra">Expected Graduation Year</label>
 				</div>
-				<div class="input-field col s3">
+				<div class="input-field col s12 m3">
 					<input id="em" type="text" class="validate">
 					<label for="em">Email</label>
 				</div>
 			</div>
 			<div class="row">
-				<div class="input-field col s3">
+				<div class="input-field col s12 m3">
 					<input id="name" type="text" class="validate">
 					<label for="name">Name</label>
 				</div>
-				<div class="input-field col s3">
+				<div class="input-field col s12 m3">
 					<input id="pos_held" type="text" class="validate">
 					<label for="pos_held">Position Held</label>
 				</div>
-				<div class="input-field col s3">
+				<div class="input-field col s12 m3">
 					<input id="exp_gra" type="text" class="validate">
 					<label for="exp_gra">Expected Graduation Year</label>
 				</div>
-				<div class="input-field col s3">
+				<div class="input-field col s12 m3">
 					<input id="em" type="text" class="validate">
 					<label for="em">Email</label>
 				</div>
 			</div>
 			<div class="row">
-				<div class="input-field col s3">
+				<div class="input-field col s12 m3">
 					<input id="name" type="text" class="validate">
 					<label for="name">Name</label>
 				</div>
-				<div class="input-field col s3">
+				<div class="input-field col s12 m3">
 					<input id="pos_held" type="text" class="validate">
 					<label for="pos_held">Position Held</label>
 				</div>
-				<div class="input-field col s3">
+				<div class="input-field col s12 m3">
 					<input id="exp_gra" type="text" class="validate">
 					<label for="exp_gra">Expected Graduation Year</label>
 				</div>
-				<div class="input-field col s3">
+				<div class="input-field col s12 m3">
 					<input id="em" type="text" class="validate">
 					<label for="em">Email</label>
 				</div>
@@ -344,28 +372,81 @@
 		<br/>
 		Student activity annual report is a critical componenet for an activitiy (student council/club/project) to showcase its leadership strucutre, governance, and achievement. Therefore, it is a required componenet for our registration. Below are some information we ask you to include in your report:
 		<br/><br/>
-
-		1) Brief history of the activity (when was it founded, for what purpose, how long has it been operational, and etc)<br/>
-		2) Current status of the activity (# of members, current progress on its mission, relationship with the school/larger community)<br/>
-		3) Financial status of the activity (Where did you get funding? Any fundraising activities? How much budget the activity has?)<br/>
-		4) Member selection process and internal promotion rules (how are leaders of the club getting promoted/selected)<br/>
-		5) List of current leadership<br/>
-		6) Frequency of all activity member meetings &amp; leadership meetings<br/>
-		7) Frequency and content of leadership trainings within the activity<br/>
-		8) Introduction of signature activity output (big events, reports, performances, and etc) with details on the output's impact<br/>
-		9) Activity's plan for the future<br/>
-
-		<br/><br/><br/>
 	</div>
 
 	<div class="card info_seg">
-		<div class="seg_header">
-			Report:
+		<div class="res_header">
+			1) Brief history of the activity (when was it founded, for what purpose, how long has it been operational, and etc)
+		</div>
+		<div class="input-field col s12">
+			<textarea id="report_1" class="materialize-textarea"></textarea>
+		</div>
+	</div>
+	<div class="card info_seg">
+		<div class="res_header">
+			2) Current status of the activity (# of members, current progress on its mission, relationship with the school/larger community)
 		</div>
 		<div class="input-field col s12">
 			<textarea id="report_2" class="materialize-textarea"></textarea>
 		</div>
 	</div>
+	<div class="card info_seg">
+		<div class="res_header">
+			3) Financial status of the activity (Where did you get funding? Any fundraising activities? How much budget the activity has?)
+		</div>
+		<div class="input-field col s12">
+			<textarea id="report_3" class="materialize-textarea"></textarea>
+		</div>
+	</div>
+	<div class="card info_seg">
+		<div class="res_header">
+			4) Member selection process and internal promotion rules (how are leaders of the club getting promoted/selected)
+		</div>
+		<div class="input-field col s12">
+			<textarea id="report_4" class="materialize-textarea"></textarea>
+		</div>
+	</div>
+	<div class="card info_seg">
+		<div class="res_header">
+			5) List of current leadership
+		</div>
+		<div class="input-field col s12">
+			<textarea id="report_5" class="materialize-textarea"></textarea>
+		</div>
+	</div>
+	<div class="card info_seg">
+		<div class="res_header">
+			6) Frequency of all activity member meetings &amp; leadership meetings
+		</div>
+		<div class="input-field col s12">
+			<textarea id="report_6" class="materialize-textarea"></textarea>
+		</div>
+	</div>
+	<div class="card info_seg">
+		<div class="res_header">
+			7) Frequency and content of leadership trainings within the activity
+		</div>
+		<div class="input-field col s12">
+			<textarea id="report_7" class="materialize-textarea"></textarea>
+		</div>
+	</div>
+	<div class="card info_seg">
+		<div class="res_header">
+			8) Introduction of signature activity output (big events, reports, performances, and etc) with details on the output's impact
+		</div>
+		<div class="input-field col s12">
+			<textarea id="report_8" class="materialize-textarea"></textarea>
+		</div>
+	</div>
+	<div class="card info_seg">
+		<div class="res_header">
+			9) Activity's plan for the future
+		</div>
+		<div class="input-field col s12">
+			<textarea id="report_9" class="materialize-textarea"></textarea>
+		</div>
+	</div>
+	<a id="submit_b" class="waves-effect waves-light btn-large submit_btn">Submit</a>
 
 
 	<script src="http://cdn.bootcss.com/jquery/2.2.0/jquery.min.js"></script>

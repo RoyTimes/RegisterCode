@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>SOE | Form</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link href="http://cdn.bootcss.com/material-design-icons/2.2.0/iconfont/material-icons.css" rel="stylesheet">
+	<link href="http://cdn.bootcss.com/materialize/0.97.5/css/materialize.min.css" rel="stylesheet" media="screen,projection">
+
+	<style type="text/css">
+	.info_seg {
+		margin-left: 5%;
+		margin-right: 5%;
+		margin-top: 7%;
+		margin-bottom: 7%;
+		padding: 20px;
+
+		background-color: white;
+	}
+	.submit_btn {
+		margin-left: 80px;
+		margin-bottom: 80px;
+	}
+	.seg_header {
+		padding: 10px;
+		font-size: 15pt;
+		color: rgb(90,90,90);
+	}
+	.res_header {
+		padding: 10px;
+		padding-left: 0px;
+		font-size: 12pt;
+		color: rgb(110,110,110);
+	}
+	.description {
+		padding: 10px;
+		font-size: 12pt;
+		color: rgb(110,110,110);
+	}
+	.breadcrumb:last-child {
+		color: rgba(255,255,255,0.7)
+	}
+	</style>
+</head>
+<body>
+
+	<div class="navbar-fixed">
+		<nav>
+			<div class="nav-wrapper">
+				<a href="index.html" style="padding-left:3%;font-size:15pt;text-decoration:none;">Student Organizations of Excellence(SOE)</a>
+
+				<div  class="right hide-on-med-and-down" style="padding-right: 5%">
+					<a href="instructions.html" class="breadcrumb">Instructions</a>
+					<a href="basic.html" class="breadcrumb">Basic Infomation</a>
+					<a href="extracurricular.html" class="breadcrumb"  style="color: #fff">Extracurricular Infomation</a>
+					<a href="report.html" class="breadcrumb">Annual Report</a>
+				</div>
+
+
+			</div>
+		</nav>
+	</div>
+	<div class="card info_seg">
+
+		<div class="seg_header" style="text-align: center;font-size: 25pt;padding-top: 10px;">
+			3. the Extracurricular Infomation
+		</div><br/><br/>
+		<div class="seg_header" style="text-align: center;">
+		Program:&nbsp;&nbsp;&nbsp;&nbsp;Student Organizations of Excellence(SOE)
+		</div><br/><br/>
+	</div>
+
+	<form class="col s12">
+
+		<div class="card info_seg">
+
+		<div class="seg_header">
+			Extracurricular Infomation
+		</div>
+		<div class="description">
+			Extracurricular Type:<br/><br/>
+
+			Student Council: only official student body representative in the school, or xueshenghui.<br/><br/>
+
+			Student Club: official student club sponsored by the school with a leadership team and active member base. Have a general club mission and continues club activities.<br/><br/>
+
+			Student Project: unofficial projects created and organized by the student for a given mission within a given time period. Project will have a final deliverable and project will terminate after the release of the deliverable.
+		</div><br/><hr/>
+
+		<div class="row">
+			<div class="input-field col s12 m3">
+				<input name="enroll_type" id="council" type="radio" class="validate">
+				<label for="council">Student Council</label>
+			</div>
+			<div class="input-field col s12 m3">
+				<input name="enroll_type" id="club" type="radio" class="validate">
+				<label for="club">Student Club</label>
+			</div>
+			<div class="input-field col s12 m3">
+				<input name="enroll_type" id="project" type="radio" class="validate">
+				<label for="project">Student Project</label>
+			</div>
+		</div>
+
+
+		<div class="row">
+			<div class="input-field col s12 m6">
+				<input id="activity_Chinese_name" type="text" class="validate">
+				<label for="activity_Chinese_name">Activity Name in Chinese Character</label>
+			</div>
+			<div class="input-field col s12 m6">
+				<input id="activity_English_name" type="text" class="validate">
+				<label for="activity_English_name">Activity Name in English</label>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="input-field col s12 m6">
+				<input id="position_held" type="text" class="validate">
+				<label for="position_held">Position Held Inside the Activity</label>
+			</div>
+			<div class="input-field col s12 m6">
+				<input id="num_of_members" type="text" class="validate">
+				<label for="num_of_members">Number of Members of the Activity</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field col s12">
+				<textarea id="teacher_name" class="materialize-textarea"></textarea>
+				<label for="teacher_name">Activity Supervising Teacher's Name in Chinese Character
+				</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field col s12 m6">
+				<input id="supervising_name" type="text" class="validate">
+				<label for="supervising_name">Supervisng Teacher's Name in English</label>
+			</div>
+			<div class="input-field col s12 m6">
+				<input id="mail_of_sup" type="text" class="validate">
+				<label for="mail_of_sup">Email of Supervising Teacher</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field col s12 m6">
+				<input id="mobile_phone" type="text" class="validate">
+				<label for="mobile_phone">Mobile Phone No. of Supervising Teacher</label>
+			</div>
+			<div class="input-field col s12 m6">
+				<input id="activity_website" type="text" class="validate">
+				<label for="activity_website">Activity Website (if available)</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field col s12">
+				<textarea id="activity_mission" class="materialize-textarea"></textarea>
+				<label for="activity_mission">Activity Mission (please give detailed description of the purpose of this activity)</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field col s12 m6">
+				<input id="awards_honors" type="text" class="validate">
+				<label for="awards_honors">Awards and Honors Received by the Activity</label>
+			</div>
+		</div>
+	</div>
+	<div class="card info_seg">
+			<div class="seg_header">
+				Other Members in Your Activity
+			</div>
+			<div class="row">
+				<div class="input-field col s12 m3">
+					<input id="name_1" type="text" class="validate">
+					<label for="name_1">Name*</label>
+				</div>
+				<div class="input-field col s12 m3">
+					<input id="pos_held_1" type="text" class="validate">
+					<label for="pos_held_1">Position Held*</label>
+				</div>
+				<div class="input-field col s12 m3">
+					<input id="exp_gra_1" type="text" class="validate">
+					<label for="exp_gra_1">Expected Graduation Year*</label>
+				</div>
+				<div class="input-field col s12 m3">
+					<input id="qq_1" type="text" class="validate">
+					<label for="qq_1">QQ*</label>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="input-field col s12 m3">
+					<input id="name_2" type="text" class="validate">
+					<label for="name_2">Name</label>
+				</div>
+				<div class="input-field col s12 m3">
+					<input id="pos_held_2" type="text" class="validate">
+					<label for="pos_held_2">Position Held</label>
+				</div>
+				<div class="input-field col s12 m3">
+					<input id="exp_gra_2" type="text" class="validate">
+					<label for="exp_gra_2">Expected Graduation Year</label>
+				</div>
+				<div class="input-field col s12 m3">
+					<input id="qq_2" type="text" class="validate">
+					<label for="qq_2">QQ</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s12 m3">
+					<input id="name_3" type="text" class="validate">
+					<label for="name_3">Name</label>
+				</div>
+				<div class="input-field col s12 m3">
+					<input id="pos_held_3" type="text" class="validate">
+					<label for="pos_held_3">Position Held</label>
+				</div>
+				<div class="input-field col s12 m3">
+					<input id="exp_gra_3" type="text" class="validate">
+					<label for="exp_gra_3">Expected Graduation Year</label>
+				</div>
+				<div class="input-field col s12 m3">
+					<input id="qq_3" type="text" class="validate">
+					<label for="qq_3">QQ</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s12 m3">
+					<input id="name_4" type="text" class="validate">
+					<label for="name_4">Name</label>
+				</div>
+				<div class="input-field col s12 m3">
+					<input id="pos_held_4" type="text" class="validate">
+					<label for="pos_held_4">Position Held</label>
+				</div>
+				<div class="input-field col s12 m3">
+					<input id="exp_gra_4" type="text" class="validate">
+					<label for="exp_gra_4">Expected Graduation Year</label>
+				</div>
+				<div class="input-field col s12 m3">
+					<input id="qq_4" type="text" class="validate">
+					<label for="qq_4">QQ</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s12 m3">
+					<input id="name_5" type="text" class="validate">
+					<label for="name_5">Name</label>
+				</div>
+				<div class="input-field col s12 m3">
+					<input id="pos_held_5" type="text" class="validate">
+					<label for="pos_held_5">Position Held</label>
+				</div>
+				<div class="input-field col s12 m3">
+					<input id="exp_gra_5" type="text" class="validate">
+					<label for="exp_gra_5">Expected Graduation Year</label>
+				</div>
+				<div class="input-field col s12 m3">
+					<input id="qq_5" type="text" class="validate">
+					<label for="qq_5">QQ</label>
+				</div>
+			</div>
+		</div>
+	</form>
+	<a class="submit_btn modal-trigger waves-effect waves-light btn" href="#confirm_submit">Save&nbsp;&amp;&nbsp;Continue</a>
+
+	<footer class="page-footer" style="background-color:rgba(255,255,255,0)">
+		</div>
+			<div class="footer-copyright">
+			<div class="container">
+			© 2016 Youth Impact China
+			<a class="grey-text text-lighten-4 right" target="_blank" href="http://youthimpactchina.com">Offcial Site</a>
+		</div>
+	</footer>
+
+	<div id="confirm_submit" class="modal ">
+		<div class="modal-content">
+			<h5>Save&nbsp;&amp;&nbsp;Continue</h5>
+			<br/>
+			<p>You are submitting this form. The infomation you provided would be secure. You can return and edit this infomation at anytime.</p>
+		</div>
+		<div class="modal-footer">
+			<a id="submit_b" class="waves-effect modal-close  btn waves-red btn-flat submit_btn">Save&nbsp;&amp;&nbsp;Continue</a>
+			<a class="submit_btn modal-close waves-effect btn waves-green btn-flat">Cancel</a>
+
+		</div>
+	</div>
+
+
+
+
+		<script src="assets/js/jquery-1.11.1.js"></script>
+		<script src="http://cdn.bootcss.com/materialize/0.97.5/js/materialize.min.js"></script>
+		<script src="assets/js/bootstrap.js"></script>
+		<script src="assets/js/jquery.easing.min.js"></script>
+		<script src="assets/login/js/login.js"></script>
+		<script src="assets/js/sha1.min.js"></script>
+		<script src="assets/js/xml2on.min.js"></script>
+		<script src="assets/js/jquery.soap.min.js"></script>
+		<script src="assets/js/jquery.cookie.js"></script>
+
+
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$('.modal-trigger').leanModal();
+				// var Colors = ["rgb(60,152,136)",'#33CCCC','#00CCFF','#CC6666','#FFCC33','#FFFFCC'];
+				// var index = Math.floor((Math.random()*Colors.length));
+				// var pickColor = Colors[index];
+				var pickColor = "#ee6e73";
+
+				// document.body.style.background = "-webkit-gradient(linear, 0% 0%, 0% 100%,from(" + pickColor + "), to(#FFFFFF))"
+				document.body.style.background = "-webkit-gradient(linear, 0% 0%, 0% 100%,from(#FFF), to("+ pickColor +"))"
+			});
+			document.getElementById('submit_b').addEventListener("click", saveBasicFun, false);
+
+			//  href="extracurricular.html"
+			function saveBasicFun(evt) {
+				// evt.preventDefault();
+				var Data = {};
+
+				// Data['enroll_type'] = document.getElementById('enroll_type').value;
+				Data['activity_Chinese_name'] = document.getElementById('activity_Chinese_name').value;
+				Data['activity_English_name'] = document.getElementById('activity_English_name').value;
+				Data['position_held'] = document.getElementById('position_held').value;
+				Data['num_of_members'] = document.getElementById('num_of_members').value;
+				Data['teacher_name'] = document.getElementById('teacher_name').value;
+				Data['supervising_name'] = document.getElementById('supervising_name').value;
+				Data['mail_of_sup'] = document.getElementById('mail_of_sup').value;
+				Data['mobile_phone'] = document.getElementById('mobile_phone').value;
+				Data['activity_website'] = document.getElementById('activity_website').value;
+				Data['activity_mission'] = document.getElementById('activity_mission').value;
+				Data['awards_honors'] = document.getElementById('awards_honors').value;
+
+				Data['name_1'] = document.getElementById('name_1').value;
+				Data['pos_held_1'] = document.getElementById('pos_held_1').value;
+				Data['exp_gra_1'] = document.getElementById('exp_gra_1').value;
+				Data['qq_1'] = document.getElementById('qq_1').value;
+
+				Data['name_2'] = document.getElementById('name_2').value;
+				Data['pos_held_2'] = document.getElementById('pos_held_2').value;
+				Data['exp_gra_2'] = document.getElementById('exp_gra_2').value;
+				Data['qq_2'] = document.getElementById('qq_2').value;
+
+				Data['name_3'] = document.getElementById('name_3').value;
+				Data['pos_held_3'] = document.getElementById('pos_held_3').value;
+				Data['exp_gra_3'] = document.getElementById('exp_gra_3').value;
+				Data['qq_3'] = document.getElementById('qq_3').value;
+
+				Data['name_4'] = document.getElementById('name_4').value;
+				Data['pos_held_4'] = document.getElementById('pos_held_4').value;
+				Data['exp_gra_4'] = document.getElementById('exp_gra_4').value;
+				Data['qq_4'] = document.getElementById('qq_4').value;
+
+				Data['name_5'] = document.getElementById('name_5').value;
+				Data['pos_held_5'] = document.getElementById('pos_held_5').value;
+				Data['exp_gra_5'] = document.getElementById('exp_gra_5').value;
+				Data['qq_5'] = document.getElementById('qq_5').value;
+
+
+				console.log(Data);
+					var user_name = $.cookie('user');
+					// var user_name = "zs";
+					$.soap({
+		    		    url: 'http://yiquandev.oneto-tech.com/MoSession_server.php',
+		    		    method: 'saveSOEData',
+		    		    appendMethodToURL: false,
+		    		    enableLogging: false,
+		    		    data: {
+							"user_name": user_name,
+							"raw_data": JSON.stringify(Data),
+							"step": 2
+		    		    },
+		    		    envAttributes: {
+		    		        'xmlns:soap': 'http://schemas.xmlsoap.org/soap/envelope/'
+		    		    },
+		    		    success: function (soapResponse) {
+		    				var getResult = soapResponse.toJSON()["#document"]["SOAP-ENV:Envelope"]["SOAP-ENV:Body"]["ns1:saveSOEDataResponse"]["return"]["_"];
+							location.href = "report.html";
+		    			},
+		    			error: function (SOAPResponse) {
+		    				console.error(SOAPResponse);
+		    			}
+		    		});
+
+			}
+		</script>
+	</body>
+	</html>
