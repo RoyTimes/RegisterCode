@@ -16,12 +16,12 @@
     <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 </head>
 
-<body style="font-family:StructrMe;">
+<body>
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-4 col-xl-4" 
             style="background-color: rgba(0, 0, 0, 0.2); padding: 30px;">
             <header id="login_header">
-                <h1 style="font-size:200%;">School Management Platform</h1>
+                <h1 style="font-size:200%;font-family:StructrMe;">School Management Platform</h1>
                 <p style="font-family: StructrBo">教学管理系统</p>
             </header>
             <!-- <p style="font-family: StructrBo">No Youth Impact Account yet? 还没有账户? &nbsp;<br><a style="text-decoration: none;"href="signup.html">Register here 这里注册</a></p>  -->
@@ -62,10 +62,10 @@
         document.getElementById('login').addEventListener("click", loginFun, false);
 
         $(document).ready(function() {
-            if ($.cookie('user') != undefined && 
-                    $.cookie('user') != 'not login') {
-                location.href = 'admin.html';
-            }
+            // if ($.cookie('user') != undefined && 
+            //         $.cookie('user') != 'not login') {
+            //     location.href = 'admin.html';
+            // }
         });
 
         function loginFun(evt) {
