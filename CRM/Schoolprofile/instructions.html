@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>School Profile | Form</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link href="http://cdn.bootcss.com/material-design-icons/2.2.0/iconfont/material-icons.css" rel="stylesheet">
+	<link href="http://cdn.bootcss.com/materialize/0.97.5/css/materialize.min.css" rel="stylesheet" media="screen,projection">
+
+	<style type="text/css">
+	.info_seg {
+		margin-left: 5%;
+		margin-right: 5%;
+		margin-top: 7%;
+		margin-bottom: 7%;
+		padding: 20px;
+
+		background-color: white;
+	}
+	.submit_btn {
+		margin-left: 80px;
+		margin-bottom: 80px;
+	}
+	.seg_header {
+		padding: 10px;
+		font-size: 15pt;
+		color: rgb(90,90,90);
+	}
+	.res_header {
+		padding: 10px;
+		padding-left: 0px;
+		font-size: 12pt;
+		color: rgb(110,110,110);
+	}
+	.description {
+		padding: 10px;
+		font-size: 12pt;
+		color: rgb(110,110,110);
+	}
+	.breadcrumb:last-child {
+		color: rgba(255,255,255,0.7)
+	}
+	</style>
+</head>
+<body>
+
+	<div class="navbar-fixed" >
+		<nav>
+			<div class="nav-wrapper" style="background-color: rgb(170,79,98);">
+				<a href="index.html" style="padding-left:3%;font-size:15pt;text-decoration:none;">School Profile</a>
+
+				<div  class="right hide-on-med-and-down" style="padding-right: 5%">
+					<a href="region.html" class="breadcrumb" style="color: #fff">Instructions</a>
+					<a href="basic.html" class="breadcrumb">Basic Infomation</a>
+					<a href="extracurricular.html" class="breadcrumb">Academic Infomation</a>
+					<a href="report.html" class="breadcrumb">Academic Programs</a>
+					<a href="report.html" class="breadcrumb">Extracurricular Programs</a>
+
+				</div>
+			</div>
+		</nav>
+	</div>
+	<div class="card info_seg">
+
+		<div class="seg_header" style="text-align: center;font-size: 25pt;padding-top: 10px;">
+			1. Instructions
+		</div><br/><br/>
+		<div class="seg_header" style="text-align: center">
+			----&nbsp;&nbsp;&nbsp;PLEASE USE ENGLISH TO COMPLETE THE FORM&nbsp;&nbsp;&nbsp;----
+		</div>
+	</div>
+
+	<div class="card info_seg">
+		<div class="seg_header">
+			What will we do with your school profile?
+		</div>
+
+		We understand that branding your school professionally and effectively to so many international universities can be challenging and exhausting. Through the school profiling on CRM, your school profiling will be improved with professional guidance and tailored strategies. It will also be part of our combined school branding campaigns to overseas universities this summer. Your information here will be the primary source of school profiling for admission officers. We plan to start this year's high school branding trip to international colleges from March to September 2016.
+
+		<br/><br/><hr/><br/>
+		<div class="seg_header">
+			How will we help you to complete your school profile?
+		</div>
+
+		We have carefully designed a school profile template for you to complete and fill in necessary information. We will also offer free service to help you analyze your raw data and input information into the template if information the template asks is not readily available in your school yet. School representatives are also more than welcome to contact us directly to get more help and guidance on profile completion.
+	</div>
+
+	<a href="basic.html" class="waves-effect waves-light btn-large submit_btn tooltipped" style="background-color:grey;" data-position="right" data-tooltip="Go on to the next section!">Next</a>
+
+
+	<footer class="page-footer" style="background-color:rgba(255,255,255,0)">
+		</div>
+			<div class="footer-copyright">
+			<div class="container">
+			© 2016 Youth Impact China
+			<a class="grey-text text-lighten-4 right" target="_blank" href="http://youthimpactchina.com">Offcial Site</a>
+		</div>
+	</footer>
+
+	<script src="http://cdn.bootcss.com/jquery/2.2.0/jquery.min.js"></script>
+	<script src="http://cdn.bootcss.com/materialize/0.97.5/js/materialize.min.js"></script>
+	<script type="text/javascript">
+
+		$(document).ready(function() {
+			var pickColor = "rgb(170,79,98)";
+			// document.body.style.background = "-webkit-gradient(linear, 0% 0%, 0% 100%,from(" + pickColor + "), to(#FFFFFF))"
+			document.body.style.background = "-webkit-gradient(linear, 0% 0%, 0% 100%,from(#FFF), to("+ pickColor +"))"
+
+			$('.tooltipped').tooltip({delay: 0});
+		});
+	</script>
+</body>
+</html>
