@@ -91,10 +91,15 @@
     <script src="http://cdn.bootcss.com/jquery/2.2.0/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/materialize/0.97.5/js/materialize.min.js"></script>
     <script type="text/javascript">
+    function change_page (id) {
+        alert(id);
+        localStorage['school'] = id;
+        location.href = "detail.html";
+    }
     function addSchool (school) {
         var HTMLContent = document.getElementById('content').innerHTML;
         var HTMLContent = HTMLContent + 
-            "<tr>" +
+            "<tr onclick=change_page('"+ school._id +"')>" +
             "<td><span class='res_header'>" + school.province + "</span></td>" + 
             "<td><span class='res_header'>" + school.city + "</span></td>" + 
             "<td><span class='res_header'>" + school.name + "</span></td>" +
@@ -115,7 +120,7 @@
                 province: getLocation
             },
             success: function(data) {
-                console.log(data);
+                // console.log(data);
                 for (var item in data ) {
                     addSchool(data[item]);
                 }
