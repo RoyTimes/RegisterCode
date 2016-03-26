@@ -91,7 +91,8 @@
               <th data-field="Course_website"><span class="res_header">学校网址</span></th>
           </tr>
         </thead>
-        <tbody id="Basic_info2"></tbody>
+        <tbody id="Basic_info2">
+        </tbody>
       </table>
 </div>
  
@@ -114,7 +115,8 @@
         <thead>
           <tr>
               <th data-field="Position"><span class="res_header">职位</span></th>
-              <th data-field="Name"><span class="res_header">名称</span></th>
+              <th data-field="Last_name"><span class="res_header">姓</span></th>
+              <th data-field="Given_name"><span class="res_header">名</span></th>
               <th data-field="Prefix"><span class="res_header">称谓</span></th>
               <th data-field="Role"><span class="res_header">角色</span></th>
               <th data-field="Phone"><span class="res_header">手机</span></th>
@@ -163,12 +165,116 @@
     <script src="http://cdn.bootcss.com/jquery/2.2.0/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/materialize/0.97.5/js/materialize.min.js"></script>
     <script type="text/javascript">
+
+    function addBasicInfo1(school) {
+      var HTMLContent = document.getElementById('Basic_info1').innerHTML;
+      HTMLContent = HTMLContent + 
+            "<tr>" +
+              "<td class='res_header'>" + school.name + "</td>" + 
+              "<td class='res_header'>" + school.profile.category +"</td>" +
+              "<td class='res_header'>" + school.profile.type + "</td>" +
+              "<td class='res_header'>" + school.profile.curriculum + "</td>" +
+              "<td class='res_header'>" + school.profile.size + "</td>" +
+              "<td class='res_header'>" + school.status + "</td>" +              
+            "</tr>"
+        document.getElementById('Basic_info1').innerHTML = HTMLContent;
+
+    }
+
+    function addBasicInfo2(school) {
+      var HTMLContent = document.getElementById('Basic_info2').innerHTML;
+      HTMLContent = HTMLContent + 
+            "<tr>" +
+              "<td class='res_header'>" + school.province + "</td>" + 
+              "<td class='res_header'>" + school.city +"</td>" +
+              "<td class='res_header'>" + school.profile.address + "</td>" +
+              "<td class='res_header'>" + school.profile.website + "</td>" +
+            "</tr>"
+        document.getElementById('Basic_info2').innerHTML = HTMLContent;
+
+    }
+
+    function addBasicInfo3(school) {
+      var HTMLContent = document.getElementById('Basic_info3').innerHTML;
+      HTMLContent = HTMLContent + 
+            "<tr>" +
+              "<td class='res_header'>" + (school.supplement?schoole.supplement:"Unknown") + "</td>" + 
+            "</tr>"
+        document.getElementById('Basic_info3').innerHTML = HTMLContent;
+
+    }
+
+
+    function addContact(school) {
+      var HTMLContent = document.getElementById('Contact').innerHTML;
+      for (var i in school.teachers) {
+
+        HTMLContent = HTMLContent + 
+            "<tr>" +
+              "<td class='res_header'>" + school.teachers[i].profile.position + "</td>" + 
+              "<td class='res_header'>" + school.teachers[i].profile.last_name +"</td>" +
+              "<td class='res_header'>" + school.teachers[i].profile.given_name + "</td>" +
+              "<td class='res_header'>" + school.teachers[i].profile.prefix + "</td>" +
+              "<td class='res_header'>" + school.teachers[i].profile.role + "</td>" + 
+              "<td class='res_header'>" + school.teachers[i].profile.mobile + "</td>" + 
+              "<td class='res_header'>" + school.teachers[i].profile.telephone +"</td>" +
+              "<td class='res_header'>" + school.teachers[i].email +"</td>" +
+              "<td class='res_header'>" + school.teachers[i].profile.qq + "</td>" +
+              "<td class='res_header'>" + school.teachers[i].profile.relationship + "</td>" +
+              "<td class='res_header'>" + school.teachers[i].profile.relationship + "</td>" +                   
+            "</tr>"
+        document.getElementById('Contact').innerHTML = HTMLContent;
+      }
+
+    }
+
+    //这边是学校交互纪录的东西，274行有那个function
+    // function addRecord(school) {
+    //   var HTMLContent = document.getElementById('Record').innerHTML;
+    //   for (var i in school.teachers) {
+
+    //     HTMLContent = HTMLContent + 
+    //         "<tr>" +
+    //           "<td class='res_header'>" + school.teachers[i].profile.position + "</td>" + 
+    //           "<td class='res_header'>" + school.teachers[i].profile.last_name +"</td>" +
+    //           "<td class='res_header'>" + school.teachers[i].profile.given_name + "</td>" +
+    //           "<td class='res_header'>" + school.teachers[i].profile.prefix + "</td>" +
+    //           "<td class='res_header'>" + school.teachers[i].profile.role + "</td>" + 
+    //           "<td class='res_header'>" + school.teachers[i].profile.mobile + "</td>" + 
+    //           "<td class='res_header'>" + school.teachers[i].profile.telephone +"</td>" +
+    //           "<td class='res_header'>" + school.teachers[i].email +"</td>" +
+    //           "<td class='res_header'>" + school.teachers[i].profile.qq + "</td>" +               
+    //         "</tr>"
+    //     document.getElementById('Record').innerHTML = HTMLContent;
+    //   }
+
+    // }
+
+
+
+
+
     $(document).ready(function() {
         var pickColor = "rgb(151,205,251)";
         document.body.style.background = "-webkit-gradient(linear, 0% 0%, 0% 100%,from(#639AC8), to(" + pickColor + "))"
 
 
-        var getSchoolID = localStorage['school'];
+        var getSchoolID = String(localStorage['school']);
+        $.ajax({
+          url: "http://api.youthimpactchina.com/crm/school/get_info",
+          method: "GET",
+          data: {
+            id: getSchoolID
+          },
+          success: function(data) {
+              addBasicInfo1(data);
+              addBasicInfo2(data);
+              addBasicInfo3(data);
+              addContact(data);
+              // addRecord(data);
+
+          }
+        });
 
     });
     function profile() {
