@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>CRM | School Detail</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="http://cdn.bootcss.com/material-design-icons/2.2.0/iconfont/material-icons.css" rel="stylesheet">
+    <link href="http://cdn.bootcss.com/materialize/0.97.5/css/materialize.min.css" rel="stylesheet" media="screen,projection">
+    <style type="text/css">
+    .info_seg {
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-top: 7%;
+        margin-bottom: 7%;
+        padding: 20px;
+        background-color: white;
+    }
+    
+    .submit_btn {
+        margin-left: 80px;
+        margin-bottom: 80px;
+    }
+    
+    .seg_header {
+        padding: 10px;
+        font-size: 15pt;
+        color: rgb(90, 90, 90);
+    }
+    
+    .res_header {
+        padding: 10px;
+        padding-left: 0px;
+        font-size: 13pt;
+        color: rgb(110, 110, 110);
+    }
+    
+    .description {
+        padding: 10px;
+        font-size: 12pt;
+        color: rgb(110, 110, 110);
+    }
+    
+    .breadcrumb:last-child {
+        color: rgba(255, 255, 255, 0.7)
+    }
+    </style>
+</head>
+
+<body>
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper" style="background-color: rgb(105,165,237)">
+                <a href="index.html" style="padding-left:3%;font-size:15pt;text-decoration:none;">客户关系管理系统(CRM)</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li style="font-size: 35pt;"><a onclick="profile();">学校资料</a></li>
+                    <li style="font-size: 35pt;"><a onclick="explore();">报名表</a></li>
+                    <li style="font-size: 35pt;"><a onclick="logout();">登出</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+<div class="card info_seg" style="font-size: 15pt;">
+    <div class="seg_header">基本信息</div>
+    <hr> </hr>
+       <table class="highlight">
+        <thead>
+          <tr>
+              <th data-field="School_name"><span class="res_header">学校名称</span></th>
+              <th data-field="School_level"><span class="res_header">学校类别</span></th>
+              <th data-field="School_type"><span class="res_header">学校类型</span></th>
+              <th data-field="Course_type"><span class="res_header">课程类型</span></th>
+              <th data-field="Size"><span class="res_header">每届人数</span></th>
+              <th data-field="Status"><span class="res_header">开发状态</span></th>
+          </tr>
+        </thead>
+
+        <tbody id="Basic_info1"></tbody>
+      </table>
+</div>
+
+<div class="card info_seg" style="font-size: 15pt;">
+       <table class="highlight">
+        <thead>
+          <tr>
+              <th data-field="Province"><span class="res_header">省份</span></th>
+              <th data-field="Ciry"><span class="res_header">城市</span></th>
+              <th data-field="School_address"><span class="res_header">学校地址</span></th>
+              <th data-field="Course_website"><span class="res_header">学校网址</span></th>
+          </tr>
+        </thead>
+        <tbody id="Basic_info2">
+        </tbody>
+      </table>
+</div>
+ 
+
+<div class="card info_seg" style="font-size: 15pt;">
+       <table class="highlight">
+        <thead>
+          <tr>
+              <th data-field="Additional_info"><span class="res_header">补充说明</span></th>
+          </tr>
+        </thead>
+        <tbody id="Basic_info3"></tbody>
+      </table>
+</div>
+ 
+<div class="card info_seg" style="font-size: 15pt;">
+    <div class="seg_header">学校联系人</div>
+    <hr></hr>
+       <table class="highlight">
+        <thead>
+          <tr>
+              <th data-field="Position"><span class="res_header">职位</span></th>
+              <th data-field="Last_name"><span class="res_header">姓</span></th>
+              <th data-field="Given_name"><span class="res_header">名</span></th>
+              <th data-field="Prefix"><span class="res_header">称谓</span></th>
+              <th data-field="Role"><span class="res_header">角色</span></th>
+              <th data-field="Phone"><span class="res_header">手机</span></th>
+              <th data-field="Office"><span class="res_header">办公室直线</span></th>
+              <th data-field="Email"><span class="res_header">电子邮箱</span></th>
+              <th data-field="QQ"><span class="res_header">QQ号码</span></th>
+              <th data-field="Relationship"><span class="res_header">客情关系</span></th>
+              <th data-field="Detail"><span class="res_header">详细</span></th>
+          </tr>
+        </thead>
+        <tbody id="Contact"></tbody>
+      </table>
+</div>
+
+<div class="card info_seg" style="font-size: 15pt;">
+    <div class="seg_header">学校交互纪录</div>
+    <hr></hr>
+       <table class="highlight">
+        <thead>
+          <tr>
+              <th data-field="Date"><span class="res_header">日期</span></th>
+              <th data-field="Type"><span class="res_header">类型</span></th>
+              <th data-field="Status"><span class="res_header">状态（点击完成）</span></th>
+              <th data-field="Contact"><span class="res_header">联系人</span></th>
+              <th data-field="Worker"><span class="res_header">发起人</span></th>
+              <th data-field="Project"><span class="res_header">项目</span></th>
+              <th data-field="Aim"><span class="res_header">目的</span></th>
+              <th data-field="Note"><span class="res_header">笔记</span></th>
+              <th data-field="Change"><span class="res_header">修改</span></th>
+          </tr>
+        </thead>
+        <tbody id="Record"></tbody>
+      </table>
+</div>
+
+
+    <!-- <a href="basic.html" class="waves-effect waves-light btn-large submit_btn tooltipped" data-position="right" data-tooltip="Go on to the next section!">Next</a> -->
+    <footer class="page-footer" style="background-color:rgba(255,255,255,0)">
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2016 Youth Impact China
+                <a class="grey-text text-lighten-4 right" target="_blank" href="http://soe-awards.cn">Offcial Site</a>
+            </div>
+    </footer>
+    <script src="http://cdn.bootcss.com/jquery/2.2.0/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/materialize/0.97.5/js/materialize.min.js"></script>
+    <script type="text/javascript">
+
+    function addBasicInfo1(school) {
+      var HTMLContent = document.getElementById('Basic_info1').innerHTML;
+      HTMLContent = HTMLContent + 
+            "<tr>" +
+              "<td class='res_header'>" + school.name + "</td>" + 
+              "<td class='res_header'>" + school.profile.category +"</td>" +
+              "<td class='res_header'>" + school.profile.type + "</td>" +
+              "<td class='res_header'>" + school.profile.curriculum + "</td>" +
+              "<td class='res_header'>" + school.profile.size + "</td>" +
+              "<td class='res_header'>" + school.status + "</td>" +              
+            "</tr>"
+        document.getElementById('Basic_info1').innerHTML = HTMLContent;
+
+    }
+
+    function addBasicInfo2(school) {
+      var HTMLContent = document.getElementById('Basic_info2').innerHTML;
+      HTMLContent = HTMLContent + 
+            "<tr>" +
+              "<td class='res_header'>" + school.province + "</td>" + 
+              "<td class='res_header'>" + school.city +"</td>" +
+              "<td class='res_header'>" + school.profile.address + "</td>" +
+              "<td class='res_header'>" + school.profile.website + "</td>" +
+            "</tr>"
+        document.getElementById('Basic_info2').innerHTML = HTMLContent;
+
+    }
+
+    function addBasicInfo3(school) {
+      var HTMLContent = document.getElementById('Basic_info3').innerHTML;
+      HTMLContent = HTMLContent + 
+            "<tr>" +
+              "<td class='res_header'>" + (school.supplement?schoole.supplement:"Unknown") + "</td>" + 
+            "</tr>"
+        document.getElementById('Basic_info3').innerHTML = HTMLContent;
+
+    }
+
+
+    function addContact(school) {
+      var HTMLContent = document.getElementById('Contact').innerHTML;
+      for (var i in school.teachers) {
+
+        HTMLContent = HTMLContent + 
+            "<tr>" +
+              "<td class='res_header'>" + school.teachers[i].profile.position + "</td>" + 
+              "<td class='res_header'>" + school.teachers[i].profile.last_name +"</td>" +
+              "<td class='res_header'>" + school.teachers[i].profile.given_name + "</td>" +
+              "<td class='res_header'>" + school.teachers[i].profile.prefix + "</td>" +
+              "<td class='res_header'>" + school.teachers[i].profile.role + "</td>" + 
+              "<td class='res_header'>" + school.teachers[i].profile.mobile + "</td>" + 
+              "<td class='res_header'>" + school.teachers[i].profile.telephone +"</td>" +
+              "<td class='res_header'>" + school.teachers[i].email +"</td>" +
+              "<td class='res_header'>" + school.teachers[i].profile.qq + "</td>" +
+              "<td class='res_header'>" + school.teachers[i].profile.relationship + "</td>" +
+              "<td class='res_header'>" + school.teachers[i].profile.relationship + "</td>" +                   
+            "</tr>"
+        document.getElementById('Contact').innerHTML = HTMLContent;
+      }
+
+    }
+
+    //这边是学校交互纪录的东西，274行有那个function
+    // function addRecord(school) {
+    //   var HTMLContent = document.getElementById('Record').innerHTML;
+    //   for (var i in school.teachers) {
+
+    //     HTMLContent = HTMLContent + 
+    //         "<tr>" +
+    //           "<td class='res_header'>" + school.teachers[i].profile.position + "</td>" + 
+    //           "<td class='res_header'>" + school.teachers[i].profile.last_name +"</td>" +
+    //           "<td class='res_header'>" + school.teachers[i].profile.given_name + "</td>" +
+    //           "<td class='res_header'>" + school.teachers[i].profile.prefix + "</td>" +
+    //           "<td class='res_header'>" + school.teachers[i].profile.role + "</td>" + 
+    //           "<td class='res_header'>" + school.teachers[i].profile.mobile + "</td>" + 
+    //           "<td class='res_header'>" + school.teachers[i].profile.telephone +"</td>" +
+    //           "<td class='res_header'>" + school.teachers[i].email +"</td>" +
+    //           "<td class='res_header'>" + school.teachers[i].profile.qq + "</td>" +               
+    //         "</tr>"
+    //     document.getElementById('Record').innerHTML = HTMLContent;
+    //   }
+
+    // }
+
+
+
+
+
+    $(document).ready(function() {
+        var pickColor = "rgb(151,205,251)";
+        document.body.style.background = "-webkit-gradient(linear, 0% 0%, 0% 100%,from(#639AC8), to(" + pickColor + "))"
+
+
+        var getSchoolID = String(localStorage['school']);
+        $.ajax({
+          url: "http://api.youthimpactchina.com/crm/school/get_info",
+          method: "GET",
+          data: {
+            id: getSchoolID
+          },
+          success: function(data) {
+              addBasicInfo1(data);
+              addBasicInfo2(data);
+              addBasicInfo3(data);
+              addContact(data);
+              // addRecord(data);
+
+          }
+        });
+
+    });
+    function profile() {
+        location.href = "region.html";
+
+    }
+    </script>
+</body>
+
+</html>
