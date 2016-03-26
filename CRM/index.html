@@ -1,0 +1,99 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="hackcraft" />
+    <meta name="author" content="Song Zhou" />
+    <!--[if IE]>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<![endif]-->
+    <title>CRM | Login</title>
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+    <link href="assets/login/main.css" rel="stylesheet" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+    <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+</head>
+
+<body>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-4 col-xl-4" 
+            style="background-color: rgba(0, 0, 0, 0.2); padding: 30px;">
+            <header id="login_header">
+                <h1 style="font-size:200%;font-family:StructrMe;">Customer Relationship Management</h1>
+                <p style="font-family: StructrBo">客户关系管理系统</p>
+            </header>
+            <!-- <p style="font-family: StructrBo">No Youth Impact Account yet? 还没有账户? &nbsp;<br><a style="text-decoration: none;"href="signup.html">Register here 这里注册</a></p>  -->
+            <form class="form-horizontal">
+                <div style="font-family:StructrBo;">
+        			<input id="email" type="text" name="email" autocomplete="off" value="" placeholder="Account Email 账户邮件名称"><br>
+        			<input id="password" type="password" name="password" autocomplete="off" value="" placeholder="Password 密码"><br>
+                    <input href="admin.html" type="button" id='login' value="Login 登录" />&nbsp;&nbsp;&nbsp;
+                </div>
+            </form>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-1 col-xl-1"></div>
+        <!-- <div class="col-xs-12 col-sm-12 col-md-7 col-xl-7" style="font-size: 10pt;background-color: rgba(0, 0, 0, 0.2);color:white; padding: 30px;">
+           <header id="login_header">
+                <p style="color:white;font-family: StructrBo">School Management Platform is a proprietary academic resources management system designed specifically for high school counselors in China.<br/>
+                学校管理系统是一个专门给国内高中升学辅导老师或活动指导老师的课外活动教学管理系统。</p>
+                <p style="color:white;font-family: StructrBo;border-left: 3px white solid;padding-left: 20px;">Curriculum &amp; Resources 学术资料</p>
+                <p style="color:white;font-family: StructrBo">Connect to international contests and academic resources in multiple categories and win precious opportunities and strong competitiveness for your school. It provides full version of Syllabus, Complete Rules, Competition &amp; Activity List, Sample Questions, Judging Criteria &amp; Evaluation Form and Training Courses for Coaches.<br/>提供各种国际化比赛项目和详细学术资料，让学生和学校在激烈的竞争中更有竞争力。我们提供完整版本的教学大纲、竞赛规则、竞赛项目明细、赛题样例、评判标准和教练培训材料。</p>
+                <p style="color:white;font-family: StructrBo;border-left: 3px white solid;padding-left: 20px;">School Profiling System 学校介绍系统</p>
+                <p style="color:white;font-family: StructrBo">Complete the school profile with your unique advantages. College admission offices will know better about your school by referring to the information here, which helps increase the overall chance of admission for your students.<br/>完善贵校的学校资料，展现学校的独特优势。高校招生官将通过这里的信息更好的了解您的学校，有助于提升贵校学生整体的录取水平。</p>
+            </header> 
+        </div>-->
+    </div>
+
+
+
+    <script src="assets/js/jquery-1.11.1.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
+    <script src="assets/js/jquery.easing.min.js"></script>
+    <script src="assets/login/js/login.js"></script>
+    <script src="assets/js/sha1.min.js"></script>
+    <script src="assets/js/xml2on.min.js"></script>
+    <script src="assets/js/jquery.cookie.js"></script>
+
+
+    <script type="text/javascript">
+        // document.getElementById('redir').addEventListener("click", redirFun, false);
+        document.getElementById('login').addEventListener("click", loginFun, false);
+
+        $(document).ready(function() {
+            // if ($.cookie('user') != undefined && 
+            //         $.cookie('user') != 'not login') {
+            //     location.href = 'admin.html';
+            // }
+        });
+
+        function loginFun(evt) {
+            location.href = 'admin.html';
+
+            
+            var password = document.getElementById('password').value;
+            var user_email = document.getElementById('email').value;
+            var user_password = hex_sha1(hex_sha1(hex_sha1(hex_sha1(password + "yiquan")+"yidaquan")));
+
+            $.ajax({
+                url: 'http://api.youthimpactchina.com/account/login/student',
+                method: "post",
+                data: {
+                    email: user_email,
+                    passwd: user_password
+                },
+                success: function(data, status, xhr) {
+                    if (data == "auth success") {
+                        $.cookie('user', user_email);
+                        location.href = "admin.html";                        
+                    } else {alert(data);}
+                }
+            });
+        }
+        function redirFun(evt) {
+            location.href = "signup.html";
+        }
+    </script>
+</body>
+</html>

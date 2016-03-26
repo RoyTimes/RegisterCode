@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>CRM | Form</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link href="http://cdn.bootcss.com/material-design-icons/2.2.0/iconfont/material-icons.css" rel="stylesheet">
+	<link href="http://cdn.bootcss.com/materialize/0.97.5/css/materialize.min.css" rel="stylesheet" media="screen,projection">
+
+	<style type="text/css">
+	.info_seg {
+		margin-left: 5%;
+		margin-right: 5%;
+		margin-top: 7%;
+		margin-bottom: 7%;
+		padding: 20px;
+
+		background-color: white;
+	}
+	.submit_btn {
+		margin-left: 80px;
+		margin-bottom: 80px;
+	}
+	.seg_header {
+		padding: 10px;
+		font-size: 15pt;
+		color: rgb(90,90,90);
+	}
+	.res_header {
+		padding: 10px;
+		padding-left: 0px;
+		font-size: 12pt;
+		color: rgb(110,110,110);
+	}
+	.description {
+		padding: 10px;
+		font-size: 12pt;
+		color: rgb(110,110,110);
+	}
+	.breadcrumb:last-child {
+		color: rgba(255,255,255,0.7)
+	}
+	</style>
+</head>
+<body>
+
+	<div class="navbar-fixed" >
+		<nav>
+			<div class="nav-wrapper" style="background-color: rgb(170,79,98);">
+				<a href="index.html" style="padding-left:3%;font-size:15pt;text-decoration:none;">School Management Platform(CRM)</a>
+
+				<div  class="right hide-on-med-and-down" style="padding-right: 5%">
+					<a href="region.html" class="breadcrumb">Instructions</a>
+					<a href="basic.html" class="breadcrumb" style="color: #fff">Basic Infomation</a>
+					<a href="extracurricular.html" class="breadcrumb">Academic Infomation</a>
+					<a href="report.html" class="breadcrumb">Academic Programs</a>
+					<a href="report.html" class="breadcrumb">Extracurricular Programs</a>
+
+				</div>
+			</div>
+		</nav>
+	</div>
+	<div class="card info_seg">
+
+		<div class="seg_header" style="text-align: center;font-size: 25pt;padding-top: 10px;">
+			2. the Basic Infomation
+		</div><br/><br/>
+		<div class="seg_header" style="text-align: center;">
+		Program:&nbsp;&nbsp;&nbsp;&nbsp;Student Organizations of Excellence(SOE)
+		</div><br/><br/>
+	</div>
+
+	<form class="col s12">
+
+		<!-- Student Organizations of Excellence Application Form -->
+		<div class="card info_seg">
+			<div class="seg_header">
+				Basic Infomation
+			</div>
+
+			<div class="row">
+				<div class="input-field col s12 m4">
+					<input id="First_Name_in_English" type="text" class="validate">
+					<label for="First_Name_in_English">First Name in English</label>
+				</div>
+				<div class="input-field col s12 m4">
+					<input id="Last_Name_in_English" type="text" class="validate">
+					<label for="Last_Name_in_English">Last Name in English</label>
+				</div>
+				<div class="input-field col s12 m4">
+					<input id="Full_Name_in_Chinese" type="text" class="validate">
+					<label for="Full_Name_in_Chinese">Full Name in Chinese</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s12 m2">
+					<input name="sex" id="male" type="radio" class="validate">
+					<label for="male">Male</label>
+				</div>
+				<div class="input-field col s12 m2">
+					<input name="sex" id="female" type="radio" class="validate">
+					<label for="female">Female</label>
+				</div>
+				<div class="input-field col s12 m2">
+					<input name="sex" id="prefer_not_mention" type="radio" class="validate">
+					<label for="prefer_not_mention">Prefer Not to Mention</label>
+				</div>
+			</div><br/>
+			<div class="row">
+				<div class="input-field col s12 m4">
+					<input id="email" type="text" class="validate">
+					<label for="email">Email</label>
+				</div>
+				<div class="input-field col s12 m4">
+					<input id="phone" type="text" class="validate">
+					<label for="phone">Phone</label>
+				</div>
+				<div class="input-field col ss12 m44">
+					<input id="qq" type="text" class="validate">
+					<label for="qq">QQ</label>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="input-field col s12 m6">
+					<input id="wechat" type="text" class="validate">
+					<label for="wechat">Wechat</label>
+				</div>
+				<div class="input-field col s12 m6">
+					<input id="Mailing_Address" type="text" class="validate">
+					<label for="Mailing_Address">Mailing Address</label>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="input-field col s12 m6">
+					<input id="high_school_Chinese_name" type="text" class="validate">
+					<label for="high_school_Chinese_name">High School Name in Chinese Character</label>
+				</div>
+				<div class="input-field col s12 m6">
+					<input id="high_school_English_name" type="text" class="validate">
+					<label for="high_school_English_name">High School Name in English</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s12 m6">
+					<input id="city" type="text" class="validate">
+					<label for="city">High School City</label>
+				</div>
+				<div class="input-field col s12 m6">
+					<input id="province" type="text" class="validate">
+					<label for="province">High School Province</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s12">
+					<textarea id="total_enrollment" class="materialize-textarea"></textarea>
+					<label for="total_enrollment">Total enrollment of your high school</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s12">
+					<input id="expected_year" type="text" class="validate">
+					<label for="expected_year">Expected Year of Graduation from High School</label>
+				</div>
+			</div>
+		</div>
+		<!-- <a id="submit_b" class="waves-effect waves-light btn-large submit_btn">Save &nbsp;&amp;&nbsp; Continue</a> -->
+
+		<a class="submit_btn modal-trigger waves-effect waves-light btn" style="background-color:grey;" href="#confirm_submit">Save&nbsp;&amp;&nbsp;Continue</a>
+
+		<div id="confirm_submit" class="modal ">
+			<div class="modal-content">
+				<h5>Save&nbsp;&amp;&nbsp;Continue</h5>
+				<br/>
+				<p>You are submitting this form. The infomation you provided would be secure. You can return and edit this infomation at anytime.</p>
+			</div>
+			<div class="modal-footer">
+				<a id="submit_b" class="waves-effect modal-close  btn waves-red btn-flat submit_btn">Save&nbsp;&amp;&nbsp;Continue</a>
+				<a class="submit_btn modal-close waves-effect btn waves-green btn-flat">Cancel</a>
+
+			</div>
+		</div>
+
+
+
+		<!-- <a id="submit_b" class="waves-effect waves-light btn-large submit_btn tooltipped" data-position="right" data-tooltip="Click and save your work. You may come back at anytimes.">Save&nbsp;&amp;&nbsp;Continue</a> -->
+
+	</form>
+
+	<footer class="page-footer" style="background-color:rgba(255,255,255,0)">
+		</div>
+			<div class="footer-copyright">
+			<div class="container">
+			© 2016 Youth Impact China
+			<a class="grey-text text-lighten-4 right" target="_blank" href="http://youthimpactchina.com">Offcial Site</a>
+		</div>
+	</footer>
+
+	<script src="assets/js/jquery-1.11.1.js"></script>
+	<script src="http://cdn.bootcss.com/materialize/0.97.5/js/materialize.min.js"></script>
+	<script src="assets/js/bootstrap.js"></script>
+	<script src="assets/js/jquery.easing.min.js"></script>
+	<script src="assets/login/js/login.js"></script>
+	<script src="assets/js/sha1.min.js"></script>
+	<script src="assets/js/xml2on.min.js"></script>
+	<script src="assets/js/jquery.soap.min.js"></script>
+	<script src="assets/js/jquery.cookie.js"></script>
+
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			var pickColor = "rgb(170,79,98)";
+			$('.modal-trigger').leanModal();
+			// var Colors = ["rgb(60,152,136)",'#33CCCC','#00CCFF','#CC6666','#FFCC33','#FFFFCC'];
+			// var index = Math.floor((Math.random()*Colors.length));
+			// var pickColor = Colors[index];
+			// document.body.style.background = "-webkit-gradient(linear, 0% 0%, 0% 100%,from(" + pickColor + "), to(#FFFFFF))"
+			document.body.style.background = "-webkit-gradient(linear, 0% 0%, 0% 100%,from(#FFF), to("+ pickColor +"))"
+		});
+		document.getElementById('submit_b').addEventListener("click", saveBasicFun, false);
+
+		//  href="extracurricular.html"
+		function saveBasicFun(evt) {
+			// evt.preventDefault();
+			var Data = {};
+
+				Data['First_Name_in_English'] = document.getElementById('First_Name_in_English').value;
+				Data['Last_Name_in_English'] = document.getElementById('Last_Name_in_English').value;
+				Data['Full_Name_in_Chinese'] = document.getElementById('Full_Name_in_Chinese').value;
+				Data['email'] = document.getElementById('email').value;
+				Data['phone'] = document.getElementById('phone').value;
+				Data['qq'] = document.getElementById('qq').value;
+				Data['wechat'] = document.getElementById('wechat').value;
+				Data['Mailing_Address'] = document.getElementById('Mailing_Address').value;
+				Data['high_school_Chinese_name'] = document.getElementById('high_school_Chinese_name').value;
+				Data['high_school_English_name'] = document.getElementById('high_school_English_name').value;
+				Data['city'] = document.getElementById('city').value;
+				Data['province'] = document.getElementById('province').value;
+				Data['total_enrollment'] = document.getElementById('total_enrollment').value;
+				Data['expected_year'] = document.getElementById('expected_year').value;
+				Data['gender'] = $('[name="sex"]').filter(":checked").attr('id');
+
+
+				var user_name = $.cookie('user');
+				// var user_name = "zs";
+
+
+				// 568d42636b19fb9175e15a1b
+				$.soap({
+	    		    url: 'http://yiquandev.oneto-tech.com/MoSession_server.php',
+	    		    method: 'saveSOEData',
+	    		    appendMethodToURL: false,
+	    		    enableLogging: false,
+	    		    data: {
+						"user_name": user_name,
+						"raw_data": JSON.stringify(Data),
+						"step": 1
+	    		    },
+	    		    envAttributes: {
+	    		        'xmlns:soap': 'http://schemas.xmlsoap.org/soap/envelope/'
+	    		    },
+	    		    success: function (soapResponse) {
+	    				var getResult = soapResponse.toJSON()["#document"]["SOAP-ENV:Envelope"]["SOAP-ENV:Body"]["ns1:saveSOEDataResponse"]["return"]["_"];
+						location.href = "extracurricular.html";
+	    			},
+	    			error: function (SOAPResponse) {
+	    				console.error(SOAPResponse);
+	    			}
+	    		});
+
+		}
+	</script>
+</body>
+</html>
