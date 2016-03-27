@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>CRM | Schools</title>
+    <title>CRM | Add Case</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -61,27 +61,45 @@
             </div>
         </nav>
     </div>
-    <div class="card info_seg" style="font-size: 15pt;">
-        <div class="seg_header">选择学校</div>
-   <table class="highlight">
-        <thead>
-          <tr>
-              <th data-field="Province"><span class="res_header">省份</span></th>
-              <th data-field="City"><span class="res_header">城市</span></th>
-              <th data-field="School"><span class="res_header">学校名称</span></th>
-              <th data-field="School_type"><span class="res_header">学校类型</span></th>
-              <th data-field="Number"><span class="res_header">每届人数</span></th>
-              <th data-field="Status"><span class="res_header">开发状态</span></th>
-          </tr>
-        </thead>
 
-        <tbody id="content"></tbody>
-      </table>
-            
-
-    </div>
-    <footer class="page-footer" style="background-color:rgba(255,255,255,0);">
-        
+<div class="card info_seg" style="font-size: 15pt;">
+  <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+          <label for="first_name">First Name</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="last_name" type="text" class="validate">
+          <label for="last_name">Last Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input disabled value="I am not editable" id="disabled" type="text" class="validate">
+          <label for="disabled">Disabled</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="password" type="password" class="validate">
+          <label for="password">Password</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="email" type="email" class="validate">
+          <label for="email">Email</label>
+        </div>
+      </div>
+    </form>
+  </div>
+      
+</div> 
+    <!-- <a href="basic.html" class="waves-effect waves-light btn-large submit_btn tooltipped" data-position="right" data-tooltip="Go on to the next section!">Next</a> -->
+    <footer class="page-footer" style="background-color:rgba(255,255,255,0)">
+        </div>
         <div class="footer-copyright">
             <div class="container">
                 © 2016 Youth Impact China
@@ -91,44 +109,14 @@
     <script src="http://cdn.bootcss.com/jquery/2.2.0/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/materialize/0.97.5/js/materialize.min.js"></script>
     <script type="text/javascript">
-    function change_page (id) {
-        localStorage['school'] = id;
-        location.href = "detail.html";
-    }
-    function addSchool (school) {
-        var HTMLContent = document.getElementById('content').innerHTML;
-        HTMLContent = HTMLContent + 
-            "<tr onclick=change_page('"+ school._id +"')>" +
-            "<td><span class='res_header'>" + school.province + "</span></td>" + 
-            "<td><span class='res_header'>" + school.city + "</span></td>" + 
-            "<td><span class='res_header'>" + school.name + "</span></td>" +
-            "<td><span class='res_header'>" + (school.profile.type?school.profile.type:"Unknown")  + "</span></td>" + 
-            "<td><span class='res_header'>" + (school.profile.size?school.profile.size:"Unknown") + "</span></td>" + 
-            "<td><span class='res_header'>" + (school.status?school.status:"Unknown") + "</span></td></tr>";
-
-        document.getElementById('content').innerHTML = HTMLContent;
-    }
     $(document).ready(function() {
-
-        var getLocation = localStorage['to'];
-
-        $.ajax({
-            url: "http://api.youthimpactchina.com/crm/school/list/by_province",
-            method: "GET",
-            data: {
-                province: getLocation
-            },
-            success: function(data) {
-                // console.log(data);
-                for (var item in data ) {
-                    addSchool(data[item]);
-                }
-            }
-        });
         var pickColor = "rgb(151,205,251)";
-        var getScreenHeight = window.innerHeight;
-        document.body.style.minHeight = getScreenHeight + "px";
+        // document.body.style.background = "-webkit-gradient(linear, 0% 0%, 0% 100%,from(" + pickColor + "), to(#FFFFFF))"
         document.body.style.background = "-webkit-gradient(linear, 0% 0%, 0% 100%,from(#639AC8), to(" + pickColor + "))"
+
+        $('.tooltipped').tooltip({
+            delay: 0
+        });
     });
     function profile() {
         location.href = "region.html";
