@@ -61,55 +61,87 @@
             </div>
         </nav>
     </div>
-
-
-
-<div class="card info_seg" style="font-size: 15pt;">
-    
-    <div class="seg_header">基本信息</div>
-    
-       <table class="highlight">
-        <thead>
-          <tr>
-              <th data-field="Position"><span class="res_header">职位</span></th>
-              <th data-field="Last_name"><span class="res_header">姓</span></th>
-              <th data-field="Given_name"><span class="res_header">名</span></th>
-              <th data-field="Prefix"><span class="res_header">称谓</span></th>
-              <th data-field="Role"><span class="res_header">角色</span></th>
-              <th data-field="Phone"><span class="res_header">手机</span></th>
-              <th data-field="Office"><span class="res_header">办公室直线</span></th>
-              <th data-field="Email"><span class="res_header">电子邮箱</span></th>
-              <th data-field="QQ"><span class="res_header">QQ号码</span></th>
-              <th data-field="Relationship"><span class="res_header">客情关系</span></th>
-
-          </tr>
-        </thead>
-        <tbody id="Contact"></tbody>
-      </table>
-</div>
-
-<div class="card info_seg" style="font-size: 15pt;">
-    <div class="seg_header">
-      <span>联系人交互纪录</span>
-      <a class="waves-effect blue lighten-2 btn" style="float: right;font-size: 12pt;" target="_blank" href="add_case.html">增加纪录</a>
+    <div class="card info_seg" style="font-size: 15pt">
+        <div class="seg_header">
+            基本信息
+        </div>
+        <br/>
+        <br/>
+        <div class="row">
+            <div class="input-field col s12 m4">
+                <input placeholder="职位" id="position" type="text" class="validate" />
+                <label for="position">职位</label>
+            </div>
+            <div class="input-field col s12 m4">
+                <input placeholder="姓名" id="name" type="text" class="validate" />
+                <label for="name">姓名</label>
+            </div>
+            <div class="input-field col s12 m4">
+                <input placeholder="称谓" id="perfix" type="text" class="validate" />
+                <label for="perfix">称谓</label>
+            </div>
+        </div>
+        <!-- 角色  手机  办公室直线   电子邮箱    QQ号码    客情关系    详细 -->
+        <div class="row">
+            <div class="input-field col s12 m4">
+                <select>
+                    <option value="" disabled selected>角色</option>
+                    <option value="1"></option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                </select>
+                <label>角色</label>
+            </div>
+            <div class="input-field col s12  m4">
+                <input placeholder="姓名" id="name" type="text" class="validate" />
+                <label for="name">姓名</label>
+            </div>
+            <div class="input-field col s12 m4">
+                <input placeholder="称谓" id="perfix" type="text" class="validate" />
+                <label for="perfix">称谓</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 m4">
+                <input placeholder="职位" id="position" type="text" class="validate" />
+                <label for="position">职位</label>
+            </div>
+            <div class="input-field col s12 m4">
+                <input placeholder="姓名" id="name" type="text" class="validate" />
+                <label for="name">姓名</label>
+            </div>
+            <div class="input-field col s12 m4">
+                <input placeholder="称谓" id="perfix" type="text" class="validate" />
+                <label for="perfix">称谓</label>
+            </div>
+        </div>
     </div>
-    
-       <table class="highlight">
-        <thead>
-          <tr>
-              <th data-field="Date"><span class="res_header">日期</span></th>
-              <th data-field="Type"><span class="res_header">类型</span></th>
-              <th data-field="Status"><span class="res_header">状态（点击完成）</span></th>
-              <th data-field="Contact"><span class="res_header">联系人</span></th>
-              <th data-field="Worker"><span class="res_header">发起人</span></th>
-              <th data-field="Project"><span class="res_header">项目</span></th>
-              <th data-field="Aim"><span class="res_header">目的</span></th>
-              <th data-field="Note"><span class="res_header">笔记</span></th>
-              <th data-field="Change"><span class="res_header">修改</span></th>
-          </tr>
-        </thead>
-        <tbody id="Record"></tbody>
-      </table>
+    <!-- 
+    <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+          <label for="first_name">First Name</label>
+   角色  手机  办公室直线   电子邮箱    QQ号码    客情关系    详细
+ -->
+    <div class="card info_seg" style="font-size: 15pt;">
+        <div class="seg_header">
+            <span>联系人交互纪录</span>
+            <a class="waves-effect blue lighten-2 btn" style="float: right;font-size: 12pt;" target="_blank" href="add_case.html">增加纪录</a>
+        </div>
+        <table class="highlight">
+            <thead>
+                <tr>
+                    <th data-field="Date"><span class="res_header">日期</span></th>
+                    <th data-field="Type"><span class="res_header">类型</span></th>
+                    <th data-field="Status"><span class="res_header">状态（点击完成）</span></th>
+                    <th data-field="Contact"><span class="res_header">联系人</span></th>
+                    <th data-field="Worker"><span class="res_header">发起人</span></th>
+                    <th data-field="Project"><span class="res_header">项目</span></th>
+                    <th data-field="Aim"><span class="res_header">目的</span></th>
+                    <th data-field="Note"><span class="res_header">笔记</span></th>
+                    <th data-field="Change"><span class="res_header">修改</span></th>
+                </tr>
+            </thead>
+            <tbody id="Record"></tbody>
+        </table>
     </div>
     <!-- <a href="basic.html" class="waves-effect waves-light btn-large submit_btn tooltipped" data-position="right" data-tooltip="Go on to the next section!">Next</a> -->
     <footer class="page-footer" style="background-color:rgba(255,255,255,0)">
@@ -122,28 +154,25 @@
     <script src="http://cdn.bootcss.com/jquery/2.2.0/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/materialize/0.97.5/js/materialize.min.js"></script>
     <script type="text/javascript">
-
-
-
     function addContact(school) {
-      var HTMLContent = document.getElementById('Contact').innerHTML;
-      for (var i in school.teachers) {
+        var HTMLContent = document.getElementById('Contact').innerHTML;
+        for (var i in school.teachers) {
 
-        HTMLContent = HTMLContent + 
-            "<tr>" +
-              "<td class='res_header'>" + school.teachers[i].profile.position + "</td>" + 
-              "<td class='res_header'>" + school.teachers[i].profile.last_name +"</td>" +
-              "<td class='res_header'>" + school.teachers[i].profile.given_name + "</td>" +
-              "<td class='res_header'>" + school.teachers[i].profile.prefix + "</td>" +
-              "<td class='res_header'>" + school.teachers[i].profile.role + "</td>" + 
-              "<td class='res_header'>" + school.teachers[i].profile.mobile + "</td>" + 
-              "<td class='res_header'>" + school.teachers[i].profile.telephone +"</td>" +
-              "<td class='res_header'>" + school.teachers[i].email +"</td>" +
-              "<td class='res_header'>" + school.teachers[i].profile.qq + "</td>" +
-              "<td class='res_header'>" + school.teachers[i].profile.relationship + "</td>" +                 
-            "</tr>"
-        document.getElementById('Contact').innerHTML = HTMLContent;
-      }
+            HTMLContent = HTMLContent +
+                "<tr>" +
+                "<td class='res_header'>" + school.teachers[i].profile.position + "</td>" +
+                "<td class='res_header'>" + school.teachers[i].profile.last_name + "</td>" +
+                "<td class='res_header'>" + school.teachers[i].profile.given_name + "</td>" +
+                "<td class='res_header'>" + school.teachers[i].profile.prefix + "</td>" +
+                "<td class='res_header'>" + school.teachers[i].profile.role + "</td>" +
+                "<td class='res_header'>" + school.teachers[i].profile.mobile + "</td>" +
+                "<td class='res_header'>" + school.teachers[i].profile.telephone + "</td>" +
+                "<td class='res_header'>" + school.teachers[i].email + "</td>" +
+                "<td class='res_header'>" + school.teachers[i].profile.qq + "</td>" +
+                "<td class='res_header'>" + school.teachers[i].profile.relationship + "</td>" +
+                "</tr>"
+            document.getElementById('Contact').innerHTML = HTMLContent;
+        }
 
     }
 
@@ -176,24 +205,25 @@
         var pickColor = "rgb(151,205,251)";
         document.body.style.background = "-webkit-gradient(linear, 0% 0%, 0% 100%,from(#639AC8), to(" + pickColor + "))"
 
-
+        $('select').material_select();
         var getSchoolID = String(localStorage['school']);
         $.ajax({
-          url: "http://api.youthimpactchina.com/crm/school/get_info",
-          method: "GET",
-          data: {
-            id: getSchoolID
-          },
-          success: function(data) {
-              addContact(data);
-              // addRecord(data);
+            url: "http://api.youthimpactchina.com/crm/school/get_info",
+            method: "GET",
+            data: {
+                id: getSchoolID
+            },
+            success: function(data) {
+                addContact(data);
+                // addRecord(data);
 
-          }
+            }
         });
 
 
 
     });
+
     function profile() {
         location.href = "region.html";
 
