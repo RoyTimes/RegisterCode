@@ -18,7 +18,7 @@
 
 <body>
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-4 col-xl-4" 
+        <div class="col-xs-12 col-sm-12 col-md-4 col-xl-4"
             style="background-color: rgba(0, 0, 0, 0.2); padding: 30px;">
             <header id="login_header">
                 <h1 style="font-size:200%;font-family:StructrMe;">Customer Relationship Management</h1>
@@ -42,7 +42,7 @@
                 <p style="color:white;font-family: StructrBo">Connect to international contests and academic resources in multiple categories and win precious opportunities and strong competitiveness for your school. It provides full version of Syllabus, Complete Rules, Competition &amp; Activity List, Sample Questions, Judging Criteria &amp; Evaluation Form and Training Courses for Coaches.<br/>提供各种国际化比赛项目和详细学术资料，让学生和学校在激烈的竞争中更有竞争力。我们提供完整版本的教学大纲、竞赛规则、竞赛项目明细、赛题样例、评判标准和教练培训材料。</p>
                 <p style="color:white;font-family: StructrBo;border-left: 3px white solid;padding-left: 20px;">School Profiling System 学校介绍系统</p>
                 <p style="color:white;font-family: StructrBo">Complete the school profile with your unique advantages. College admission offices will know better about your school by referring to the information here, which helps increase the overall chance of admission for your students.<br/>完善贵校的学校资料，展现学校的独特优势。高校招生官将通过这里的信息更好的了解您的学校，有助于提升贵校学生整体的录取水平。</p>
-            </header> 
+            </header>
         </div>-->
     </div>
 
@@ -62,10 +62,7 @@
         document.getElementById('login').addEventListener("click", loginFun, false);
 
         $(document).ready(function() {
-            // if ($.cookie('user') != undefined && 
-            //         $.cookie('user') != 'not login') {
-            //     location.href = 'admin.html';
-            // }
+            if ($.cookie('user')) location.href = "admin.html";
         });
 
         function loginFun(evt) {
@@ -81,11 +78,12 @@
                     passwd: user_password
                 },
                 success: function(data, status, xhr) {
-                    if (data == "auth success") {
-                            
-                        $.cookie('user', user_email);
+                    if (data.substr(0, 1) == '5') {
 
-                        location.href = "admin.html";                        
+                        $.cookie('user', user_email);
+                        $.cookie('id', data);
+
+                        location.href = "admin.html";
                     } else {alert(data);}
                 }
             });

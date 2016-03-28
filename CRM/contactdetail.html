@@ -64,20 +64,21 @@
     <div class="card info_seg" style="font-size: 15pt">
         <div class="seg_header">
             基本信息
+            <a class="waves-effect blue lighten-2 btn" style="float: right;font-size: 12pt;" onclick="save();">save</a>
         </div>
         <br/>
         <br/>
         <div class="row">
             <div class="input-field col s12 m4">
-                <input placeholder="姓" id="position" type="text" class="validate" />
-                <label for="position">姓</label>
+                <input placeholder="姓" id="last_name" type="text" class="validate" />
+                <label for="last_name">姓</label>
             </div>
             <div class="input-field col s12 m4">
-                <input placeholder="名" id="name" type="text" class="validate" />
-                <label for="name">名</label>
+                <input placeholder="名" id="first_name" type="text" class="validate" />
+                <label for="first_name">名</label>
             </div>
             <div class="input-field col s12 m4">
-                <select>
+                <select id="prefix">
                     <option value="" disabled selected>称谓</option>
                     <option value="女士">女士</option>
                     <option value="先生">先生</option>
@@ -88,7 +89,7 @@
         <!-- 角色  手机  办公室直线   电子邮箱    QQ号码    客情关系    详细 -->
         <div class="row">
             <div class="input-field col s12 m4">
-                <select>
+                <select id="position">
                     <option value="" disabled selected>职位</option>
                     <option value="国际部主任">国际部主任</option>
                     <option value="国际部副主任">国际部副主任</option>
@@ -107,7 +108,7 @@
             </div>
 
             <div class="input-field col s12  m4">
-                <select>
+                <select id="role">
                     <option value="" disabled selected>角色</option>
                     <option value="决策者">决策者</option>
                     <option value="传达者">传达者</option>
@@ -119,7 +120,7 @@
                 <label>角色</label>
             </div>
             <div class="input-field col s12 m4">
-                <select>
+                <select id="relationship">
                     <option value="" disabled selected>客情关系</option>
                     <option value="良好">良好</option>
                     <option value="中立">中立</option>
@@ -133,26 +134,26 @@
 
         <div class="row">
             <div class="input-field col s12 m3">
-                <input placeholder="手机" id="position" type="text" class="validate" />
-                <label for="position">手机</label>
+                <input placeholder="手机" id="mobile" type="text" class="validate" />
+                <label for="mobile">手机</label>
             </div>
             <div class="input-field col s12 m3">
-                <input placeholder="直线座机" id="name" type="text" class="validate" />
-                <label for="name">直线座机</label>
+                <input placeholder="直线座机" id="telephone" type="text" class="validate" />
+                <label for="telephone">直线座机</label>
             </div>
             <div class="input-field col s12 m3">
-                <input placeholder="电子邮箱" id="perfix" type="text" class="validate" />
-                <label for="perfix">电子邮箱</label>
+                <input placeholder="电子邮箱" id="email" type="text" class="validate" />
+                <label for="email">电子邮箱</label>
             </div>
             <div class="input-field col s12 m3">
-                <input placeholder="QQ号码" id="perfix" type="text" class="validate" />
-                <label for="perfix">QQ号码</label>
-            </div>            
+                <input placeholder="QQ号码" id="qq" type="text" class="validate" />
+                <label for="qq">QQ号码</label>
+            </div>
         </div>
 
         <div class="row">
             <div class="input-field col s12 m6">
-                <select>
+                <select id="employer">
                     <option value="" disabled selected>编制</option>
                     <option value="公立学校">公立学校</option>
                     <option value="私立学校">私立学校</option>
@@ -163,7 +164,7 @@
              </div>
 
             <div class="input-field col s12 m6">
-                <select>
+                <select id="discipline">
                     <option value="" disabled selected>学科</option>
                     <option value="英语">英语</option>
                     <option value="政治">政治</option>
@@ -175,23 +176,17 @@
                 </select>
                 <label>学科</label>
              </div>
-        </div>  
-
-        <div class="row">
-            <div class="input-field col s12 m12">
-                <input placeholder="爱好" id="position" type="text" class="validate" />
-                <label for="position">爱好</label>
-            </div>
-
         </div>
 
         <div class="row">
             <div class="input-field col s12 m12">
-                <input placeholder="补充说明" id="position" type="text" class="validate" />
-                <label for="position">补充说明</label>
+                <input placeholder="爱好" id="interests" type="text" class="validate" />
+                <label for="interest">爱好</label>
             </div>
 
-        </div>        
+        </div>
+
+        </div>
     </div>
     <!--
     <input placeholder="Placeholder" id="first_name" type="text" class="validate">
@@ -235,23 +230,83 @@
         var pickColor = "rgb(151,205,251)";
         document.body.style.background = "-webkit-gradient(linear, 0% 0%, 0% 100%,from(#639AC8), to(" + pickColor + "))"
 
-        $('select').material_select();
         var teacherID = localStorage['teacher'];
-        $.ajax({
-            url: "http://api.youthimpactchina.com/crm/teacher/profile/find",
-            method: "GET",
-            data: {
-                id: teacherID
-            },
-            success: function(data) {
-                console.log(data);
-            }
-        });
+        if (teacherID != "new") {
+            $.ajax({
+                url: "http://api.youthimpactchina.com/crm/teacher/profile/find",
+                method: "GET",
+                data: {
+                    id: teacherID
+                },
+                success: function(data) {
+                    $('#first_name').val(data.profile.given_name);
+                    $('#last_name').val(data.profile.last_name);
+                    $("#position").val(data.profile.position);
+                    $("#perfix").val(data.profile.prefix);
+                    $('#role').val(data.profile.role);
+                    $('#relationship').val(data.profile.relationship);
+                    $('#mobile').val(data.profile.mobile);
+                    $('#telephone').val(data.profile.telephone);
+                    $('#email').val(data.email);
+                    $('#qq').val(data.profile.qq);
+                    $('#discipline').val(data.profile.discipline);
+                    $('#employer').val(data.profile.employer);
+                    $('#interests').val(data.profile.interests);
 
-
-
+                    $('select').material_select();
+                }
+            });
+        } else {$('select').material_select();}
     });
 
+    function save() {
+        var data = {};
+        data['first_name'] = $('#first_name').val();
+        data['given_name'] = $('#last_name').val();
+        data['position'] = $("#position").val();
+        data['prefix'] = $("#perfix").val();
+        data['role'] = $('#role').val();
+        data['relationship'] = $('#relationship').val();
+        data['mobile'] = $('#mobile').val();
+        data['telephone'] = $('#telephone').val();
+        // data['email'] = $('#email').val();
+        data['qq'] = $('#qq').val();
+        data['discipline'] = $('#discipline').val();
+        data['employer'] = $('#employer').val();
+        data['interests'] = $('#interests').val();
+        for (var item in data) {
+            if (data[item] == null)
+                data[item] = "";
+        }
+        if (localStorage['teacher'] != 'new') {
+            $.ajax({
+                url: "http://api.youthimpactchina.com/crm/teacher/profile/update",
+                method: "POST",
+                data: {
+                    id: localStorage['teacher'],
+                    profile: JSON.stringify(data),
+                    email: $('#email').val()
+                },
+                success: function(data) {
+                    alert(data)
+                }
+            })
+        } else {
+            $.ajax({
+                url: "http://api.youthimpactchina.com/crm/school/add_contact",
+                method: "POST",
+                data: {
+                    schoolID: String(localStorage['school']),
+                    profile: JSON.stringify(data),
+                    email: $('#email').val()
+                },
+                success: function(data) {
+                    alert(data);
+                }
+            })
+        }
+
+    }
     function profile() {
         location.href = "region.html";
 
