@@ -69,52 +69,129 @@
         <br/>
         <div class="row">
             <div class="input-field col s12 m4">
-                <input placeholder="职位" id="position" type="text" class="validate" />
-                <label for="position">职位</label>
+                <input placeholder="姓" id="position" type="text" class="validate" />
+                <label for="position">姓</label>
             </div>
             <div class="input-field col s12 m4">
-                <input placeholder="姓名" id="name" type="text" class="validate" />
-                <label for="name">姓名</label>
+                <input placeholder="名" id="name" type="text" class="validate" />
+                <label for="name">名</label>
             </div>
             <div class="input-field col s12 m4">
-                <input placeholder="称谓" id="perfix" type="text" class="validate" />
-                <label for="perfix">称谓</label>
+                <select>
+                    <option value="" disabled selected>称谓</option>
+                    <option value="女士">女士</option>
+                    <option value="先生">先生</option>
+                </select>
+                <label>称谓</label>
             </div>
         </div>
         <!-- 角色  手机  办公室直线   电子邮箱    QQ号码    客情关系    详细 -->
         <div class="row">
             <div class="input-field col s12 m4">
                 <select>
+                    <option value="" disabled selected>职位</option>
+                    <option value="国际部主任">国际部主任</option>
+                    <option value="国际部副主任">国际部副主任</option>
+                    <option value="校长">校长</option>
+                    <option value="副校长">副校长</option>
+                    <option value="学术校长">学术校长</option>
+                    <option value="校长助理">校长助理</option>
+                    <option value="教务主任">教务主任</option>
+                    <option value="团委书记">团委书记</option>
+                    <option value="升学指导">升学指导</option>
+                    <option value="活动指导">活动指导</option>
+                    <option value="任课老师">任课老师</option>
+                    <option value="不详">不详</option>
+                </select>
+                <label>职称</label>
+            </div>
+
+            <div class="input-field col s12  m4">
+                <select>
                     <option value="" disabled selected>角色</option>
-                    <option value="1"></option>
-                    <option value="2">Option 2</option>
-                    <option value="3">Option 3</option>
+                    <option value="决策者">决策者</option>
+                    <option value="传达者">传达者</option>
+                    <option value="执行者">执行者</option>
+                    <option value="批准者">批准者</option>
+                    <option value="推动者">推动者</option>
+                    <option value="不详">不详</option>
                 </select>
                 <label>角色</label>
             </div>
-            <div class="input-field col s12  m4">
-                <input placeholder="姓名" id="name" type="text" class="validate" />
-                <label for="name">姓名</label>
-            </div>
             <div class="input-field col s12 m4">
-                <input placeholder="称谓" id="perfix" type="text" class="validate" />
-                <label for="perfix">称谓</label>
+                <select>
+                    <option value="" disabled selected>客情关系</option>
+                    <option value="良好">良好</option>
+                    <option value="中立">中立</option>
+                    <option value="反对">反对</option>
+                    <option value="封闭">封闭</option>
+                    <option value="不详">不详</option>
+                </select>
+                <label>客情关系</label>
             </div>
         </div>
+
         <div class="row">
-            <div class="input-field col s12 m4">
-                <input placeholder="职位" id="position" type="text" class="validate" />
-                <label for="position">职位</label>
+            <div class="input-field col s12 m3">
+                <input placeholder="手机" id="position" type="text" class="validate" />
+                <label for="position">手机</label>
             </div>
-            <div class="input-field col s12 m4">
-                <input placeholder="姓名" id="name" type="text" class="validate" />
-                <label for="name">姓名</label>
+            <div class="input-field col s12 m3">
+                <input placeholder="直线座机" id="name" type="text" class="validate" />
+                <label for="name">直线座机</label>
             </div>
-            <div class="input-field col s12 m4">
-                <input placeholder="称谓" id="perfix" type="text" class="validate" />
-                <label for="perfix">称谓</label>
+            <div class="input-field col s12 m3">
+                <input placeholder="电子邮箱" id="perfix" type="text" class="validate" />
+                <label for="perfix">电子邮箱</label>
             </div>
+            <div class="input-field col s12 m3">
+                <input placeholder="QQ号码" id="perfix" type="text" class="validate" />
+                <label for="perfix">QQ号码</label>
+            </div>            
         </div>
+
+        <div class="row">
+            <div class="input-field col s12 m6">
+                <select>
+                    <option value="" disabled selected>编制</option>
+                    <option value="公立学校">公立学校</option>
+                    <option value="私立学校">私立学校</option>
+                    <option value="第三方机构">第三方机构</option>
+                    <option value="不详">不详</option>
+                </select>
+                <label>编制</label>
+             </div>
+
+            <div class="input-field col s12 m6">
+                <select>
+                    <option value="" disabled selected>学科</option>
+                    <option value="英语">英语</option>
+                    <option value="政治">政治</option>
+                    <option value="地理">地理</option>
+                    <option value="历史">历史</option>
+                    <option value="数理化">数理化</option>
+                    <option value="行政">行政</option>
+                    <option value="不详">不详</option>
+                </select>
+                <label>学科</label>
+             </div>
+        </div>  
+
+        <div class="row">
+            <div class="input-field col s12 m12">
+                <input placeholder="爱好" id="position" type="text" class="validate" />
+                <label for="position">爱好</label>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="input-field col s12 m12">
+                <input placeholder="补充说明" id="position" type="text" class="validate" />
+                <label for="position">补充说明</label>
+            </div>
+
+        </div>        
     </div>
     <!--
     <input placeholder="Placeholder" id="first_name" type="text" class="validate">
