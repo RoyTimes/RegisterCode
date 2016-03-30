@@ -335,9 +335,11 @@
             			success: function(data) {
             				var HTMLContent = "<option value='' disabled selected>模板</option>";
             				for (var item in data) {
-            					HTMLContent = HTMLContent + "<option value=\'"+ JSON.stringify({
-            						name:item , subject: data[item].subject
-            					}) +"\'>"+  data[item].name+"</option>";
+                                if (item == "general") {
+                                    HTMLContent = HTMLContent + "<option value=\'"+ JSON.stringify({
+                                        name:item , subject: data[item].subject
+                                    }) +"\'>"+  data[item].name+"</option>";
+                                }
             				}
             				$('#template').html(HTMLContent);
             				$.ajax({
