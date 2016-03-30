@@ -69,6 +69,7 @@
    <table class="highlight">
         <thead>
           <tr>
+              <th data-field="Sequence"><span class="res_header">序号</span></th>
               <th data-field="Province"><span class="res_header">省份</span></th>
               <th data-field="City"><span class="res_header">城市</span></th>
               <th data-field="School"><span class="res_header">学校名称</span></th>
@@ -106,10 +107,11 @@
         localStorage['school'] = id;
         location.href = "detail.html";
     }
-    function addSchool (school) {
+    function addSchool (sequence,school) {
         var HTMLContent = document.getElementById('content').innerHTML;
         HTMLContent = HTMLContent +
             "<tr onclick=change_page('"+ school._id +"')>" +
+            "<td><span class='res_header'>" + school.province + "</span></td>" +
             "<td><span class='res_header'>" + school.province + "</span></td>" +
             "<td><span class='res_header'>" + school.city + "</span></td>" +
             "<td><span class='res_header'>" + school.name + "</span></td>" +
@@ -132,9 +134,11 @@
             },
             success: function(data) {
                 // console.log(data);
+                var sequence = 1;
                 for (var item in data ) {
                     if (data[item].profile.type == "国际部-英美") {
-                        addSchool(data[item]);
+                        addSchool(sequence,data[item]);
+                        sequence ++;
                     };
             
                 }
