@@ -179,7 +179,7 @@
                             HTMLContent = HTMLContent + '<option value="'+ data.teachers[item]._id +'">'+ data.teachers[item].name + " | " + data.teachers[item].profile.position +'</option>';
                         }
                         $("#teacher").html(HTMLContent);
-                        if (localStorage['case'] !== undefined) {
+                        if (localStorage['case'] !== undefined && localStorage['case']!='new') {
 
                             $.ajax({
                                 url: "http://api.youthimpactchina.com/crm/case",
@@ -213,6 +213,7 @@
             },
             success: function(data) {
                 alert(data);
+                localStorage['case'] = "new";
                 location.href = "contactdetail.html";
             }
         });
