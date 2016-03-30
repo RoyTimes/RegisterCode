@@ -336,8 +336,8 @@
             				var HTMLContent = "<option value='' disabled selected>模板</option>";
             				for (var item in data) {
             					HTMLContent = HTMLContent + "<option value=\'"+ JSON.stringify({
-            						name: data[item].name, subject: data[item].subject
-            					}) +"\'>"+  item+"</option>";
+            						name:item , subject: data[item].subject
+            					}) +"\'>"+  data[item].name+"</option>";
             				}
             				$('#template').html(HTMLContent);
             				$.ajax({
