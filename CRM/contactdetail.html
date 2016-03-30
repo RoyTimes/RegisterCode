@@ -274,7 +274,7 @@
             url: "http://api.youthimpactchina.com/crm/school/case/create",
             method: "POST",
             data: {
-                type: "邮件", status: "未完成", purpose: "项目宣传", note: JSON.parse($('#template').val()).name,
+                type: "邮件", status: "已完成", purpose: "项目宣传", note: JSON.parse($('#template').val()).name,
                 senderID: $.cookie('id'), schoolID: localStorage['school'], projectID: "56f8cd20d2ef370f2984e808", teacherID: localStorage['teacher']
             },
             success: function(data) {
