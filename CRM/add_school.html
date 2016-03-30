@@ -192,7 +192,7 @@
             profile.address = $('#address').val();
             profile.website = $('#website').val();
             profile.supplement = $('#supplement').val();
-        if (localStorage['school']) {
+        if (localStorage['school'] && localStorage['school'] != 'new') {
             $.ajax({
                 url: "http://api.youthimpactchina.com/crm/school/update",
                 method: "POST",
