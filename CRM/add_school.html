@@ -193,7 +193,18 @@
             profile.website = $('#website').val();
             profile.supplement = $('#supplement').val();
         if (localStorage['school']) {
-            
+            $.ajax({
+                url: "http://api.youthimpactchina.com/crm/school/update",
+                method: "POST",
+                data: {
+                    name: name, province: province, region: region, city: city,
+                    profile: JSON.stringify(profile), id: localStorage['school']
+                },
+                success: function(data) {
+                    alert(data);
+                    location.href = "schools.html";
+                }
+            });
         } else {
             $.ajax({
                 url: "http://api.youthimpactchina.com/crm/school/create",
