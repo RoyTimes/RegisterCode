@@ -65,6 +65,8 @@
 <div class="card info_seg" style="font-size: 15pt;">
     <div class="seg_header">
         School Case
+        <a class="waves-effect blue lighten-2 btn" style="float: right;font-size: 12pt; margin-left: 20px;" onclick="del();">删除记录</a>
+
         <a class="waves-effect blue lighten-2 btn" style="float: right;font-size: 12pt;" onclick="save();">保存记录</a>
     </div><br/><br/>
 
@@ -202,6 +204,19 @@
             }
         });
     });
+    function del() {
+        $.ajax({
+            url: "http://api.youthimpactchina.com/crm/del/case",
+            method: "POST",
+            data: {
+                id: localStorage['case']
+            },
+            success: function(data) {
+                alert(data);
+                location.href = "contactdetail.html";
+            }
+        });
+    }
     function logout() {
         $.cookie('user', 'no');
         location.href = 'index.html';
@@ -225,6 +240,7 @@
             },
             success: function(data) {
                 alert(data);
+                location.href = "contactdetail.html";
             }
         })
 
