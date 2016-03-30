@@ -246,6 +246,31 @@
         $.cookie('user', 'no');
         location.href = 'index.html';
     }
+    function send_email() {
+		var template = JSON.parse($('#template').val());
+		var sender = $('#sender').val();
+		$.ajax({
+			url: "http://api.youthimpactchina.com/mail",
+			method: "POST",
+			data: {
+				from: sender,
+				to: $('#to').val(),
+				subject: template.subject,
+				template: template.name,
+				data: JSON.stringify({
+					project: "NSC",
+					site: "http://baidu.com"
+				})
+			},
+			success: function(data, status, xhr) {
+				console.log(xhr);
+				alert(data);
+			},
+			error: function(data, status, xhr) {
+				console.log(xhr);
+			}
+		});
+	}
     function addRecord(casecase) {
       var HTMLContent = document.getElementById('Record').innerHTML;
         HTMLContent = HTMLContent +
