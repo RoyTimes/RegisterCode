@@ -64,7 +64,7 @@
     <div class="card info_seg" >
         <div class="seg_header">
             基本信息
-            <a class="waves-effect blue lighten-2 btn" style="float: right;font-size: 12pt;" href="add_school.html">new</a>
+            <a class="waves-effect blue lighten-2 btn" style="float: right;font-size: 12pt;" href="add_school.html">Edit</a>
         </div><br/><br/>
         <table class="highlight">
             <thead>
@@ -215,7 +215,7 @@
             HTMLContent = HTMLContent +
                 "<tr onclick=redirect(\'"+ school.teachers[i]._id +"\')>" +
                 "<td class='res_header'>" + school.teachers[i].profile.position + "</td>" +
-                "<td class='res_header'>" + school.teachers[i].profile.last_name + "</td>" +
+                "<td class='res_header'>" + school.teachers[i].profile.first_name + "</td>" +
                 "<td class='res_header'>" + school.teachers[i].profile.given_name + "</td>" +
                 "<td class='res_header'>" + school.teachers[i].profile.prefix + "</td>" +
                 "<td class='res_header'>" + school.teachers[i].profile.role + "</td>" +
