@@ -86,6 +86,9 @@
                     <th data-field="Ciry"><span class="res_header">城市</span></th>
                     <th data-field="School_address"><span class="res_header">学校地址</span></th>
                     <th data-field="Course_website"><span class="res_header">学校网址</span></th>
+                    <th data-field="Course_website"><span class="res_header">合作伙伴</span></th>
+                    <th data-field="Course_website"><span class="res_header"成立时间</span></th>
+
                 </tr>
             </thead>
             <tbody id="Basic_info2"></tbody>
@@ -118,7 +121,6 @@
                     <th data-field="Email"><span class="res_header">电子邮箱</span></th>
                     <th data-field="QQ"><span class="res_header">QQ号码</span></th>
                     <th data-field="Relationship"><span class="res_header">客情关系</span></th>
-                    <th data-field="Detail"><span class="res_header">详细</span></th>
                 </tr>
             </thead>
             <tbody id="Contact"></tbody>
@@ -191,6 +193,8 @@
             "<td class='res_header'>" + school.city + "</td>" +
             "<td class='res_header'>" + school.profile.address + "</td>" +
             "<td class='res_header'>" + school.profile.website + "</td>" +
+            "<td class='res_header'>" + school.profile.partner + "</td>" +
+            "<td class='res_header'>" + school.profile.founding_time + "</td>" +
             "</tr>"
         document.getElementById('Basic_info2').innerHTML = HTMLContent;
 
