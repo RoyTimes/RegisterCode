@@ -78,6 +78,7 @@
               <th data-field="Number"><span class="res_header">每届人数</span></th>
               <th data-field="ContactNo"><span class="res_header">老师数量</span></th>
               <!--<th data-field="Status"><span class="res_header">开发状态</span></th>-->
+              <th data-field="AddYes"><span class="res_header">已有地址</span></th>
 
           </tr>
         </thead>
@@ -118,7 +119,9 @@
             "<td><span class='res_header'>" + (school.profile.type?school.profile.type:"未知")  + "</span></td>" +
             "<td><span class='res_header'>" + (school.profile.founding_time?school.profile.founding_time:"未知")  + "</span></td>" +
             "<td><span class='res_header'>" + (school.profile.size?school.profile.size:"未知") + "</span></td>" +
-            "<td><span class='res_header'>" + (school.teachers?school.teachers.length:"0") + "</span></td>"
+            "<td><span class='res_header'>" + (school.teachers?school.teachers.length:"0") + "</span></td>"+
+            "<td><span class='res_header'>" + (school.profile.address?"已有":"未知") + "</span></td>" +
+
             //"<td><span class='res_header'>" + (school.profile.status?school.profile.status:"Unknown") + "</span></td></tr>" ;
         document.getElementById('content').innerHTML = HTMLContent;
     }
