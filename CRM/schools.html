@@ -130,7 +130,10 @@
             success: function(data) {
                 // console.log(data);
                 for (var item in data ) {
-                    addSchool(data[item]);
+                    if (data[item].profile.type == "国际部-英美")) {
+                        addSchool(data[item]);
+                    };
+            
                 }
             }
         });
