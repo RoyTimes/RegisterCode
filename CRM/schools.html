@@ -114,16 +114,11 @@
             "<td><span class='res_header'>" + school.name + "</span></td>" +
             "<td><span class='res_header'>" + (school.profile.type?school.profile.type:"Unknown")  + "</span></td>" +
             "<td><span class='res_header'>" + (school.profile.size?school.profile.size:"Unknown") + "</span></td>" +
-            "<td><span class='res_header'>" + (school.profile.status?school.profile.status:"Unknown") + "</span></td>" +             "<td><span class='delete_btn res_header'>" + "<a class='waves-effect blue lighten-2 btn' value="+ school._id +" style='font-size: 12pt;'>删除</a>" + "</span></td></tr>" ;
+            "<td><span class='res_header'>" + (school.profile.status?school.profile.status:"Unknown") + "</span></td></tr>" ;
         document.getElementById('content').innerHTML = HTMLContent;
     }
     $(document).ready(function() {
 
-        $(".delete_btn").onclick(function(evt) {
-            evt.preventDefault();
-            evt.stopPropagation();
-
-        })
         var getLocation = localStorage['to'];
         localStorage['school'] = "new";
         $.ajax({
