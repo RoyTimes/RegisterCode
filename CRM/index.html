@@ -62,10 +62,9 @@
         document.getElementById('login').addEventListener("click", loginFun, false);
 
         $(document).ready(function() {
-            alert($.cookie('user'));
-            //if ($.cookie('user') && $.cookie('user') != "no") {
-            //    location.href = "admin.html";
-            //}
+            if ($.cookie('user') && $.cookie('user') != "no") {
+                location.href = "admin.html";
+            }
 
         });
 
@@ -87,7 +86,7 @@
                         $.cookie('user', user_email);
                         $.cookie('id', data);
 
-                        // location.href = "admin.html";
+                        location.href = "admin.html";
                     } else {alert(data);}
                 }
             });
