@@ -244,7 +244,7 @@
         var creatDate = new Date(school.school_cases[i].time);
         HTMLContent = HTMLContent +
             "<tr onclick=change(\'" + school.school_cases[i]._id + "\')>" +
-              "<td class='res_header'>" + creatDate.getMonth()+'-'+creatDate.getDate()  + "</td>" +
+              "<td class='res_header'>" + (creatDate.getMonth()+1)+'-'+creatDate.getDate()  + "</td>" +
               "<td class='res_header'>" + school.school_cases[i].type +"</td>" +
               "<td class='res_header'>" + school.school_cases[i].status + "</td>" +
               "<td class='res_header'>" + school.school_cases[i].teacher.name + "</td>" +
