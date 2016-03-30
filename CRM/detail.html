@@ -244,7 +244,7 @@
 
         HTMLContent = HTMLContent +
             "<tr onclick=change(\'" + school.school_cases[i]._id + "\')>" +
-              "<td class='res_header'>" + Date(school.school_cases[i].time) + "</td>" +
+              "<td class='res_header'>" + Date(school.school_cases[i].time).prototype.Format ("mm/dd") + "</td>" +
               "<td class='res_header'>" + school.school_cases[i].type +"</td>" +
               "<td class='res_header'>" + school.school_cases[i].status + "</td>" +
               "<td class='res_header'>" + school.school_cases[i].teacher.name + "</td>" +
