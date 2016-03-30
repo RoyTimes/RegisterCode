@@ -275,7 +275,7 @@
                 id: getSchoolID
             },
             success: function(data) {
-
+                localStorage['school_name'] = data.name;
                 addBasicInfo1(data);
                 addBasicInfo2(data);
                 addBasicInfo3(data);

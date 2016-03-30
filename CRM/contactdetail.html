@@ -258,7 +258,8 @@
 				subject: template.subject,
 				template: template.name,
 				data: JSON.stringify({
-					last_name: $('#last_name').val()
+					last_name: $('#last_name').val(),
+                    school_name: localStorage['school_name']
 				})
 			},
 			success: function(data, status, xhr) {
