@@ -74,8 +74,7 @@
               <th data-field="School"><span class="res_header">学校名称</span></th>
               <th data-field="School_type"><span class="res_header">学校类型</span></th>
               <th data-field="Number"><span class="res_header">每届人数</span></th>
-              <th data-field="Status"><span class="res_header">开发状态</span></th>
-              <th data-field="Status"><span class="res_header">删除</span></th>
+              <!--<th data-field="Status"><span class="res_header">开发状态</span></th>-->
 
           </tr>
         </thead>
@@ -113,8 +112,9 @@
             "<td><span class='res_header'>" + school.city + "</span></td>" +
             "<td><span class='res_header'>" + school.name + "</span></td>" +
             "<td><span class='res_header'>" + (school.profile.type?school.profile.type:"Unknown")  + "</span></td>" +
-            "<td><span class='res_header'>" + (school.profile.size?school.profile.size:"Unknown") + "</span></td>" +
-            "<td><span class='res_header'>" + (school.profile.status?school.profile.status:"Unknown") + "</span></td></tr>" ;
+            "<td><span class='res_header'>" + (school.profile.size?school.profile.size:"Unknown") + "</span></td>" //+
+
+            //"<td><span class='res_header'>" + (school.profile.status?school.profile.status:"Unknown") + "</span></td></tr>" ;
         document.getElementById('content').innerHTML = HTMLContent;
     }
     $(document).ready(function() {
