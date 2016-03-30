@@ -86,6 +86,7 @@
                 <a class="grey-text text-lighten-4 right" target="_blank" href="http://soe-awards.cn">Offcial Site</a>
             </div>
     </footer>
+    <script src="assets/js/jquery.cookie.js"></script>
     <script src="http://cdn.bootcss.com/jquery/2.2.0/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/materialize/0.97.5/js/materialize.min.js"></script>
     <script type="text/javascript">
@@ -93,31 +94,7 @@
         var pickColor = "rgb(151,205,251)";
         document.body.style.background = "-webkit-gradient(linear, 0% 0%, 0% 100%,from(#639AC8), to(" + pickColor + "))"
 
-		$.ajax({
-			url: "http://api.youthimpactchina.com/mail/template",
-			method: "GET",
-			success: function(data) {
-				var HTMLContent = "<option value='' disabled selected>模板</option>";
-				for (var item in data) {
-					HTMLContent = HTMLContent + "<option value=\'"+ JSON.stringify({
-						name: item, subject: data[item]
-					}) +"\'>"+  item+"</option>";
-				}
-				$('#template').html(HTMLContent);
-				$.ajax({
-					url: "http://api.youthimpactchina.com/mail/sender",
-					method: "GET",
-					success: function(data) {
-						var HTMLContent = "<option value='' disabled selected>发送邮箱</option>";
-						for (var item in data) {
-							HTMLContent = HTMLContent + "<option value=\'"+ data[item] +"\'>"+data[item]+"</option>";
-						}
-						$('#sender').html(HTMLContent);
-						$('select').material_select();
-					}
-				})
-			}
-		});
+		
 
 
         var getSchoolID = String(localStorage['school']);

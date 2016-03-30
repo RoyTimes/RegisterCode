@@ -192,7 +192,23 @@
     <input placeholder="Placeholder" id="first_name" type="text" class="validate">
           <label for="first_name">First Name</label>
    角色  手机  办公室直线   电子邮箱    QQ号码    客情关系    详细
- -->
+ --><div class="car info_seg">
+     <div class="row">
+         <div class="input-field col s12 m4">
+             <select id="template"></select>
+         </div>
+         <div class="input-field col s12 m4">
+             <select id="sender"></select>
+         </div>
+         <div class="input-field col s12 m4">
+             <input placeholder="Send To" id="to" type="text" class="validate">
+             <label for="to">To</label>
+         </div>
+     </div><br/><br/>
+     <div class="row">
+         <a onclick="send_email()" style="margin-left: 40%" class="waves-effect waves-light btn">Send</a>
+     </div>
+ </div>
     <div class="card info_seg" style="font-size: 15pt;">
         <div class="seg_header">
             <span>联系人交互纪录</span>
@@ -209,7 +225,6 @@
                     <th data-field="Project"><span class="res_header">项目</span></th>
                     <th data-field="Aim"><span class="res_header">目的</span></th>
                     <th data-field="Note"><span class="res_header">笔记</span></th>
-                    <th data-field="Change"><span class="res_header">修改</span></th>
                 </tr>
             </thead>
             <tbody id="Record"></tbody>
@@ -225,13 +240,49 @@
     </footer>
     <script src="http://cdn.bootcss.com/jquery/2.2.0/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/materialize/0.97.5/js/materialize.min.js"></script>
+    <script src="assets/js/jquery.cookie.js"></script>
     <script type="text/javascript">
+    function logout() {
+        $.cookie('user', 'not login');
+        $.cookie('id', 'not login');
+        location.href = 'index.html';
+    }
+    function addRecord(casecase) {
+      var HTMLContent = document.getElementById('Record').innerHTML;
+        HTMLContent = HTMLContent +
+            "<tr onclick=change(\'" + casecase._id + "\')>" +
+              "<td class='res_header'>" + casecase.time + "</td>" +
+              "<td class='res_header'>" + casecase.type +"</td>" +
+              "<td class='res_header'>" + casecase.status + "</td>" +
+              "<td class='res_header'>" + casecase.teacher.name + "</td>" +
+              "<td class='res_header'>" + casecase.sender.name + "</td>" +
+              "<td class='res_header'>" + casecase.project.name + " | "+ casecase.project.year + "</td>" +
+              "<td class='res_header'>" + casecase.purpose +"</td>" +
+              "<td class='res_header'>" + casecase.note +"</td>" +
+            "</tr>"
+        document.getElementById('Record').innerHTML = HTMLContent;
+    }
+
     $(document).ready(function() {
         var pickColor = "rgb(151,205,251)";
         document.body.style.background = "-webkit-gradient(linear, 0% 0%, 0% 100%,from(#639AC8), to(" + pickColor + "))"
 
         var teacherID = localStorage['teacher'];
         if (teacherID != "new") {
+            $.ajax({
+                url: "http://api.youthimpactchina.com/crm/case/by_teacher",
+                method: "GET",
+                data: {
+                    id: teacherID
+                },
+                success: function(data) {
+                    for (var item in data) {
+                        addRecord(data[item]);
+                    }
+                }
+            });
+
+
             $.ajax({
                 url: "http://api.youthimpactchina.com/crm/teacher/profile/find",
                 method: "GET",
@@ -249,11 +300,36 @@
                     $('#telephone').val(data.profile.telephone);
                     $('#email').val(data.email);
                     $('#qq').val(data.profile.qq);
+                    $('#to').val(data.email);
                     $('#discipline').val(data.profile.discipline);
                     $('#employer').val(data.profile.employer);
                     $('#interests').val(data.profile.interests);
 
-                    $('select').material_select();
+                    $.ajax({
+            			url: "http://api.youthimpactchina.com/mail/template",
+            			method: "GET",
+            			success: function(data) {
+            				var HTMLContent = "<option value='' disabled selected>模板</option>";
+            				for (var item in data) {
+            					HTMLContent = HTMLContent + "<option value=\'"+ JSON.stringify({
+            						name: item, subject: data[item]
+            					}) +"\'>"+  item+"</option>";
+            				}
+            				$('#template').html(HTMLContent);
+            				$.ajax({
+            					url: "http://api.youthimpactchina.com/mail/sender",
+            					method: "GET",
+            					success: function(data) {
+            						var HTMLContent = "<option value='' disabled selected>发送邮箱</option>";
+            						for (var item in data) {
+            							HTMLContent = HTMLContent + "<option value=\'"+ data[item] +"\'>"+data[item]+"</option>";
+            						}
+            						$('#sender').html(HTMLContent);
+            						$('select').material_select();
+            					}
+            				})
+            			}
+            		});
                 }
             });
         } else {$('select').material_select();}
@@ -306,6 +382,10 @@
             })
         }
 
+    }
+    function change(id) {
+        localStorage['case'] = id;
+        location.href = "add_case.html";
     }
     function profile() {
         location.href = "region.html";

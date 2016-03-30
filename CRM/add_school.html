@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>CRM | Add School</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="http://cdn.bootcss.com/material-design-icons/2.2.0/iconfont/material-icons.css" rel="stylesheet">
+    <link href="http://cdn.bootcss.com/materialize/0.97.5/css/materialize.min.css" rel="stylesheet" media="screen,projection">
+    <style type="text/css">
+    .info_seg {
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-top: 7%;
+        margin-bottom: 7%;
+        padding: 20px;
+        background-color: white;
+    }
+
+    .submit_btn {
+        margin-left: 80px;
+        margin-bottom: 80px;
+    }
+
+    .seg_header {
+        padding: 10px;
+        font-size: 15pt;
+        color: rgb(90, 90, 90);
+    }
+
+    .res_header {
+        padding: 10px;
+        padding-left: 0px;
+        font-size: 13pt;
+        color: rgb(110, 110, 110);
+    }
+
+    .description {
+        padding: 10px;
+        font-size: 12pt;
+        color: rgb(110, 110, 110);
+    }
+
+    .breadcrumb:last-child {
+        color: rgba(255, 255, 255, 0.7)
+    }
+    </style>
+</head>
+
+<body>
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper" style="background-color: rgb(105,165,237)">
+                <a href="index.html" style="padding-left:3%;font-size:15pt;text-decoration:none;">客户关系管理系统(CRM)</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li style="font-size: 35pt;"><a onclick="profile();">学校资料</a></li>
+                    <li style="font-size: 35pt;"><a onclick="explore();">报名表</a></li>
+                    <li style="font-size: 35pt;"><a onclick="logout();">登出</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <div class="card info_seg" style="font-size: 15pt;">
+        <div class="seg_header">
+            添加学校
+            <a class="waves-effect blue lighten-2 btn" style="float: right;font-size: 12pt;" onclick="save();">保存记录</a>
+        </div><br/><br/>
+        <div class="row">
+            <div class="input-field col s12 m3">
+                <input placeholder="学校名称" id="name" type="text" class="validate">
+                <label for="note">学校名称</label>
+            </div>
+            <div class="input-field col s12 m3">
+                <input placeholder="学校类别" id="category" type="text" class="validate">
+                <label for="category">学校类别</label>
+            </div>
+
+            <div class="input-field col s12 m3">
+                <input placeholder="学校类型" id="type" type="text" class="validate">
+                <label for="type">学校类型</label>
+            </div>
+            <div class="input-field col s12 m4">
+                <input placeholder="课程类型" id="curriculum" type="text" class="validate">
+                <label for="curriculum">课程类型</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 m5">
+                <input placeholder="每届人数" id="size" type="text" class="validate">
+                <label for="size">每届人数</label>
+            </div>
+            <div class="input-field col s12 m5">
+                <input placeholder="开发状态" id="status" type="text" class="validate">
+                <label for="status">开发状态</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 m4">
+                <input placeholder="省份" id="province" type="text" class="validate">
+                <label for="province">省份</label>
+            </div>
+            <div class="input-field col s12 m4">
+                <input placeholder="城市" id="city" type="text" class="validate">
+                <label for="city">城市</label>
+            </div>
+            <div class="input-field col s12 m4">
+                <input placeholder="地区" id="region" type="text" class="validate">
+                <label for="region">地区</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 m5">
+                <input placeholder="学校地址" id="address" type="text" class="validate">
+                <label for="address">学校地址</label>
+            </div>
+            <div class="input-field col s12 m5">
+                <input placeholder="学校网址" id="website" type="text" class="validate">
+                <label for="website">学校网址</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 m12">
+                <input placeholder="补充说明" id="supplement" type="text" class="validate">
+                <label for="supplement">补充说明</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- <a href="basic.html" class="waves-effect waves-light btn-large submit_btn tooltipped" data-position="right" data-tooltip="Go on to the next section!">Next</a> -->
+    <footer class="page-footer" style="background-color:rgba(255,255,255,0)">
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2016 Youth Impact China
+                <a class="grey-text text-lighten-4 right" target="_blank" href="http://soe-awards.cn">Offcial Site</a>
+            </div>
+    </footer>
+    <script src="http://cdn.bootcss.com/jquery/2.2.0/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/materialize/0.97.5/js/materialize.min.js"></script>
+    <script src="assets/js/jquery.cookie.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var pickColor = "rgb(151,205,251)";
+        document.body.style.background = "-webkit-gradient(linear, 0% 0%, 0% 100%,from(#639AC8), to(" + pickColor + "))"
+        if (localStorage['school']) {
+            $.ajax({
+                url: "http://api.youthimpactchina.com/crm/school/get_info",
+                method: "GET",
+                data: {
+                    id: localStorage['school']
+                },
+                success: function(data) {
+                    $('#name').val(data.name);
+                    $('#province').val(data.province);
+                    $('#city').val(data.city);
+                    $('#region').val(data.region);
+                    $('#category').val(data.profile.category);
+                    $('#type').val(data.profile.type);
+                    $('#curriculum').val(data.profile.curriculum);
+                    $('#size').val(data.profile.size);
+                    $('#status').val(data.profile.status);
+                    $('#address').val(data.profile.address);
+                    $('#website').val(data.profile.website);
+                    $('#supplement').val(data.profile.supplement);
+                }
+            })
+        }
+    });
+    function logout() {
+        $.cookie('user', 'not login');
+        $.cookie('id', 'not login');
+        location.href = 'index.html';
+    }
+    function save() {
+        name, province, region, city, profile
+
+
+
+        var name = $('#name').val();
+        var province = $('#province').val();
+        var city = $('#city').val();
+        var region = $('#region').val();
+
+        var profile = {};
+            profile.category = $('#category').val();
+            profile.type = $('#type').val();
+            profile.curriculum = $('#curriculum').val();
+            profile.size = $('#size').val();
+            profile.status = $('#status').val();
+            profile.address = $('#address').val();
+            profile.website = $('#website').val();
+            profile.supplement = $('#supplement').val();
+        if (localStorage['school']) {
+            
+        } else {
+            $.ajax({
+                url: "http://api.youthimpactchina.com/crm/school/create",
+                method: "POST",
+                data: {
+                    name: name, province: province, region: region, city: city,
+                    profile: JSON.stringify(profile)
+                },
+                success: function(data) {
+                    alert(data);
+                    location.href = "schools.html";
+                }
+            })
+        }
+    }
+    // let {type, status, purpose, note, senderID, schoolID, projectID, teacherID}
+    function profile() {
+        location.href = "region.html";
+
+    }
+    </script>
+</body>
+
+</html>

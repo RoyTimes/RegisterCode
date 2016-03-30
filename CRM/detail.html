@@ -62,7 +62,10 @@
         </nav>
     </div>
     <div class="card info_seg" >
-        <div class="seg_header">基本信息</div><br/><br/>
+        <div class="seg_header">
+            基本信息
+            <a class="waves-effect blue lighten-2 btn" style="float: right;font-size: 12pt;" href="add_school.html">new</a>
+        </div><br/><br/>
         <table class="highlight">
             <thead>
                 <tr>
@@ -138,7 +141,6 @@
                     <th data-field="Project"><span class="res_header">项目</span></th>
                     <th data-field="Aim"><span class="res_header">目的</span></th>
                     <th data-field="Note"><span class="res_header">笔记</span></th>
-                    <th data-field="Change"><span class="res_header">修改</span></th>
                 </tr>
             </thead>
             <tbody id="Record"></tbody>
@@ -155,10 +157,16 @@
     </footer>
     <script src="http://cdn.bootcss.com/jquery/2.2.0/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/materialize/0.97.5/js/materialize.min.js"></script>
+    <script src="assets/js/jquery.cookie.js"></script>
     <script type="text/javascript">
     function redirect (id) {
         localStorage['teacher'] = id;
         location.href = 'contactdetail.html';
+    }
+    function logout() {
+        $.cookie('user', 'not login');
+        $.cookie('id', 'not login');
+        location.href = 'index.html';
     }
 
     function addBasicInfo1(school) {
@@ -232,7 +240,7 @@
       for (var i in school.school_cases) {
 
         HTMLContent = HTMLContent +
-            "<tr>" +
+            "<tr onclick=change(\'" + school.school_cases[i]._id + "\')>" +
               "<td class='res_header'>" + school.school_cases[i].time + "</td>" +
               "<td class='res_header'>" + school.school_cases[i].type +"</td>" +
               "<td class='res_header'>" + school.school_cases[i].status + "</td>" +
@@ -264,6 +272,7 @@
                 id: getSchoolID
             },
             success: function(data) {
+
                 addBasicInfo1(data);
                 addBasicInfo2(data);
                 addBasicInfo3(data);
@@ -272,7 +281,10 @@
             }
         });
     });
-
+    function change(id) {
+        localStorage['case'] = id;
+        location.href = "add_case.html";
+    }
     function profile() {
         location.href = "region.html";
 

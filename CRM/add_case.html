@@ -132,10 +132,30 @@
     </footer>
     <script src="http://cdn.bootcss.com/jquery/2.2.0/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/materialize/0.97.5/js/materialize.min.js"></script>
+    <script src="assets/js/jquery.cookie.js"></script>
     <script type="text/javascript">
+    function addRecord(school) {
+      var HTMLContent = document.getElementById('Record').innerHTML;
+      for (var i in school.school_cases) {
+
+        HTMLContent = HTMLContent +
+            "<tr onclick=change(\'" + school.school_cases[i]._id + "\')>" +
+              "<td class='res_header'>" + school.school_cases[i].time + "</td>" +
+              "<td class='res_header'>" + school.school_cases[i].type +"</td>" +
+              "<td class='res_header'>" + school.school_cases[i].status + "</td>" +
+              "<td class='res_header'>" + school.school_cases[i].teacher.name + "</td>" +
+              "<td class='res_header'>" + school.school_cases[i].sender.name + "</td>" +
+              "<td class='res_header'>" + school.school_cases[i].project.name + " | "+ school.school_cases[i].project.year + "</td>" +
+              "<td class='res_header'>" + school.school_cases[i].purpose +"</td>" +
+              "<td class='res_header'>" + school.school_cases[i].note +"</td>" +
+            "</tr>"
+        document.getElementById('Record').innerHTML = HTMLContent;
+      }
+    }
     $(document).ready(function() {
         var pickColor = "rgb(151,205,251)";
         document.body.style.background = "-webkit-gradient(linear, 0% 0%, 0% 100%,from(#639AC8), to(" + pickColor + "))"
+
         $.ajax({
             url: "http://api.youthimpactchina.com/project/all",
             method: "GET",
@@ -157,12 +177,36 @@
                             HTMLContent = HTMLContent + '<option value="'+ data.teachers[item]._id +'">'+ data.teachers[item].name + " | " + data.teachers[item].profile.position +'</option>';
                         }
                         $("#teacher").html(HTMLContent);
-                        $('select').material_select();
+                        if (localStorage['case'] !== undefined) {
+
+                            $.ajax({
+                                url: "http://api.youthimpactchina.com/crm/case",
+                                method: "GET",
+                                data: {
+                                    id: localStorage['case']
+                                },
+                                success: function(data) {
+                                    $('#type').val(data.type);
+                                    $('#status').val(data.status);
+                                    $('#purpose').val(data.purpose);
+                                    $('#teacher').val(data.teacher._id);
+                                    $('#project').val(data.project);
+                                    $('#note').val(data.note);
+                                    $('select').material_select();
+                                }
+                            })
+                        } else $('select').material_select();
+
                     }
                 })
             }
         });
     });
+    function logout() {
+        $.cookie('user', 'not login');
+        $.cookie('id', 'not login');
+        location.href = 'index.html';
+    }
     function save() {
         var type = $('#type').val();
         var status = $('#status').val();

@@ -62,7 +62,7 @@
         document.getElementById('login').addEventListener("click", loginFun, false);
 
         $(document).ready(function() {
-            if ($.cookie('user')) location.href = "admin.html";
+            if ($.cookie('user') && $.cookie('user') !== 'not longin') location.href = "admin.html";
         });
 
         function loginFun(evt) {

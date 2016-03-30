@@ -17,31 +17,31 @@
         padding: 20px;
         background-color: white;
     }
-    
+
     .submit_btn {
         margin-left: 80px;
         margin-bottom: 80px;
     }
-    
+
     .seg_header {
         padding: 10px;
         font-size: 15pt;
         color: rgb(90, 90, 90);
     }
-    
+
     .res_header {
         padding: 10px;
         padding-left: 0px;
         font-size: 13pt;
         color: rgb(110, 110, 110);
     }
-    
+
     .description {
         padding: 10px;
         font-size: 12pt;
         color: rgb(110, 110, 110);
     }
-    
+
     .breadcrumb:last-child {
         color: rgba(255, 255, 255, 0.7)
     }
@@ -65,13 +65,13 @@
 
         <br/>
         <div class="seg_header" style="text-align: center;font-size: 25pt;padding-top: 10px;">
-            Welcome to Customer Relationship Management (CRM)    
+            Welcome to Customer Relationship Management (CRM)
         </div>
         <br/>
         <br/>
-    
+
         <div class="seg_header">
-            As the school administer, you have access to all relevant educational resources and communication portals. 
+            As the school administer, you have access to all relevant educational resources and communication portals.
         </div>
         <br/>
 
@@ -84,7 +84,7 @@
         Curriculum &amp; Resources<br/>
 
         <div class="res_header">Connect to international curriculum and competitions in multiple disciplines, winning precious opportunities for your students and strong competitiveness for your school. Should you have any questions, please contact our school consultant.</div><br/><br/>
-    </div> 
+    </div>
     <!-- <a href="basic.html" class="waves-effect waves-light btn-large submit_btn tooltipped" data-position="right" data-tooltip="Go on to the next section!">Next</a> -->
     <footer class="page-footer" style="background-color:rgba(255,255,255,0)">
         </div>
@@ -96,6 +96,7 @@
     </footer>
     <script src="http://cdn.bootcss.com/jquery/2.2.0/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/materialize/0.97.5/js/materialize.min.js"></script>
+    <script src="assets/js/jquery.cookie.js"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         var pickColor = "rgb(151,205,251)";
@@ -106,6 +107,12 @@
             delay: 0
         });
     });
+    function logout() {
+        $.cookie('user', 'not login');
+        $.cookie('id', 'not login');
+        location.href = 'index.html';
+    }
+
     function profile() {
         location.href = "region.html";
 
