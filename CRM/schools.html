@@ -69,14 +69,15 @@
    <table class="highlight">
         <thead>
           <tr>
+              <th data-field="Sequence"><span class="res_header">序号</span></th>
               <th data-field="Province"><span class="res_header">省份</span></th>
               <th data-field="City"><span class="res_header">城市</span></th>
               <th data-field="School"><span class="res_header">学校名称</span></th>
               <th data-field="School_type"><span class="res_header">学校类型</span></th>
+              <th data-field="Founding_time"><span class="res_header">成立时间</span></th>
               <th data-field="Number"><span class="res_header">每届人数</span></th>
-              <th data-field="Status"><span class="res_header">开发状态</span></th>
-              <th data-field="Status"><span class="res_header">删除</span></th>
-
+              <th data-field="ContactNo"><span class="res_header">老师数量</span></th>
+              <!--<th data-field="Status"><span class="res_header">开发状态</span></th>-->
           </tr>
         </thead>
 
@@ -105,16 +106,20 @@
         localStorage['school'] = id;
         location.href = "detail.html";
     }
-    function addSchool (school) {
+    function addSchool (sequence,school) {
         var HTMLContent = document.getElementById('content').innerHTML;
         HTMLContent = HTMLContent +
             "<tr onclick=change_page('"+ school._id +"')>" +
+            "<td><span class='res_header'>" + sequence + "</span></td>" +
             "<td><span class='res_header'>" + school.province + "</span></td>" +
             "<td><span class='res_header'>" + school.city + "</span></td>" +
             "<td><span class='res_header'>" + school.name + "</span></td>" +
-            "<td><span class='res_header'>" + (school.profile.type?school.profile.type:"Unknown")  + "</span></td>" +
-            "<td><span class='res_header'>" + (school.profile.size?school.profile.size:"Unknown") + "</span></td>" +
-            "<td><span class='res_header'>" + (school.profile.status?school.profile.status:"Unknown") + "</span></td></tr>" ;
+            "<td><span class='res_header'>" + (school.profile.type?school.profile.type:"未知")  + "</span></td>" +
+            "<td><span class='res_header'>" + (school.profile.founding_time?school.profile.founding_time:"未知")  + "</span></td>" +
+            "<td><span class='res_header'>" + (school.profile.size?school.profile.size:"未知") + "</span></td>" +
+            "<td><span class='res_header'>" + (school.teachers?school.teachers.length:"0") + "</span></td>";
+
+            //"<td><span class='res_header'>" + (school.profile.status?school.profile.status:"Unknown") + "</span></td></tr>" ;
         document.getElementById('content').innerHTML = HTMLContent;
     }
     $(document).ready(function() {
@@ -129,8 +134,13 @@
             },
             success: function(data) {
                 // console.log(data);
+                var sequence = 1;
                 for (var item in data ) {
-                    addSchool(data[item]);
+                    if (data[item].profile.type == "国际部-英美") {
+                        addSchool(sequence,data[item]);
+                        sequence ++;
+                    };
+            
                 }
             }
         });

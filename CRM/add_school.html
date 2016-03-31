@@ -85,6 +85,10 @@
                 <input placeholder="课程类型" id="curriculum" type="text" class="validate">
                 <label for="curriculum">课程类型</label>
             </div>
+            <div class="input-field col s12 m4">
+                <input placeholder="成立时间" id="founding_time" type="text" class="validate">
+                <label for="founding_time">成立时间</label>
+            </div>
         </div>
         <div class="row">
             <div class="input-field col s12 m5">
@@ -164,6 +168,7 @@
                     $('#address').val(data.profile.address);
                     $('#website').val(data.profile.website);
                     $('#supplement').val(data.profile.supplement);
+                    $('#founding_time').val(data.profile.founding_time);
                 }
             })
         }
@@ -187,6 +192,7 @@
             profile.address = $('#address').val();
             profile.website = $('#website').val();
             profile.supplement = $('#supplement').val();
+            profile.founding_time = $('#founding_time').val();
         if (localStorage['school'] && localStorage['school'] != 'new') {
             $.ajax({
                 url: "http://api.youthimpactchina.com/crm/school/update",
