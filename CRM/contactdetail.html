@@ -427,7 +427,7 @@
     function del() {
         if (localStorage['teacher'] != undefined &&
             localStorage['teacher'] != 'new') {
-                alert(localStorage['case']);
+                alert(localStorage['teacher']);
                 $.ajax({
                     url: "http://api.youthimpactchina.com/crm/del/teacher",
                     method: "POST",
