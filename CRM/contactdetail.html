@@ -101,6 +101,7 @@
                     <option value="团委书记">团委书记</option>
                     <option value="升学指导">升学指导</option>
                     <option value="活动指导">活动指导</option>
+                    <option value="招生老师">招生老师</option>
                     <option value="任课老师">任课老师</option>
                     <option value="不详">不详</option>
                 </select>
@@ -284,13 +285,14 @@
 	}
     function addRecord(casecase) {
       var HTMLContent = document.getElementById('Record').innerHTML;
+        var creatDate = new Date(casecase.time);
         HTMLContent = HTMLContent +
             "<tr onclick=change(\'" + casecase._id + "\')>" +
-              "<td class='res_header'>" + casecase.time + "</td>" +
+              "<td class='res_header'>" + (creatDate.getMonth()+1)+'-'+creatDate.getDate()  + "</td>" +
               "<td class='res_header'>" + casecase.type +"</td>" +
               "<td class='res_header'>" + casecase.status + "</td>" +
-              "<td class='res_header'>" + casecase.teacher.name + "</td>" +
-              "<td class='res_header'>" + casecase.sender.name + "</td>" +
+              "<td class='res_header'>" + casecase.teacher.profile.first_name+ casecase.teacher.profile.given_name  + "</td>" +
+              "<td class='res_header'>" + casecase.sender.last_name + casecase.sender.given_name + "</td>" +
               "<td class='res_header'>" + casecase.project.name + " | "+ casecase.project.year + "</td>" +
               "<td class='res_header'>" + casecase.purpose +"</td>" +
               "<td class='res_header'>" + casecase.note +"</td>" +
