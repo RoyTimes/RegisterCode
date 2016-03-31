@@ -285,9 +285,10 @@
 	}
     function addRecord(casecase) {
       var HTMLContent = document.getElementById('Record').innerHTML;
+        var creatDate = new Date(casecase.time);
         HTMLContent = HTMLContent +
             "<tr onclick=change(\'" + casecase._id + "\')>" +
-              "<td class='res_header'>" + casecase.time + "</td>" +
+              "<td class='res_header'>" + (creatDate.getMonth()+1)+'-'+creatDate.getDate()  + "</td>" +
               "<td class='res_header'>" + casecase.type +"</td>" +
               "<td class='res_header'>" + casecase.status + "</td>" +
               "<td class='res_header'>" + casecase.teacher.profile.first_name+ casecase.teacher.profile.given_name  + "</td>" +
