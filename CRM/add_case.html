@@ -176,7 +176,7 @@
                         var HTMLContent = "";
                         HTMLContent = HTMLContent  + "<option value='' disabled selected>联系老师</option>";
                         for (var item in data.teachers) {
-                            HTMLContent = HTMLContent + '<option value="'+ data.teachers[item]._id +'">'+ data.teachers[item].profile.first_name +data.teachers[item].profile.given_name+ " | " + data.teachers[item].profile.position +'</option>';
+                            HTMLContent = HTMLContent + '<option value="'+ data.teachers[item]._id +'">'+ data.teachers[item].profile.given_name+ data.teachers[item].profile.first_name +" | " + data.teachers[item].profile.position +'</option>';
                         }
                         $("#teacher").html(HTMLContent);
                         if (localStorage['case'] !== undefined && localStorage['case']!='new') {
