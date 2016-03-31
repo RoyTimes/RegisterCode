@@ -129,7 +129,7 @@
     <div class="card info_seg" style="font-size: 15pt;">
         <div class="seg_header">
             学校交互纪录
-            <a class="waves-effect blue lighten-2 btn" style="float: right;font-size: 12pt;" href="add_case.html">new</a>
+            <a class="waves-effect blue lighten-2 btn" style="float: right;font-size: 12pt;" onclick="add_new_case()">new</a>
         </div>
 
         <table class="highlight">
@@ -291,6 +291,10 @@
     function profile() {
         location.href = "region.html";
 
+    }
+    function add_new_case() {
+        localStorage['case'] = 'new';
+        location.href = "add_case.html";
     }
     </script>
 </body>
