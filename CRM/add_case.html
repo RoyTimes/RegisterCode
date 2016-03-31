@@ -233,6 +233,7 @@
         var note = $('#note').val();
         var getUserId = $.cookie('id');
 
+        localStorage['teacher'] = teacher;
         if (localStorage['case'] != undefined && localStorage['case'] != 'new') {
             $.ajax({
                 url: "http://api.youthimpactchina.com/crm/school/case/update",
