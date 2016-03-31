@@ -194,7 +194,7 @@
             "<td class='res_header'>" + school.city + "</td>" +
             "<td class='res_header'>" + school.profile.address + "</td>" +
             "<td class='res_header'>" + school.profile.website + "</td>" +
-            "<td class='res_header'>" + school.profile.telephone + "</td>" +
+            
             "<td class='res_header'>" + school.profile.partner + "</td>" +
             "<td class='res_header'>" + school.profile.founding_time + "</td>" +
             "</tr>"
@@ -206,6 +206,7 @@
         var HTMLContent = document.getElementById('Basic_info3').innerHTML;
         HTMLContent = HTMLContent +
             "<tr>" +
+            "<td class='res_header'>" + school.profile.telephone + "</td>" +
             "<td class='res_header'>" + (school.profile.supplement ? school.profile.supplement : "Unknown") + "</td>" +
             "</tr>"
         document.getElementById('Basic_info3').innerHTML = HTMLContent;
