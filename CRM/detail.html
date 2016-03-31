@@ -241,7 +241,7 @@
     function addRecord(cases) {
       var HTMLContent = document.getElementById('Record').innerHTML;
       for (var i in cases) {
-        var creatDate = new Date(school.school_cases[i].time);
+        var creatDate = new Date(cases[i].time);
         HTMLContent = HTMLContent +
             "<tr onclick=change(\'" + cases[i]._id + "\')>" +
               "<td class='res_header'>" + (creatDate.getMonth()+1)+'-'+creatDate.getDate()  + "</td>" +
