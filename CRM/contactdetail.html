@@ -426,18 +426,20 @@
     }
     function del() {
         if (localStorage['case'] != undefined &&
-            localStorage['case'] != 'new')
-        $.ajax({
-            url: "http://api.youthimpactchina.com/crm/del/teacher",
-            method: "POST",
-            data: {
-                id: localStorage['case']
-            },
-            success: function(data) {
-                alert("data");
-                location.href = "detail.html";
+            localStorage['case'] != 'new') {
+                alert(localStorage['case']);
+                $.ajax({
+                    url: "http://api.youthimpactchina.com/crm/del/teacher",
+                    method: "POST",
+                    data: {
+                        id: localStorage['case']
+                    },
+                    success: function(data) {
+                        alert("data");
+                        location.href = "detail.html";
+                    }
+                })
             }
-        })
     }
     function change(id) {
         localStorage['case'] = id;
