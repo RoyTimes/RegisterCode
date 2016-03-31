@@ -123,6 +123,10 @@
                 <input placeholder="学校网址" id="website" type="text" class="validate">
                 <label for="website">学校网址</label>
             </div>
+            <div class="input-field col s12 m5">
+                <input placeholder="学校电话" id="telephone" type="text" class="validate">
+                <label for="website">学校电话</label>
+            </div>
         </div>
         <div class="row">
             <div class="input-field col s12 m12">
@@ -167,6 +171,7 @@
                     $('#status').val(data.profile.status);
                     $('#address').val(data.profile.address);
                     $('#website').val(data.profile.website);
+                    $('#telephone').val(data.profile.telephone);
                     $('#supplement').val(data.profile.supplement);
                     $('#founding_time').val(data.profile.founding_time);
                 }
@@ -191,6 +196,7 @@
             profile.status = $('#status').val();
             profile.address = $('#address').val();
             profile.website = $('#website').val();
+            profile.telephone = $('#telephone').val();
             profile.supplement = $('#supplement').val();
             profile.founding_time = $('#founding_time').val();
         if (localStorage['school'] && localStorage['school'] != 'new') {
