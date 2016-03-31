@@ -425,18 +425,18 @@
 
     }
     function del() {
-        if (localStorage['case'] != undefined &&
-            localStorage['case'] != 'new') {
+        if (localStorage['teacher'] != undefined &&
+            localStorage['teacher'] != 'new') {
                 alert(localStorage['case']);
                 $.ajax({
                     url: "http://api.youthimpactchina.com/crm/del/teacher",
                     method: "POST",
                     data: {
-                        id: localStorage['case']
+                        id: localStorage['teacher']
                     },
                     success: function(data) {
-                        alert("data");
-                        // location.href = "detail.html";
+                        alert(data);
+                        location.href = "detail.html";
                     }
                 })
             }
