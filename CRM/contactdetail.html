@@ -65,6 +65,8 @@
         <div class="seg_header">
             基本信息
             <a class="waves-effect blue lighten-2 btn" style="float: right;font-size: 12pt;" onclick="save();">save</a>
+            <a class="waves-effect blue lighten-2 btn" style="float: right;font-size: 12pt;margin-left:20px" onclick="del();">delate</a>
+
         </div>
         <br/>
         <br/>
@@ -421,6 +423,21 @@
             })
         }
 
+    }
+    function del() {
+        if (localStorage['case'] != undefined &&
+            localStorage['case'] != 'new')
+        $.ajax({
+            url: "http://api.youthimpactchina.com/crm/del/teacher",
+            method: "POST",
+            data: {
+                id: localStorage['case']
+            },
+            success: function(data) {
+                alert("data");
+                location.href = "detail.html";
+            }
+        })
     }
     function change(id) {
         localStorage['case'] = id;
