@@ -183,7 +183,7 @@
       for (var i in cases) {
         var creatDate = new Date(cases[i].time);
         HTMLContent = HTMLContent +
-            "<tr onclick=change(\'" + JSON.stirngify({
+            "<tr onclick=change(\'" + JSON.stringify({
                     case: cases[i]._id,
                     school: cases[i].school._id
                 })+ "\')>" +
