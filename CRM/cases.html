@@ -181,6 +181,11 @@
     function addRecord(cases) {
       var HTMLContent = document.getElementById('Record').innerHTML;
       for (var i in cases) {
+        if (cases[i].teacher == null) {
+            continue;
+
+        }else{
+            console.log(cases[i].teacher);
         var creatDate = new Date(cases[i].time);
         HTMLContent = HTMLContent +
             "<tr onclick=change(\'" + JSON.stringify({
@@ -198,7 +203,10 @@
               "<td class='res_header' style='width:10%'>" + cases[i].purpose +"</td>" +
               "<td class='res_header' style='width:30%'>" + cases[i].note +"</td>"+
             "</tr>"
-        document.getElementById('Record').innerHTML = HTMLContent;
+            document.getElementById('Record').innerHTML = HTMLContent;
+
+
+        }
       }
 
     }
@@ -216,6 +224,8 @@
             url: "http://api.youthimpactchina.com/crm/case/by_time",
             method: "GET",
             success: function(data) {
+    
+
                 addRecord(data);
             }
         });
