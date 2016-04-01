@@ -181,6 +181,9 @@
     function addRecord(cases) {
       var HTMLContent = document.getElementById('Record').innerHTML;
       for (var i in cases) {
+        if (cases[i].teacher == null) {
+            continue;
+        }
         var creatDate = new Date(cases[i].time);
         HTMLContent = HTMLContent +
             "<tr onclick=change(\'" + JSON.stringify({
@@ -216,6 +219,8 @@
             url: "http://api.youthimpactchina.com/crm/case/by_time",
             method: "GET",
             success: function(data) {
+    
+
                 addRecord(data);
             }
         });
