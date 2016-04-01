@@ -183,16 +183,11 @@
       for (var i in cases) {
         var creatDate = new Date(cases[i].time);
         HTMLContent = HTMLContent +
-<<<<<<< HEAD
-            "<tr onclick=change(\'" + cases[i]._id + "\')>" +
-              "<td class='res_header'>" + (creatDate.getMonth()+1)+'-'+creatDate.getDate() + "&nbsp" + creatDate.getHours()+':'+creatDate.getMinutes()  + "</td>" +
-=======
             "<tr onclick=change(\'" + JSON.stirngify({
                     case: cases[i]._id,
                     school.cases[i].school._id
                 })+ "\')>" +
-              "<td class='res_header'>" + (creatDate.getMonth()+1)+'-'+creatDate.getDate()  + "</td>" +
->>>>>>> e483560d51739bd0e2d423c13b5208e04c13d6a6
+              "<td class='res_header'>" + (creatDate.getMonth()+1)+'-'+creatDate.getDate() + "&nbsp" + creatDate.getHours()+':'+creatDate.getMinutes()  + "</td>" +
               "<td class='res_header'>" + cases[i].type +"</td>" +
 
               "<td class='res_header'>" + cases[i].status + "</td>" +
