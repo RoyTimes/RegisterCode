@@ -102,11 +102,21 @@
  <div class="row blue-text text-darken-2">
 
      <div class="input-field col s12 m4">
-         <select id="teacher"></select>
+         <select id="teacher" onchange="changeRelationship()"></select>
      </div>
 
      <div class="input-field col s12 m4">
          <select id="project"></select>
+     </div>
+
+     <div class="input-field col s12 m4">
+         <select id="relationship">
+            <option value="支持">支持</opition>
+            <option value="中立">中立</opition>
+            <option value="反对">反对</opition>
+            <option value="封闭">封闭</opition>
+            <option value="不详">不详</opition>
+         </select>
      </div>
  </div>
 
@@ -178,7 +188,8 @@
                         var HTMLContent = "";
                         HTMLContent = HTMLContent  + "<option value='' disabled selected>联系老师</option>";
                         for (var item in data.teachers) {
-                            HTMLContent = HTMLContent + '<option value="'+ data.teachers[item]._id +'">'+ data.teachers[item].profile.given_name+ data.teachers[item].profile.first_name +" | " + data.teachers[item].profile.position +'</option>';
+                            HTMLContent = HTMLContent + '<option value="'+ JSON.stringify(
+                                data.teachers[item] )+'">'+ data.teachers[item].profile.given_name+ data.teachers[item].profile.first_name +" | " + data.teachers[item].profile.position +'</option>';
                         }
                         $("#teacher").html(HTMLContent);
                         if (localStorage['case'] !== undefined && localStorage['case']!='new') {
@@ -226,14 +237,27 @@
         $.cookie('user', 'no');
         location.href = 'index.html';
     }
+
+    function changeRelationship(){
+        var getTeacher = JSON.parse($("#teacher").val());
+        $("relationship").val(getTeacher.profile.relationship);
+        $('select').material_select('destroy');
+        $('select').material_select();
+
+        // 应该是好了
+    }
     function save() {
         var type = $('#type').val();
         var status = $('#status').val();
         var purpose = $('#purpose').val();
-        var teacher = $('#teacher').val();
+        var relationship = $('#relationship').val();
+        var teacher = JSON.parse($('#teacher').val())._id;
         var project = $('#project').val();
         var note = $('#note').val();
         var getUserId = $.cookie('id');
+
+        var TeacherProfle = JSON.parse($('#teacher').val());
+        TeacherProfle.profile.relationship = $('#relationship').val();
 
         localStorage['teacher'] = teacher;
         if (localStorage['case'] != undefined && localStorage['case'] != 'new') {
@@ -246,6 +270,19 @@
                 },
                 success: function(data) {
                     alert(data);
+                    $.ajax({
+                        url: "http://api.youthimpactchina.com/crm/teacher/profile/update",
+                        method: "POST",
+                        data: {
+                            id: teacher,
+                            profile: TeacherProfle,
+                            email: $('#email').val()
+                        },
+                        success: function(data) {
+                            alert(data);
+                        }
+                    })
+                    // 大概是这个样子。我没测试
                     // location.href = "contactdetail.html";
                 }
             });
