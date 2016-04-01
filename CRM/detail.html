@@ -195,7 +195,7 @@
             "<td class='res_header'>" + school.city + "</td>" +
             "<td class='res_header'>" + school.profile.address + "</td>" +
             "<td class='res_header'>" + school.profile.website + "</td>" +
-            
+
             "<td class='res_header'>" + school.profile.partner + "</td>" +
             "<td class='res_header'>" + school.profile.founding_time + "</td>" +
             "</tr>"
@@ -263,6 +263,9 @@
     }
 
     $(document).ready(function() {
+        if (!$.cookie('user') || $.cookie('user') == "no" || !$.cookie('id')) {
+            location.href = "index.html";
+        }
         var pickColor = "rgb(151,205,251)";
         document.body.style.background = "-webkit-gradient(linear, 0% 0%, 0% 100%,from(#639AC8), to(" + pickColor + "))"
 

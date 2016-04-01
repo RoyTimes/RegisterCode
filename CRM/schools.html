@@ -124,7 +124,9 @@
         document.getElementById('content').innerHTML = HTMLContent;
     }
     $(document).ready(function() {
-
+        if (!$.cookie('user') || $.cookie('user') == "no" || !$.cookie('id')) {
+            location.href = "index.html";
+        }
         var getLocation = localStorage['to'];
         localStorage['school'] = "new";
         $.ajax({
@@ -141,7 +143,7 @@
                         addSchool(sequence,data[item]);
                         sequence ++;
                     };
-            
+
                 }
             }
         });
