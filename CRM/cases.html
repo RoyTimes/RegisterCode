@@ -187,16 +187,16 @@
                     case: cases[i]._id,
                     school: cases[i].school._id
                 })+ "\')>" +
-              "<td class='res_header'>" + (creatDate.getMonth()+1)+'-'+creatDate.getDate() + "&nbsp" + creatDate.getHours()+':'+creatDate.getMinutes()  + "</td>" +
-              "<td class='res_header'>" + cases[i].type +"</td>" +
+              "<td class='res_header' style='width:12%'>" + (creatDate.getMonth()+1)+'-'+creatDate.getDate() + "&nbsp" + creatDate.getHours()+':'+creatDate.getMinutes()  + "</td>" +
+              "<td class='res_header' style='width:10%'>" + cases[i].type +"</td>" +
 
-              "<td class='res_header'>" + cases[i].status + "</td>" +
-              "<td class='res_header'>" + cases[i].school.name +"</td>" +
-              "<td class='res_header'>"  + cases[i].teacher.profile.given_name+ cases[i].teacher.profile.first_name + "</td>" +
-              "<td class='res_header'>" + cases[i].sender.last_name +cases[i].sender.given_name +  "</td>" +
-              "<td class='res_header'>" + cases[i].project.name + " | "+ cases[i].project.year + "</td>" +
-              "<td class='res_header'>" + cases[i].purpose +"</td>" +
-              "<td class='res_header' style='width:40%'>" + cases[i].note +"</td>"+
+              "<td class='res_header' style='width:10%'>" + cases[i].status + "</td>" +
+              "<td class='res_header' style='width:15%'>" + cases[i].school.name +"</td>" +
+              "<td class='res_header' style='width:auto'>"  + cases[i].teacher.profile.given_name+ cases[i].teacher.profile.first_name + "</td>" +
+              "<td class='res_header' style='width:10%'>" + cases[i].sender.last_name +cases[i].sender.given_name +  "</td>" +
+              "<td class='res_header' style='width:15%'>" + cases[i].project.name + " | "+ cases[i].project.year + "</td>" +
+              "<td class='res_header' style='width:10%'>" + cases[i].purpose +"</td>" +
+              "<td class='res_header' style='width:30%'>" + cases[i].note +"</td>"+
             "</tr>"
         document.getElementById('Record').innerHTML = HTMLContent;
       }
