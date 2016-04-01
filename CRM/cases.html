@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>CRM | School Detail</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="http://cdn.bootcss.com/material-design-icons/2.2.0/iconfont/material-icons.css" rel="stylesheet">
+    <link href="http://cdn.bootcss.com/materialize/0.97.5/css/materialize.min.css" rel="stylesheet" media="screen,projection">
+    <style type="text/css">
+    .info_seg {
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-top: 7%;
+        margin-bottom: 7%;
+        padding: 20px;
+        background-color: white;
+    }
+
+    .submit_btn {
+        margin-left: 80px;
+        margin-bottom: 80px;
+    }
+
+    .seg_header {
+        padding: 10px;
+        font-size: 15pt;
+        color: rgb(90, 90, 90);
+    }
+
+    .res_header {
+        padding: 10px;
+        padding-left: 0px;
+        font-size: 13pt;
+        color: rgb(110, 110, 110);
+    }
+
+    .description {
+        padding: 10px;
+        font-size: 12pt;
+        color: rgb(110, 110, 110);
+    }
+
+    .breadcrumb:last-child {
+        color: rgba(255, 255, 255, 0.7)
+    }
+    </style>
+</head>
+
+<body>
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper" style="background-color: rgb(105,165,237)">
+                <a href="index.html" style="padding-left:3%;font-size:15pt;text-decoration:none;">客户关系管理系统(CRM)</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li style="font-size: 35pt;"><a onclick="profile();">学校资料</a></li>
+                    <li style="font-size: 35pt;"><a onclick="explore();">报名表</a></li>
+                    <li style="font-size: 35pt;"><a onclick="logout();">登出</a></li>
+
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <div class="card info_seg" style="font-size: 15pt;">
+        <div class="seg_header">
+            学校交互纪录
+            <a class="waves-effect blue lighten-2 btn" style="float: right;font-size: 12pt;" onclick="add_new_case()">new</a>
+        </div>
+
+        <table class="highlight">
+            <thead>
+                <tr>
+                    <th data-field="Date"><span class="res_header">日期</span></th>
+                    <th data-field="Type"><span class="res_header">类型</span></th>
+                    <th data-field="Status"><span class="res_header">状态</span></th>
+                    <th data-field="Contact"><span class="res_header">联系人</span></th>
+                    <th data-field="Worker"><span class="res_header">发起人</span></th>
+                    <th data-field="Project"><span class="res_header">项目</span></th>
+                    <th data-field="Aim"><span class="res_header">目的</span></th>
+                    <th data-field="Note"><span class="res_header">笔记</span></th>
+                </tr>
+            </thead>
+            <tbody id="Record"></tbody>
+        </table>
+    </div>
+    <!-- <a href="basic.html" class="waves-effect waves-light btn-large submit_btn tooltipped" data-position="right" data-tooltip="Go on to the next section!">Next</a> -->
+    <footer class="page-footer" style="background-color:rgba(255,255,255,0)">
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2016 Youth Impact China
+                <a class="grey-text text-lighten-4 right" target="_blank" href="http://soe-awards.cn">Offcial Site</a>
+            </div>
+    </footer>
+    <script src="http://cdn.bootcss.com/jquery/2.2.0/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/materialize/0.97.5/js/materialize.min.js"></script>
+    <script src="assets/js/jquery.cookie.js"></script>
+    <script type="text/javascript">
+    function redirect (id) {
+        localStorage['teacher'] = id;
+        location.href = 'contactdetail.html';
+    }
+    function logout() {
+        $.cookie('user', 'no');
+        location.href = 'index.html';
+    }
+
+    function addBasicInfo1(school) {
+        var HTMLContent = document.getElementById('Basic_info1').innerHTML;
+        HTMLContent = HTMLContent +
+            "<tr>" +
+            "<td class='res_header'>" + school.name + "</td>" +
+            "<td class='res_header'>" + school.profile.category + "</td>" +
+            "<td class='res_header'>" + school.profile.type + "</td>" +
+            "<td class='res_header'>" + school.profile.curriculum + "</td>" +
+            "<td class='res_header'>" + school.profile.size + "</td>" +
+            "<td class='res_header'>" + school.status + "</td>" +
+            "</tr>"
+        document.getElementById('Basic_info1').innerHTML = HTMLContent;
+
+    }
+
+    function addBasicInfo2(school) {
+        var HTMLContent = document.getElementById('Basic_info2').innerHTML;
+        HTMLContent = HTMLContent +
+            "<tr>" +
+            "<td class='res_header'>" + school.province + "</td>" +
+            "<td class='res_header'>" + school.city + "</td>" +
+            "<td class='res_header'>" + school.profile.address + "</td>" +
+            "<td class='res_header'>" + school.profile.website + "</td>" +
+            
+            "<td class='res_header'>" + school.profile.partner + "</td>" +
+            "<td class='res_header'>" + school.profile.founding_time + "</td>" +
+            "</tr>"
+        document.getElementById('Basic_info2').innerHTML = HTMLContent;
+
+    }
+
+    function addBasicInfo3(school) {
+        var HTMLContent = document.getElementById('Basic_info3').innerHTML;
+        HTMLContent = HTMLContent +
+            "<tr>" +
+            "<td class='res_header'>" + school.profile.telephone + "</td>" +
+            "<td class='res_header'>" + (school.profile.supplement ? school.profile.supplement : "Unknown") + "</td>" +
+            "</tr>"
+        document.getElementById('Basic_info3').innerHTML = HTMLContent;
+
+    }
+
+
+    function addContact(school) {
+        var HTMLContent = document.getElementById('Contact').innerHTML;
+        for (var i in school.teachers) {
+
+            HTMLContent = HTMLContent +
+                "<tr onclick=redirect(\'"+ school.teachers[i]._id +"\')>" +
+                "<td class='res_header'>" + school.teachers[i].profile.position + "</td>" +
+                "<td class='res_header'>" + school.teachers[i].profile.given_name + "</td>" +
+                "<td class='res_header'>" + school.teachers[i].profile.first_name  + "</td>" +
+                "<td class='res_header'>" + school.teachers[i].profile.prefix + "</td>" +
+                "<td class='res_header'>" + school.teachers[i].profile.role + "</td>" +
+                "<td class='res_header'>" + school.teachers[i].profile.mobile + "</td>" +
+                "<td class='res_header'>" + school.teachers[i].profile.telephone + "</td>" +
+                "<td class='res_header'>" + school.teachers[i].email + "</td>" +
+                "<td class='res_header'>" + school.teachers[i].profile.qq + "</td>" +
+                "<td class='res_header'>" + school.teachers[i].profile.relationship + "</td>" +
+                "<td class='res_header'>" + school.teachers[i].profile.relationship + "</td>" +
+                "</tr>"
+            document.getElementById('Contact').innerHTML = HTMLContent;
+        }
+
+    }
+    function add_new() {
+        localStorage['teacher'] = 'new';
+        location.href = 'contactdetail.html';
+    }
+    //这边是学校交互纪录的东西，274行有那个function
+    function addRecord(cases) {
+      var HTMLContent = document.getElementById('Record').innerHTML;
+      for (var i in cases) {
+        var creatDate = new Date(cases[i].time);
+        HTMLContent = HTMLContent +
+            "<tr onclick=change(\'" + cases[i]._id + "\')>" +
+              "<td class='res_header'>" + (creatDate.getMonth()+1)+'-'+creatDate.getDate()  + "</td>" +
+              "<td class='res_header'>" + cases[i].type +"</td>" +
+              "<td class='res_header'>" + cases[i].status + "</td>" +
+              "<td class='res_header'>"  + cases[i].teacher.profile.given_name+ cases[i].teacher.profile.first_name + "</td>" +
+              "<td class='res_header'>" + cases[i].sender.last_name +cases[i].sender.given_name +  "</td>" +
+              "<td class='res_header'>" + cases[i].project.name + " | "+ cases[i].project.year + "</td>" +
+              "<td class='res_header'>" + cases[i].purpose +"</td>" +
+              "<td class='res_header' style='width:40%'>" + cases[i].note +"</td>"+
+            "</tr>"
+        document.getElementById('Record').innerHTML = HTMLContent;
+      }
+
+    }
+
+    $(document).ready(function() {
+        var pickColor = "rgb(151,205,251)";
+        document.body.style.background = "-webkit-gradient(linear, 0% 0%, 0% 100%,from(#639AC8), to(" + pickColor + "))"
+
+
+        var getSchoolID = String(localStorage['school']);
+        $.ajax({
+            url: "http://api.youthimpactchina.com/crm/case/by_time",
+            method: "GET",
+            success: function(data) {
+                addRecord(data);
+            }
+        });
+    });
+    function change(id) {
+        localStorage['case'] = id;
+        location.href = "add_case.html";
+    }
+    function profile() {
+        location.href = "region.html";
+
+    }
+    function add_new_case() {
+        localStorage['case'] = 'new';
+        location.href = "add_case.html";
+    }
+    </script>
+</body>
+
+</html>
