@@ -250,10 +250,14 @@
         var type = $('#type').val();
         var status = $('#status').val();
         var purpose = $('#purpose').val();
+        var relationship = $('#relationship').val();
         var teacher = JSON.parse($('#teacher').val())._id;
         var project = $('#project').val();
         var note = $('#note').val();
         var getUserId = $.cookie('id');
+
+        var TeacherProfle = JSON.parse($('#teacher').val());
+        TeacherProfle.profile.relationship = $('#relationship').val();
 
         localStorage['teacher'] = teacher;
         if (localStorage['case'] != undefined && localStorage['case'] != 'new') {
@@ -266,6 +270,19 @@
                 },
                 success: function(data) {
                     alert(data);
+                    $.ajax({
+                        url: "http://api.youthimpactchina.com/crm/teacher/profile/update",
+                        method: "POST",
+                        data: {
+                            id: teacher,
+                            profile: TeacherProfle,
+                            email: $('#email').val()
+                        },
+                        success: function(data) {
+                            alert(data);
+                        }
+                    })
+                    // 大概是这个样子。我没测试
                     // location.href = "contactdetail.html";
                 }
             });
