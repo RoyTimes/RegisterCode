@@ -54,80 +54,15 @@
             <div class="nav-wrapper" style="background-color: rgb(105,165,237)">
                 <a href="index.html" style="padding-left:3%;font-size:15pt;text-decoration:none;">客户关系管理系统(CRM)</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li style="font-size: 35pt;"><a href="cases.html">Recent Cases</a></li>
                     <li style="font-size: 35pt;"><a onclick="profile();">学校资料</a></li>
                     <li style="font-size: 35pt;"><a onclick="explore();">报名表</a></li>
                     <li style="font-size: 35pt;"><a onclick="logout();">登出</a></li>
+
                 </ul>
             </div>
         </nav>
     </div>
-    <div class="card info_seg" >
-        <div class="seg_header">
-            基本信息
-            <a class="waves-effect blue lighten-2 btn" style="float: right;font-size: 12pt;" href="add_school.html">Edit</a>
-        </div><br/><br/>
-        <table class="highlight">
-            <thead>
-                <tr>
-                    <th data-field="School_name"><span class="res_header">学校名称</span></th>
-                    <th data-field="School_level"><span class="res_header">学校类别</span></th>
-                    <th data-field="School_type"><span class="res_header">学校类型</span></th>
-                    <th data-field="Course_type"><span class="res_header">课程类型</span></th>
-                    <th data-field="Size"><span class="res_header">每届人数</span></th>
-                    <th data-field="Status"><span class="res_header">开发状态</span></th>
-                </tr>
-            </thead>
-            <tbody id="Basic_info1"></tbody>
-        </table><br/><br/>
-        <table class="highlight">
-            <thead>
-                <tr>
-                    <th data-field="Province"><span class="res_header">省份</span></th>
-                    <th data-field="Ciry"><span class="res_header">城市</span></th>
-                    <th data-field="School_address"><span class="res_header">学校地址</span></th>
-                    <th data-field="Course_website"><span class="res_header">学校网址</span></th>
-                    <th data-field="Partner"><span class="res_header">合作伙伴</span></th>
-                    <th data-field="founding_time"><span class="res_header">成立时间</span></th>
 
-                </tr>
-            </thead>
-            <tbody id="Basic_info2"></tbody>
-        </table><br/><br/>
-        <table class="highlight">
-            <thead>
-                <tr>
-                    <th data-field="Course_telephone"><span class="res_header">学校电话</span></th>
-                    <th data-field="Additional_info"><span class="res_header">补充说明</span></th>
-                </tr>
-            </thead>
-            <tbody id="Basic_info3"></tbody>
-        </table><br/><br/>
-    </div>
-
-    <div class="card info_seg" style="font-size: 15pt;">
-        <div class="seg_header">
-            学校联系人
-            <a class="waves-effect blue lighten-2 btn" style="float: right;font-size: 12pt;" onclick="add_new();">new</a>
-        </div>
-        <table class="highlight">
-            <thead>
-                <tr>
-                    <th data-field="Position"><span class="res_header">职位</span></th>
-                    <th data-field="Last_name"><span class="res_header">姓</span></th>
-                    <th data-field="Given_name"><span class="res_header">名</span></th>
-                    <th data-field="Prefix"><span class="res_header">称谓</span></th>
-                    <th data-field="Role"><span class="res_header">角色</span></th>
-                    <th data-field="Phone"><span class="res_header">手机</span></th>
-                    <th data-field="Office"><span class="res_header">办公室直线</span></th>
-                    <th data-field="Email"><span class="res_header">电子邮箱</span></th>
-                    <th data-field="QQ"><span class="res_header">QQ号码</span></th>
-                    <th data-field="Relationship"><span class="res_header">客情关系</span></th>
-                </tr>
-            </thead>
-            <tbody id="Contact"></tbody>
-        </table>
-    </div>
     <div class="card info_seg" style="font-size: 15pt;">
         <div class="seg_header">
             学校交互纪录
@@ -248,7 +183,7 @@
         var creatDate = new Date(cases[i].time);
         HTMLContent = HTMLContent +
             "<tr onclick=change(\'" + cases[i]._id + "\')>" +
-              "<td class='res_header'>" + (creatDate.getMonth()+1)+'-'+creatDate.getDate() + "&nbsp" + creatDate.getHours() + ":" +creatDate.getMinutes() + "</td>" +
+              "<td class='res_header'>" + (creatDate.getMonth()+1)+'-'+creatDate.getDate()  + "</td>" +
               "<td class='res_header'>" + cases[i].type +"</td>" +
               "<td class='res_header'>" + cases[i].status + "</td>" +
               "<td class='res_header'>"  + cases[i].teacher.profile.given_name+ cases[i].teacher.profile.first_name + "</td>" +
@@ -269,25 +204,10 @@
 
         var getSchoolID = String(localStorage['school']);
         $.ajax({
-            url: "http://api.youthimpactchina.com/crm/school/get_info",
+            url: "http://api.youthimpactchina.com/crm/case/by_time",
             method: "GET",
-            data: {
-                id: getSchoolID
-            },
             success: function(data) {
-                localStorage['school_name'] = data.name;
-                addBasicInfo1(data);
-                addBasicInfo2(data);
-                addBasicInfo3(data);
-                addContact(data);
-                $.ajax({
-                    url: "http://api.youthimpactchina.com/crm/case/by_school",
-                    method: "GET",
-                    data: {id: localStorage['school']},
-                    success: function(data) {
-                        addRecord(data);
-                    }
-                });
+                addRecord(data);
             }
         });
     });
