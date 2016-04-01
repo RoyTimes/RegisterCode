@@ -184,9 +184,11 @@
         var creatDate = new Date(cases[i].time);
         HTMLContent = HTMLContent +
             "<tr onclick=change(\'" + cases[i]._id + "\')>" +
-              "<td class='res_header'>" + (creatDate.getMonth()+1)+'-'+creatDate.getDate() + (creatDate.getHours()+1)+'-'+creatDate.getMinutes()  + "</td>" +
+              "<td class='res_header'>" + (creatDate.getMonth()+1)+'-'+creatDate.getDate() + "&nbsp" + creatDate.getHours()+':'+creatDate.getMinutes()  + "</td>" +
               "<td class='res_header'>" + cases[i].type +"</td>" +
+
               "<td class='res_header'>" + cases[i].status + "</td>" +
+              "<td class='res_header'>" + cases[i].school.name +"</td>" +
               "<td class='res_header'>"  + cases[i].teacher.profile.given_name+ cases[i].teacher.profile.first_name + "</td>" +
               "<td class='res_header'>" + cases[i].sender.last_name +cases[i].sender.given_name +  "</td>" +
               "<td class='res_header'>" + cases[i].project.name + " | "+ cases[i].project.year + "</td>" +
