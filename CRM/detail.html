@@ -75,6 +75,7 @@
                     <th data-field="School_type"><span class="res_header">学校类型</span></th>
                     <th data-field="Course_type"><span class="res_header">课程类型</span></th>
                     <th data-field="Size"><span class="res_header">每届人数</span></th>
+                    <th data-field="Prestige"><span class="res_header">传统名校</span></th>
                     <th data-field="Status"><span class="res_header">开发状态</span></th>
                 </tr>
             </thead>
@@ -181,6 +182,7 @@
             "<td class='res_header'>" + school.profile.type + "</td>" +
             "<td class='res_header'>" + school.profile.curriculum + "</td>" +
             "<td class='res_header'>" + school.profile.size + "</td>" +
+            "<td class='res_header'>" + school.profile.prestige + "</td>" +
             "<td class='res_header'>" + school.status + "</td>" +
             "</tr>"
         document.getElementById('Basic_info1').innerHTML = HTMLContent;

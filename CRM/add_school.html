@@ -97,6 +97,10 @@
                 <label for="size">每届人数</label>
             </div>
             <div class="input-field col s12 m5">
+                <input placeholder="传统名校（是/否）" id="size" type="text" class="validate">
+                <label for="size">传统名校（是/否）</label>
+            </div>
+            <div class="input-field col s12 m5">
                 <input placeholder="开发状态" id="status" type="text" class="validate">
                 <label for="status">开发状态</label>
             </div>
@@ -178,6 +182,7 @@
                     $('#telephone').val(data.profile.telephone);
                     $('#supplement').val(data.profile.supplement);
                     $('#founding_time').val(data.profile.founding_time);
+                    $('#prestige').val(data.profile.prestige);
                 }
             })
         }
@@ -203,6 +208,7 @@
             profile.telephone = $('#telephone').val();
             profile.supplement = $('#supplement').val();
             profile.founding_time = $('#founding_time').val();
+            profile.prestige = $('#prestige').val();
         if (localStorage['school'] && localStorage['school'] != 'new') {
             $.ajax({
                 url: "http://api.youthimpactchina.com/crm/school/update",
