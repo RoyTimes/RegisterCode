@@ -206,8 +206,8 @@
 
             HTMLContent = HTMLContent + "<tr>" +
                 "<td class='res_header'>" + name + "</td>" +
-                "<td class='res_header'>" + stats[name].totalCall + "</td>" +
-                "<td class='res_header'>" + stats[name].totalMail + "</td>" +
+                "<td class='res_header'>" + stats[name].totalCall? stats[name].totalCall : '0' + "</td>" +
+                "<td class='res_header'>" + stats[name].totalMail? stats[name].totalMail : '0' + "</td>" +
                 "</tr>";
             document.getElementById('Stat').innerHTML = HTMLContent;
 
