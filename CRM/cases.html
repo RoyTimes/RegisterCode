@@ -66,6 +66,23 @@
 
     <div class="card info_seg" style="font-size: 15pt;">
         <div class="seg_header">
+            进度统计
+        </div>
+
+        <table class="highlight">
+            <thead>
+                <tr>
+                    <th data-field="TotalSchool"><span class="res_header">学校总计</span></th>
+                    <th data-field="ConnectedSchool"><span class="res_header">连接学校数量</span></th>
+                </tr>
+            </thead>
+            <tbody id="Progress"></tbody>
+        </table>
+
+    </div>
+
+    <div class="card info_seg" style="font-size: 15pt;">
+        <div class="seg_header">
             联系统计
         </div>
 
@@ -230,6 +247,21 @@
     }
 
   
+    function addProgress(progress){
+        var HTMLContent = document.getElementById('Progress').innerHTML;
+        
+
+            HTMLContent = HTMLContent + "<tr>" +
+                "<td class='res_header'>" + progress.totalSchool + "</td>" +
+                "<td class='res_header'>" + progress.connectedSchool + "</td>" +
+                "</tr>";
+            document.getElementById('Stat').innerHTML = HTMLContent;
+
+        
+
+
+    }
+
     function addCaseStats(stats){
         var HTMLContent = document.getElementById('Stat').innerHTML;
         for (var name in stats){
@@ -320,6 +352,14 @@
 
         var getSchoolID = String(localStorage['school']);
         
+        $.ajax({
+            url: "http://api.youthimpactchina.com/crm/case/get_progress",
+            method: "GET",
+            success: function(data) {
+
+                addProgress(data);
+            }
+        });
         $.ajax({
             url: "http://api.youthimpactchina.com/crm/case/get_stats",
             method: "GET",
