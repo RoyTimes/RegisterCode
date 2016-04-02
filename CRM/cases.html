@@ -73,8 +73,12 @@
             <thead>
                 <tr>
                     <th data-field="Salesperson"><span class="res_header">姓名</span></th>
-                    <th data-field="TotalCall"><span class="res_header">电话总数</span></th>
-                    <th data-field="TotalCall"><span class="res_header">邮件总数</span></th>
+                    <th data-field="TotalCall24"><span class="res_header">电话:24小时</span></th>
+                    <th data-field="TotalCall48"><span class="res_header">电话:24-48小时</span></th>
+                    <th data-field="TotalCall72"><span class="res_header">电话:48-72小时</span></th>
+                    <th data-field="TotalMail24"><span class="res_header">邮件:24小时</span></th>
+                    <th data-field="TotalMail48"><span class="res_header">邮件:24-48小时</span></th>
+                    <th data-field="TotalMail72"><span class="res_header">邮件:48-72小时</span></th>
                 </tr>
             </thead>
             <tbody id="Stat"></tbody>
@@ -206,8 +210,12 @@
 
             HTMLContent = HTMLContent + "<tr>" +
                 "<td class='res_header'>" + name + "</td>" +
-                "<td class='res_header'>" + (stats[name].totalCall? stats[name].totalCall : '0') + "</td>" +
-                "<td class='res_header'>" + (stats[name].totalMail? stats[name].totalMail : '0') + "</td>" +
+                "<td class='res_header'>" + (stats[name].totalCall.oneDay? stats[name].totalCall.oneDay : '0') + "</td>" +
+                "<td class='res_header'>" + (stats[name].totalCall.twoDay? stats[name].totalCall.twoDay : '0') + "</td>" +
+                "<td class='res_header'>" + (stats[name].totalCall.threeDay? stats[name].totalCall.threeDay : '0') + "</td>" +
+                "<td class='res_header'>" + (stats[name].totalMail.oneDay? stats[name].totalMail.oneDay : '0') + "</td>" +
+                "<td class='res_header'>" + (stats[name].totalMail.twoDay? stats[name].totalMail.twoDay : '0') + "</td>" +
+                "<td class='res_header'>" + (stats[name].totalMail.threeDay? stats[name].totalMail.threeDay : '0') + "</td>" +
                 "</tr>";
             document.getElementById('Stat').innerHTML = HTMLContent;
 
