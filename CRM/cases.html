@@ -201,11 +201,11 @@
   
     function addCaseStats(stats){
         var HTMLContent = document.getElementById('Stat').innerHTML;
-        for (var i in stats){
+        for (var name in stats){
 
             HTMLContent = HTMLContent + "<tr>" +
-                "<td class='res_header'>" + stats[i].last_name + stats[i].given_name + "</td>" +
-                "<td class='res_header'>" + stats[i].totalCall + "</td>" +
+                "<td class='res_header'>" + name + "</td>" +
+                "<td class='res_header'>" + stats[name] + "</td>" +
                 "</tr>";
             document.getElementById('Stat').innerHTML = HTMLContent;
 
