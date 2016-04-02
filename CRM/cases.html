@@ -203,7 +203,10 @@
         var HTMLContent = document.getElementById('Stat').innerHTML;
         for (var i in stats){
 
-            HTMLContent = HTMLContent +;
+            HTMLContent = HTMLContent + "<tr>" +
+                "<td class='res_header'>" + stats[i].last_name + stats[i].given_name + "</td>" +
+                "<td class='res_header'>" + stats[i].totalCall + "</td>" +
+                "</tr>";
             document.getElementById('Stat').innerHTML = HTMLContent;
 
         }
