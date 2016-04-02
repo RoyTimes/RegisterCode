@@ -113,7 +113,7 @@
         var HTMLContent = document.getElementById('Basic_info1').innerHTML;
         HTMLContent = HTMLContent +
             "<tr>" +
-            "<td class='res_header'>" + school.name + "</td>" +
+            "<td class='res_header'><span onclick=change_to_school('"+school._id+"')>" + school.name + "</span></td>" +
             "<td class='res_header'>" + school.profile.category + "</td>" +
             "<td class='res_header'>" + school.profile.type + "</td>" +
             "<td class='res_header'>" + school.profile.curriculum + "</td>" +
@@ -237,6 +237,12 @@
         localStorage['school'] = id.school;
         location.href = "add_case.html";
     }
+
+    function change_to_school(id) {
+        localStorage['school'] = id;
+        location.href = "detal.html";
+    }
+
     function profile() {
         location.href = "region.html";
 
