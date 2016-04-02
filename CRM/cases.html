@@ -88,8 +88,33 @@
 
     <div class="card info_seg" style="font-size: 15pt;">
         <div class="seg_header">
-            学校交互纪录
-            <a class="waves-effect blue lighten-2 btn" style="float: right;font-size: 12pt;" onclick="add_new_case()">new</a>
+            待完成 学校交互纪录
+            
+        </div>
+
+        <table class="highlight">
+            <thead>
+                <tr>
+                    <th data-field="Date"><span class="res_header">日期</span></th>
+                    <th data-field="Type"><span class="res_header">类型</span></th>
+                    <th data-field="Status"><span class="res_header">状态</span></th>
+                    <th data-field="School"><span class="res_header">学校名称</span></th>
+                    <th data-field="Contact"><span class="res_header">联系人</span></th>
+                    <th data-field="Attitude"><span class="res_header">态度</span></th>
+                    <th data-field="Worker"><span class="res_header">发起人</span></th>
+                    <th data-field="Project"><span class="res_header">项目</span></th>
+                    <th data-field="Aim"><span class="res_header">目的</span></th>
+                    <th data-field="Note"><span class="res_header">笔记</span></th>
+                </tr>
+            </thead>
+            <tbody id="RecordToDo"></tbody>
+        </table>
+    </div>
+
+    <div class="card info_seg" style="font-size: 15pt;">
+        <div class="seg_header">
+            已完成 学校交互纪录
+            
         </div>
 
         <table class="highlight">
@@ -228,31 +253,56 @@
     //这边是学校交互纪录的东西，274行有那个function
     function addRecord(cases) {
       var HTMLContent = document.getElementById('Record').innerHTML;
+      var HTMLContentToDo = document.getElementById('RecordToDo').innerHTML;
       for (var i in cases) {
-        if (cases[i].teacher == null || cases[i].status == '待完成') {
+        if (cases[i].teacher == null || ) {
             continue;
 
-        }else{
-      
-        var creatDate = new Date(cases[i].time);
-        HTMLContent = HTMLContent +
-            "<tr onclick=change(\'" + JSON.stringify({
-                    case: cases[i]._id,
-                    school: cases[i].school._id
-                })+ "\')>" +
-              "<td class='res_header' style='width:12%'>" + (creatDate.getMonth()+1)+'-'+creatDate.getDate() + "&nbsp" + creatDate.getHours()+':'+creatDate.getMinutes()  + "</td>" +
-              "<td class='res_header' style='width:10%'>" + cases[i].type +"</td>" +
+        }else if(cases[i].status == '待完成'){
 
-              "<td class='res_header' style='width:10%'>" + cases[i].status + "</td>" +
-              "<td class='res_header' style='width:15%'>" + cases[i].school.name +"</td>" +
-              "<td class='res_header' style='width:auto'>"  + cases[i].teacher.profile.given_name+ cases[i].teacher.profile.first_name + "</td>" +
-              "<td class='res_header' style='width:10%'>" + cases[i].teacher.profile.relationship +  "</td>" +
-              "<td class='res_header' style='width:10%'>" + cases[i].sender.last_name +cases[i].sender.given_name +  "</td>" +
-              "<td class='res_header' style='width:15%'>" + cases[i].project.name + " | "+ cases[i].project.year + "</td>" +
-              "<td class='res_header' style='width:10%'>" + cases[i].purpose +"</td>" +
-              "<td class='res_header' style='width:30%'>" + cases[i].note +"</td>"+
-            "</tr>"
-            document.getElementById('Record').innerHTML = HTMLContent;
+            var creatDate = new Date(cases[i].time);
+            HTMLContentToDo = HTMLContentToDo +
+                "<tr onclick=change(\'" + JSON.stringify({
+                        case: cases[i]._id,
+                        school: cases[i].school._id
+                    })+ "\')>" +
+                  "<td class='res_header' style='width:12%'>" + (creatDate.getMonth()+1)+'-'+creatDate.getDate() + "&nbsp" + creatDate.getHours()+':'+creatDate.getMinutes()  + "</td>" +
+                  "<td class='res_header' style='width:10%'>" + cases[i].type +"</td>" +
+
+                  "<td class='res_header' style='width:10%'>" + cases[i].status + "</td>" +
+                  "<td class='res_header' style='width:15%'>" + cases[i].school.name +"</td>" +
+                  "<td class='res_header' style='width:auto'>"  + cases[i].teacher.profile.given_name+ cases[i].teacher.profile.first_name + "</td>" +
+                  "<td class='res_header' style='width:10%'>" + cases[i].teacher.profile.relationship +  "</td>" +
+                  "<td class='res_header' style='width:10%'>" + cases[i].sender.last_name +cases[i].sender.given_name +  "</td>" +
+                  "<td class='res_header' style='width:15%'>" + cases[i].project.name + " | "+ cases[i].project.year + "</td>" +
+                  "<td class='res_header' style='width:10%'>" + cases[i].purpose +"</td>" +
+                  "<td class='res_header' style='width:30%'>" + cases[i].note +"</td>"+
+                "</tr>"
+                document.getElementById('Record').innerHTML = HTMLContentToDo;
+
+
+
+        }else if(cases[i].status == '已完成'){
+      
+            var creatDate = new Date(cases[i].time);
+            HTMLContent = HTMLContent +
+                "<tr onclick=change(\'" + JSON.stringify({
+                        case: cases[i]._id,
+                        school: cases[i].school._id
+                    })+ "\')>" +
+                  "<td class='res_header' style='width:12%'>" + (creatDate.getMonth()+1)+'-'+creatDate.getDate() + "&nbsp" + creatDate.getHours()+':'+creatDate.getMinutes()  + "</td>" +
+                  "<td class='res_header' style='width:10%'>" + cases[i].type +"</td>" +
+
+                  "<td class='res_header' style='width:10%'>" + cases[i].status + "</td>" +
+                  "<td class='res_header' style='width:15%'>" + cases[i].school.name +"</td>" +
+                  "<td class='res_header' style='width:auto'>"  + cases[i].teacher.profile.given_name+ cases[i].teacher.profile.first_name + "</td>" +
+                  "<td class='res_header' style='width:10%'>" + cases[i].teacher.profile.relationship +  "</td>" +
+                  "<td class='res_header' style='width:10%'>" + cases[i].sender.last_name +cases[i].sender.given_name +  "</td>" +
+                  "<td class='res_header' style='width:15%'>" + cases[i].project.name + " | "+ cases[i].project.year + "</td>" +
+                  "<td class='res_header' style='width:10%'>" + cases[i].purpose +"</td>" +
+                  "<td class='res_header' style='width:30%'>" + cases[i].note +"</td>"+
+                "</tr>"
+                document.getElementById('Record').innerHTML = HTMLContent;
 
 
         }
