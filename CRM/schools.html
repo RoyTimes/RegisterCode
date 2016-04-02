@@ -79,6 +79,7 @@
               <th data-field="Prestige"><span class="res_header">传统名校</span></th>
               <th data-field="Number"><span class="res_header">每届人数</span></th>
               <th data-field="ContactNo"><span class="res_header">老师数量</span></th>
+              <th data-field="Connected"><span class="res_header">链接状态</span></th>
               <!--<th data-field="Status"><span class="res_header">开发状态</span></th>-->
           </tr>
         </thead>
@@ -110,6 +111,21 @@
     }
     function addSchool (sequence,school) {
         var HTMLContent = document.getElementById('content').innerHTML;
+
+        var connected = '否';
+
+        if (school.teachers != undefined) {
+
+            for (var t in school.teachers){
+
+                if (school.teachers[t].profile.relationship == '中立' || school.teachers[t].profile.relationship == '良好' ) {
+                    connected = '链接';
+                    break;
+                };
+            }
+        };
+
+
         HTMLContent = HTMLContent +
             "<tr onclick=change_page('"+ school._id +"')>" +
             "<td><span class='res_header'>" + sequence + "</span></td>" +
@@ -120,7 +136,8 @@
             "<td><span class='res_header'>" + (school.profile.founding_time?school.profile.founding_time:"未知")  + "</span></td>" +
             "<td><span class='res_header'>" + school.profile.prestige  + "</span></td>" +
             "<td><span class='res_header'>" + (school.profile.size?school.profile.size:"未知") + "</span></td>" +
-            "<td><span class='res_header'>" + (school.teachers?school.teachers.length:"0") + "</span></td>";
+            "<td><span class='res_header'>" + (school.teachers?school.teachers.length:"0") + "</span></td>" +
+            "<td><span class='res_header'>" + connected + "</span></td>";
 
             //"<td><span class='res_header'>" + (school.profile.status?school.profile.status:"Unknown") + "</span></td></tr>" ;
         document.getElementById('content').innerHTML = HTMLContent;
