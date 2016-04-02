@@ -187,7 +187,7 @@
                     success: function(data) {
                         var HTMLContent = "";
                         HTMLContent = HTMLContent  + "<option value='' disabled selected>联系老师</option>";
-                        HTMLContent = HTMLContent  + "<option value='office'>学校办公室</option>";
+                        HTMLContent = HTMLContent  + "<option value=''>学校办公室</option>";
                         for (var item in data.teachers) {
                             HTMLContent = HTMLContent + '<option value=\''+ JSON.stringify(
                                 data.teachers[item] )+'\'>'+ data.teachers[item].profile.given_name+ data.teachers[item].profile.first_name +" | " + data.teachers[item].profile.position +'</option>';
@@ -252,7 +252,7 @@
         var status = $('#status').val();
         var purpose = $('#purpose').val();
         var relationship = $('#relationship').val();
-        if ($('#teacher').val()== 'office') {
+        if ($('#teacher').val()== '') {
             var teacher = "56fffb5309f778b2288b4567"; 
         }else{
             var teacher = JSON.parse($('#teacher').val())._id;
