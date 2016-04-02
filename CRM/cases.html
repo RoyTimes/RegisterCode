@@ -66,6 +66,23 @@
 
     <div class="card info_seg" style="font-size: 15pt;">
         <div class="seg_header">
+            联系统计
+        </div>
+
+        <table class="highlight">
+            <thead>
+                <tr>
+                    <th data-field="Salesperson"><span class="res_header">姓名</span></th>
+                    <th data-field="TotalCall"><span class="res_header">电话总数</span></th>
+                </tr>
+            </thead>
+            <tbody id="Stat"></tbody>
+        </table>
+
+    </div>
+
+    <div class="card info_seg" style="font-size: 15pt;">
+        <div class="seg_header">
             学校交互纪录
             <a class="waves-effect blue lighten-2 btn" style="float: right;font-size: 12pt;" onclick="add_new_case()">new</a>
         </div>
@@ -109,6 +126,8 @@
         location.href = 'index.html';
     }
 
+
+/*
     function addBasicInfo1(school) {
         var HTMLContent = document.getElementById('Basic_info1').innerHTML;
         HTMLContent = HTMLContent +
@@ -178,6 +197,20 @@
         localStorage['teacher'] = 'new';
         location.href = 'contactdetail.html';
     }
+*/
+  
+    function addCaseStats(stats){
+        var HTMLContent = document.getElementById('Stat').innerHTML;
+        for (var i in stats){
+
+            HTMLContent = HTMLContent +;
+            document.getElementById('Stat').innerHTML = HTMLContent;
+
+        }
+
+
+    }
+
     //这边是学校交互纪录的东西，274行有那个function
     function addRecord(cases) {
       var HTMLContent = document.getElementById('Record').innerHTML;
@@ -221,6 +254,15 @@
 
 
         var getSchoolID = String(localStorage['school']);
+        
+        $.ajax({
+            url: "http://api.youthimpactchina.com/crm/case/get_stats",
+            method: "GET",
+            success: function(data) {
+
+                addCaseStats(data);
+            }
+        });
         $.ajax({
             url: "http://api.youthimpactchina.com/crm/case/by_time",
             method: "GET",
@@ -230,6 +272,8 @@
                 addRecord(data);
             }
         });
+
+
     });
     function change(id) {
         id = JSON.parse(id);
