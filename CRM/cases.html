@@ -76,7 +76,8 @@
             <thead>
                 <tr>
                     <th data-field="TotalSchool"><span class="res_header">学校总计</span></th>
-                    <th data-field="ConnectedSchool"><span class="res_header">连接学校数量</span></th>
+                    <th data-field="ConnectedSchool"><span class="res_header">连接</span></th>
+                    <th data-field="MailSent"><span class="res_header">发电邮</span></th>
                 </tr>
             </thead>
             <tbody id="Progress"></tbody>
@@ -257,6 +258,7 @@
             HTMLContent = HTMLContent + "<tr>" +
                 "<td class='res_header'>" + progress.totalSchool + "</td>" +
                 "<td class='res_header'>" + progress.connectedSchool + "</td>" +
+                "<td class='res_header'>" + progress.mailSentSchool + "</td>" +
                 "</tr>";
             document.getElementById('Progress').innerHTML = HTMLContent;
 
