@@ -127,10 +127,31 @@
 <div class="row blue-text text-darken-2">
      <div class="input-field col s12 m4">
          <select id="stdNote">
-            <option value="" disabled selected>标准笔记</option>
-            <option value="纸质邀请函和OG">纸质邀请函和OG</opition>
-            <option value="电话不通">电话不通</opition>
-            <option value="直接挂断">直接挂断</opition>
+                <option value="" disabled selected>标准笔记</option>
+            
+                <option value="纸质邀请函和OG">纸质邀请函和OG</opition>
+            <optgroup label="联系不上">
+                <option value="无效/空号">无效/空号</opition>
+                <option value="无人接听">无人接听</opition>
+                <option value="忙音">忙音</opition>
+                <option value="挂断">挂断</opition>
+            </optgroup>
+            <optgroup label="封闭">
+                <option value="不参加活动">不参加活动</opition>
+                <option value="需政府部门同意">需政府部门同意</opition>
+                <option value="不对外合作/有自己活动">不对外合作/有自己活动</opition>
+            </optgroup>
+            <optgroup label="拒绝">
+                <option value="拒绝沟通">拒绝沟通</opition>
+                <option value="不参加比赛">不参加比赛</opition>
+                <option value="不参加国内比赛">不参加国内比赛</opition>
+                <option value="不参加国际比赛">不参加国际比赛</opition>
+            </optgroup>
+            <optgroup label="中立">
+                <option value="先发邮件">先发邮件</opition>
+                <option value="需要面谈">需要面谈</opition>
+                <option value="代为转达">代为转达</opition>
+            </optgroup>
          </select>
      </div>
  </div>
