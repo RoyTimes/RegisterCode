@@ -107,7 +107,7 @@
         </table>
 
     </div>
-
+    <!--
     <div class="card info_seg" style="font-size: 15pt;">
         <div class="seg_header">
             待完成 学校交互纪录
@@ -132,6 +132,7 @@
             <tbody id="RecordToDo"></tbody>
         </table>
     </div>
+    -->
 
     <div class="card info_seg" style="font-size: 15pt;">
         <div class="seg_header">
@@ -296,7 +297,7 @@
         if (cases[i].teacher == null) {
             continue;
 
-        }else if(cases[i].status == '待完成'){
+        }/*else if(cases[i].status == '待完成'){
 
             var creatDate = new Date(cases[i].time);
             HTMLContentToDo = HTMLContentToDo +
@@ -320,7 +321,7 @@
 
 
 
-        }else if(cases[i].status == '已完成'){
+        }*/else if(cases[i].status == '已完成'){
       
             var creatDate = new Date(cases[i].time);
             HTMLContent = HTMLContent +
