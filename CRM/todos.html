@@ -129,31 +129,31 @@
 
     //这边是学校交互纪录的东西，274行有那个function
     function addRecord(cases) {
-      var HTMLContentToDo = document.getElementById('RecordToDo').innerHTML;
-      for (var i in cases) {
-        if (cases[i].teacher == null) {
-            continue;
+          var HTMLContentToDo = document.getElementById('RecordToDo').innerHTML;
+          for (var i in cases) {
+            if (cases[i].teacher == null) {
+                continue;
 
-        }else if(cases[i].status == '待完成' && cases[i].type == '快递'  ){
+            }else if(cases[i].status == '待完成' && cases[i].type == '快递'  ){
 
-            var creatDate = new Date(cases[i].time);
-            HTMLContentToDo = HTMLContentToDo +
-                "<tr onclick=change(\'" + JSON.stringify({
-                        case: cases[i]._id,
-                        school: cases[i].school._id
-                    })+ "\')>" +
-                  "<td class='res_header' style='width:12%'>" + (creatDate.getMonth()+1)+'-'+creatDate.getDate() + "&nbsp" + creatDate.getHours()+':'+creatDate.getMinutes()  + "</td>" +
-                  "<td class='res_header' style='width:15%'>" + cases[i].school.name +"</td>" +
-                  "<td class='res_header' style='width:auto'>"  + cases[i].teacher.profile.given_name+ cases[i].teacher.profile.first_name + "</td>" +
-                  "<td class='res_header' style='width:10%'>" + cases[i].teacher.profile.relationship +  "</td>" +
-                  "<td class='res_header' style='width:10%'>" + cases[i].sender.last_name +cases[i].sender.given_name +  "</td>" +
-                  "<td class='res_header' style='width:10%'>" + cases[i].school.profile.address +  "</td>" +
-                  "<td class='res_header' style='width:10%'>" + cases[i].teacher.profile.mobile +  "</td>" +
-                  "<td class='res_header' style='width:10%'>" + cases[i].teacher.profile.telephone +  "</td>" +
-                  "<td class='res_header' style='width:30%'>" + cases[i].note +"</td>"+
-                "</tr>"
+                var creatDate = new Date(cases[i].time);
+                HTMLContentToDo = HTMLContentToDo +
+                    "<tr onclick=change(\'" + JSON.stringify({
+                            case: cases[i]._id,
+                            school: cases[i].school._id
+                        })+ "\')>" +
+                      "<td class='res_header' style='width:12%'>" + (creatDate.getMonth()+1)+'-'+creatDate.getDate() + "&nbsp" + creatDate.getHours()+':'+creatDate.getMinutes()  + "</td>" +
+                      "<td class='res_header' style='width:15%'>" + cases[i].school.name +"</td>" +
+                      "<td class='res_header' style='width:auto'>"  + cases[i].teacher.profile.given_name+ cases[i].teacher.profile.first_name + "</td>" +
+                      "<td class='res_header' style='width:10%'>" + cases[i].teacher.profile.relationship +  "</td>" +
+                      "<td class='res_header' style='width:10%'>" + cases[i].sender.last_name +cases[i].sender.given_name +  "</td>" +
+                      "<td class='res_header' style='width:10%'>" + cases[i].school.profile.address +  "</td>" +
+                      "<td class='res_header' style='width:10%'>" + cases[i].teacher.profile.mobile +  "</td>" +
+                      "<td class='res_header' style='width:10%'>" + cases[i].teacher.profile.telephone +  "</td>" +
+                      "<td class='res_header' style='width:30%'>" + cases[i].note +"</td>"+
+                    "</tr>";
                 document.getElementById('RecordToDo').innerHTML = HTMLContentToDo;
-        }
+            }
     }
 
     $(document).ready(function() {
