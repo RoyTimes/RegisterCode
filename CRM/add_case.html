@@ -74,6 +74,7 @@
 
   <div class="row blue-text text-lighten-1">
 
+        <input id="sendId" style="display:none">
         <div class="input-field col s12 m4">
             <select id="type">
                 <option value="" disabled selected>方式</option>
@@ -215,6 +216,8 @@
 
                                     var notes = data.note.split('-');
 
+                                    
+                                    $('#sendId').val(data._id);
                                     $('#type').val(data.type);
                                     $('#status').val(data.status);
                                     $('#purpose').val(data.purpose);
@@ -274,6 +277,7 @@
         
         var project = $('#project').val();
         var note = $('#stdNote').val()+'-'+$('#note').val();
+        
         var getUserId = $.cookie('id');
 
         var TeacherProfle = JSON.parse($('#teacher').val());
@@ -286,7 +290,7 @@
                 method: "POST",
                 data: {
                     id: localStorage['case'], type: type, status: status, purpose: purpose, note: note,
-                    senderID: getUserId, schoolID: localStorage['school'], projectID: project, teacherID: teacher
+                    senderID: $('#senderId').val(), schoolID: localStorage['school'], projectID: project, teacherID: teacher
                 },
                 success: function(data) {
                     alert(data);
