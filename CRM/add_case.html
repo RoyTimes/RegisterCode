@@ -223,8 +223,13 @@
                                     $('#purpose').val(data.purpose);
                                     $('#teacher').val(data.teacher._id);
                                     $('#project').val(data.project);
-                                    $('#stdNote').val(notes[0]);
-                                    $('#note').val(notes[1]);
+                                    if (notes.length > 1) {
+                                        $('#stdNote').val(notes[0]);
+                                        $('#note').val(notes[1]);    
+                                    }else{
+                                        $('#note').val(notes[0]);    
+                                    };
+                                    
                                     $('select').material_select();
                                 }
                             })
@@ -276,7 +281,12 @@
         }
         
         var project = $('#project').val();
-        var note = $('#stdNote').val()+'-'+$('#note').val();
+        if ($('#stdNote').val()) {
+            var note = $('#stdNote').val()+'-'+$('#note').val();
+        }else{
+            var note = $('#note').val();
+        }
+        
         
         var getUserId = $.cookie('id');
 
