@@ -131,6 +131,7 @@
     //这边是学校交互纪录的东西，274行有那个function
     function addRecord(cases) {
         var HTMLContentToDo = document.getElementById('RecordToDo').innerHTML;
+        var count = 0;
         for (var i in cases) {
             if (cases[i].teacher == null) {
                 continue;
@@ -143,7 +144,7 @@
                             case: cases[i]._id,
                             school: cases[i].school._id
                         })+ "\')>" +
-                      "<td class='res_header' style='width:10%'>" + (i+1)  + "</td>" +
+                      "<td class='res_header' style='width:10%'>" + (count+1)  + "</td>" +
                       "<td class='res_header' style='width:10%'>" + (creatDate.getMonth()+1)+'-'+creatDate.getDate() + "&nbsp" + creatDate.getHours()+':'+creatDate.getMinutes()  + "</td>" +
                       "<td class='res_header' style='width:20%'>" + cases[i].school.name +"</td>" +
                       "<td class='res_header' style='width:15%'>"  + cases[i].teacher.profile.given_name+ cases[i].teacher.profile.first_name + "</td>" +
@@ -155,6 +156,8 @@
                       "<td class='res_header' style='width:10%'>" + cases[i].note +"</td>"+
                     "</tr>";
                 document.getElementById('RecordToDo').innerHTML = HTMLContentToDo;
+
+                count ++;
             }
         }
     }
