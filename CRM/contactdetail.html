@@ -286,12 +286,12 @@
 			}
 		});
 
-        var note = '已发邮件 - 模板：' + JSON.parse($('#template').val()).name;
+        var fullNote = '已发邮件 - 模板：' + JSON.parse($('#template').val()).name;
         $.ajax({
             url: "http://api.youthimpactchina.com/crm/school/case/create",
             method: "POST",
             data: {
-                type: "邮件", status: "已完成", purpose: "项目宣传", note: note,
+                type: "邮件", status: "已完成", purpose: "项目宣传", note: fullNote,
                 senderID: $.cookie('id'), schoolID: localStorage['school'], projectID: "56f8cd20d2ef370f2984e808", teacherID: localStorage['teacher']
             },
             success: function(data) {
