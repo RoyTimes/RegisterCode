@@ -289,7 +289,8 @@
         
         
         var getUserId = $.cookie('id');
-
+        var existUserId = $('#senderId').val();
+        console.log(existUserId);
         var TeacherProfle = JSON.parse($('#teacher').val());
         TeacherProfle.profile.relationship = $('#relationship').val();
 
@@ -300,7 +301,7 @@
                 method: "POST",
                 data: {
                     id: localStorage['case'], type: type, status: status, purpose: purpose, note: note,
-                    senderID: $('#senderId').val(), schoolID: localStorage['school'], projectID: project, teacherID: teacher
+                    senderID: existUserId, schoolID: localStorage['school'], projectID: project, teacherID: teacher
                 },
                 success: function(data) {
                     alert(data);
