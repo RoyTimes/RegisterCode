@@ -137,6 +137,14 @@
                 </select>
                 <label>客情关系</label>
             </div>
+            <div class="input-field col s12 m4">
+                <select id="mainContact">
+                    <option value="" disabled selected>主要联系人</option>
+                    <option value="良好">是</option>
+                    <option value="中立">否</option>
+                </select>
+                <label>主要联系人</label>
+            </div>
         </div>
 
         <div class="row">
@@ -341,6 +349,7 @@
                     $("#position").val(data.profile.position);
                     $("#prefix").val(data.profile.prefix);
                     $('#role').val(data.profile.role);
+                    $('#mainContact').val(data.profile.mainContact);
                     $('#relationship').val(data.profile.relationship);
                     $('#mobile').val(data.profile.mobile);
                     $('#telephone').val(data.profile.telephone);
@@ -391,6 +400,7 @@
         data['prefix'] = $("#prefix").val();
         data['role'] = $('#role').val();
         data['relationship'] = $('#relationship').val();
+        data['mainContact'] = $('#mainContact').val();
         data['mobile'] = $('#mobile').val();
         data['telephone'] = $('#telephone').val();
         // data['email'] = $('#email').val();
