@@ -125,6 +125,7 @@
                     <th data-field="Email"><span class="res_header">电子邮箱</span></th>
                     <th data-field="QQ"><span class="res_header">QQ号码</span></th>
                     <th data-field="Relationship"><span class="res_header">客情关系</span></th>
+                    <th data-field="MainContact"><span class="res_header">主联系人</span></th>
                 </tr>
             </thead>
             <tbody id="Contact"></tbody>
@@ -234,6 +235,7 @@
                 "<td class='res_header'>" + school.teachers[i].email + "</td>" +
                 "<td class='res_header'>" + school.teachers[i].profile.qq + "</td>" +
                 "<td class='res_header'>" + school.teachers[i].profile.relationship + "</td>" +
+                "<td class='res_header'>" + school.teachers[i].profile.mainContact+ "</td>" +
                 "</tr>"
             document.getElementById('Contact').innerHTML = HTMLContent;
         }
