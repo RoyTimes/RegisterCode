@@ -129,8 +129,8 @@
 
     //这边是学校交互纪录的东西，274行有那个function
     function addRecord(cases) {
-          var HTMLContentToDo = document.getElementById('RecordToDo').innerHTML;
-          for (var i in cases) {
+        var HTMLContentToDo = document.getElementById('RecordToDo').innerHTML;
+        for (var i in cases) {
             if (cases[i].teacher == null) {
                 continue;
 
@@ -154,6 +154,7 @@
                     "</tr>";
                 document.getElementById('RecordToDo').innerHTML = HTMLContentToDo;
             }
+        }
     }
 
     $(document).ready(function() {
