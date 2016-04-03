@@ -74,7 +74,7 @@
 
   <div class="row blue-text text-lighten-1">
 
-        <input id="sendId" style="display:none">
+        <input id="senderId" style="display:none">
         <div class="input-field col s12 m4">
             <select id="type">
                 <option value="" disabled selected>方式</option>
@@ -217,7 +217,7 @@
                                     var notes = data.note.split('-');
 
                                     
-                                    $('#sendId').val(data.sender);
+                                    $('#senderId').val(data.sender);
                                     $('#type').val(data.type);
                                     $('#status').val(data.status);
                                     $('#purpose').val(data.purpose);
