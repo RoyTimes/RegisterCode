@@ -24,7 +24,6 @@
                 <h1 style="font-size:200%;font-family:StructrMe;">Customer Relationship Management</h1>
                 <p style="font-family: StructrBo">客户关系管理系统</p>
             </header>
-            <!-- <p style="font-family: StructrBo">No Youth Impact Account yet? 还没有账户? &nbsp;<br><a style="text-decoration: none;"href="signup.html">Register here 这里注册</a></p>  -->
             <form class="form-horizontal">
                 <div style="font-family:StructrBo;">
         			<input id="email" type="text" name="email" autocomplete="off" value="" placeholder="Account Email 账户邮件名称"><br>
@@ -33,37 +32,21 @@
                 </div>
             </form>
         </div>
-        <!-- <div class="col-xs-12 col-sm-12 col-md-1 col-xl-1"></div> -->
-        <!-- <div class="col-xs-12 col-sm-12 col-md-7 col-xl-7" style="font-size: 10pt;background-color: rgba(0, 0, 0, 0.2);color:white; padding: 30px;">
-           <header id="login_header">
-                <p style="color:white;font-family: StructrBo">School Management Platform is a proprietary academic resources management system designed specifically for high school counselors in China.<br/>
-                学校管理系统是一个专门给国内高中升学辅导老师或活动指导老师的课外活动教学管理系统。</p>
-                <p style="color:white;font-family: StructrBo;border-left: 3px white solid;padding-left: 20px;">Curriculum &amp; Resources 学术资料</p>
-                <p style="color:white;font-family: StructrBo">Connect to international contests and academic resources in multiple categories and win precious opportunities and strong competitiveness for your school. It provides full version of Syllabus, Complete Rules, Competition &amp; Activity List, Sample Questions, Judging Criteria &amp; Evaluation Form and Training Courses for Coaches.<br/>提供各种国际化比赛项目和详细学术资料，让学生和学校在激烈的竞争中更有竞争力。我们提供完整版本的教学大纲、竞赛规则、竞赛项目明细、赛题样例、评判标准和教练培训材料。</p>
-                <p style="color:white;font-family: StructrBo;border-left: 3px white solid;padding-left: 20px;">School Profiling System 学校介绍系统</p>
-                <p style="color:white;font-family: StructrBo">Complete the school profile with your unique advantages. College admission offices will know better about your school by referring to the information here, which helps increase the overall chance of admission for your students.<br/>完善贵校的学校资料，展现学校的独特优势。高校招生官将通过这里的信息更好的了解您的学校，有助于提升贵校学生整体的录取水平。</p>
-            </header>
-        </div>-->
     </div>
-
-
 
     <script src="assets/js/jquery-1.11.1.js"></script>
     <script src="assets/js/bootstrap.js"></script>
     <script src="assets/js/jquery.easing.min.js"></script>
     <script src="assets/login/js/login.js"></script>
     <script src="assets/js/sha1.min.js"></script>
-    <script src="assets/js/xml2on.min.js"></script>
     <script src="assets/js/jquery.cookie.js"></script>
 
 
     <script type="text/javascript">
-        // document.getElementById('redir').addEventListener("click", redirFun, false);
         document.getElementById('login').addEventListener("click", loginFun, false);
-
         $(document).ready(function() {
             if ($.cookie('user') && $.cookie('user') != "no") {
-                location.href = "admin.html";
+                location.href = "app.html";
             }
 
         });
@@ -86,8 +69,8 @@
                         $.cookie('user', user_email);
                         $.cookie('id', data);
 
-                        location.href = "admin.html";
-                    } else {alert(data);}
+                        location.href = "app.html";
+                    } else { alert(data); }
                 }
             });
         }

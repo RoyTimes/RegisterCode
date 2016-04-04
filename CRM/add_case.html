@@ -355,18 +355,18 @@
                 },
                 success: function(data) {
                     alert(data);
-                    // $.ajax({
-                    //     url: "http://api.youthimpactchina.com/crm/teacher/profile/update",
-                    //     method: "POST",
-                    //     data: {
-                    //         id: teacher,
-                    //         profile: TeacherProfle,
-                    //         email: $('#email').val()
-                    //     },
-                    //     success: function(data) {
-                    //         alert(data);
-                    //     }
-                    // })
+                    $.ajax({
+                        url: "http://api.youthimpactchina.com/crm/teacher/profile/update",
+                        method: "POST",
+                        data: {
+                            id: teacher,
+                            profile: TeacherProfle,
+                            email: $('#email').val()
+                        },
+                        success: function(data) {
+                            alert(data);
+                        }
+                    });
                     // 大概是这个样子。我没测试
                     // location.href = "contactdetail.html";
                 }
