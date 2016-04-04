@@ -124,10 +124,39 @@
      </div>
  </div>
 
+
+<div class="row blue-text text-darken-2">
+     <div class="input-field col s12 m4">
+         <select id="teleInitiative">
+                <option value="" disabled selected>电话举措</option>
+            <optgroup label="介绍项目">
+                <option value="介绍项目">介绍项目</opition>
+            </optgroup>
+         </select>
+     </div>
+ </div>
+
+
+ <div class="row blue-text text-darken-2">
+     <div class="input-field col s12 m4">
+         <select id="deliveryInitiative">
+                <option value="" disabled selected>快递举措</option>
+            <optgroup label="校方">
+                <option value="纸质邀请函和OG">纸质邀请函和OG</opition>
+            </optgroup>
+            <optgroup label="指导教师">
+            </optgroup>
+            <optgroup label="学生领袖">
+            </optgroup>
+         </select>
+     </div>
+ </div>
+
+
 <div class="row blue-text text-darken-2">
      <div class="input-field col s12 m4">
          <select id="stdNote">
-                <option value="" disabled selected>标准笔记</option>
+                <option value="" disabled selected>标准结果</option>
             
                 <option value="纸质邀请函和OG">纸质邀请函和OG</opition>
             <optgroup label="联系不上">
@@ -247,8 +276,10 @@
                                     $('#teacher').val(data.teacher._id);
                                     $('#project').val(data.project);
                                     if (notes.length > 1) {
-                                        $('#stdNote').val(notes[0]);
-                                        $('#note').val(notes[1]);    
+                                        $('#teleInitiative').val(notes[0]);
+                                        $('#deliveryInitiative').val(notes[1]);
+                                        $('#stdNote').val(notes[2]);
+                                        $('#note').val(notes[3]);    
                                     }else{
                                         $('#note').val(notes[0]);    
                                     };
@@ -304,11 +335,11 @@
         }
         
         var project = $('#project').val();
-        if ($('#stdNote').val()) {
-            var note = $('#stdNote').val()+'-'+$('#note').val();
-        }else{
-            var note = $('#note').val();
-        }
+        //if ($('#stdNote').val()) {
+            var note = $('#teleInitiative').val()+'-'+$('#deliveryInitiative').val()+'-'+$('#stdNote').val()+'-'+$('#note').val();
+        //}else{
+        //    var note = $('#note').val();
+        //}
         
         
         var getUserId = $.cookie('id');
