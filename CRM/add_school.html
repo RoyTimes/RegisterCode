@@ -140,6 +140,20 @@
                 <label for="supplement">补充说明</label>
             </div>
         </div>
+        <div class="row">
+            <div class="input-field col s12 m12">
+                <input placeholder="" id="current_activity" type="text" class="validate">
+                <label for="current_activity">已有竞赛活动</label>
+            </div>
+            <div class="input-field col s12 m12">
+                <input placeholder="" id="student_profile" type="text" class="validate">
+                <label for="student_profile">学生构成特点</label>
+            </div>
+            <div class="input-field col s12 m12">
+                <input placeholder="" id="demand_analysis" type="text" class="validate">
+                <label for="demand_analysis">客户需求分析</label>
+            </div>            
+        </div>
     </div>
 
     <!-- <a href="basic.html" class="waves-effect waves-light btn-large submit_btn tooltipped" data-position="right" data-tooltip="Go on to the next section!">Next</a> -->
@@ -184,6 +198,9 @@
                     $('#supplement').val(data.profile.supplement);
                     $('#founding_time').val(data.profile.founding_time);
                     $('#prestige').val(data.profile.prestige);
+                    $('#current_activity').val(data.profile.current_activity.note);
+                    $('#student_profile').val(data.profile.student_profile.note);
+                    $('#demand_analysis').val(data.profile.demand_analysis.note);
                 }
             })
         }
@@ -210,6 +227,9 @@
             profile.supplement = $('#supplement').val();
             profile.founding_time = $('#founding_time').val();
             profile.prestige = $('#prestige').val();
+            profile.current_activity.note = $('#current_activity').val();
+            profile.student_profile.note = $('#student_profile').val();
+            profile.demand_analysis.note = $('#demand_analysis').val();
         if (localStorage['school'] && localStorage['school'] != 'new') {
             $.ajax({
                 url: "http://api.youthimpactchina.com/crm/school/update",
