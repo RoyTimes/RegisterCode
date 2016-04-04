@@ -227,8 +227,11 @@
             profile.supplement = $('#supplement').val();
             profile.founding_time = $('#founding_time').val();
             profile.prestige = $('#prestige').val();
+            profile.current_activity = {};
             profile.current_activity.note = $('#current_activity').val();
+            profile.student_profile = {};
             profile.student_profile.note = $('#student_profile').val();
+            profile.demand_analysis = {};
             profile.demand_analysis.note = $('#demand_analysis').val();
         if (localStorage['school'] && localStorage['school'] != 'new') {
             $.ajax({
