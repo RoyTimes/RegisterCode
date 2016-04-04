@@ -236,6 +236,18 @@
 
     }
 
+    function addProInfo1(school) {
+        var HTMLContent = document.getElementById('Pro_info1').innerHTML;
+        HTMLContent = HTMLContent +
+            "<tr>" +
+            "<td class='res_header'>" + school.profile.current_activity.note + "</td>" +
+            "<td class='res_header'>" + school.profile.student_profile.note  + "</td>" +
+            "<td class='res_header'>" + school.profile.demand_analysis.note  + "</td>" +
+            "</tr>"
+        document.getElementById('Pro_info1').innerHTML = HTMLContent;
+
+    }
+
 
     function addContact(school) {
         var HTMLContent = document.getElementById('Contact').innerHTML;
@@ -304,6 +316,7 @@
                 addBasicInfo1(data);
                 addBasicInfo2(data);
                 addBasicInfo3(data);
+                addProInfo1(data);
                 addContact(data);
                 $.ajax({
                     url: "http://api.youthimpactchina.com/crm/case/by_school",
