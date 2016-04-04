@@ -65,7 +65,7 @@
     </div>
     <div class="card info_seg" style="font-size: 15pt;">
         <div class="seg_header">
-            选择学校
+            学校：国际部-英美
             <a class="waves-effect blue lighten-2 btn" style="float: right;font-size: 12pt;" href="add_school.html">new</a>
         </div>
    <table class="highlight">
@@ -85,10 +85,33 @@
           </tr>
         </thead>
 
-        <tbody id="content"></tbody>
+        <tbody id="contentGJBYM"></tbody>
       </table>
 
+      <div class="card info_seg" style="font-size: 15pt;">
+        <div class="seg_header">
+            学校：国际部-西方其他
+            <a class="waves-effect blue lighten-2 btn" style="float: right;font-size: 12pt;" href="add_school.html">new</a>
+        </div>
+        <table class="highlight">
+        <thead>
+          <tr>
+              <th data-field="Sequence"><span class="res_header">序号</span></th>
+              <th data-field="Province"><span class="res_header">省份</span></th>
+              <th data-field="City"><span class="res_header">城市</span></th>
+              <th data-field="School"><span class="res_header">学校名称</span></th>
+              <th data-field="School_type"><span class="res_header">学校类型</span></th>
+              <th data-field="Founding_time"><span class="res_header">成立时间</span></th>
+              <th data-field="Prestige"><span class="res_header">传统名校</span></th>
+              <th data-field="Number"><span class="res_header">每届人数</span></th>
+              <th data-field="ContactNo"><span class="res_header">老师数量</span></th>
+              <th data-field="Connected"><span class="res_header">链接状态</span></th>
+              <!--<th data-field="Status"><span class="res_header">开发状态</span></th>-->
+          </tr>
+        </thead>
 
+        <tbody id="contentGJBXFQT"></tbody>
+      </table>
     </div>
     <footer class="page-footer" style="background-color:rgba(255,255,255,0);">
 
@@ -110,8 +133,8 @@
         localStorage['school'] = id;
         location.href = "detail.html";
     }
-    function addSchool (sequence,school) {
-        var HTMLContent = document.getElementById('content').innerHTML;
+    function addSchool (sequence,school,section) {
+        var HTMLContent = document.getElementById(section).innerHTML;
 
         var connected = '否';
 
@@ -141,7 +164,7 @@
             "<td><span class='res_header'>" + connected + "</span></td>";
 
             //"<td><span class='res_header'>" + (school.profile.status?school.profile.status:"Unknown") + "</span></td></tr>" ;
-        document.getElementById('content').innerHTML = HTMLContent;
+        document.getElementById(section).innerHTML = HTMLContent;
     }
     $(document).ready(function() {
         if (!$.cookie('user') || $.cookie('user') == "no" || !$.cookie('id')) {
@@ -157,11 +180,16 @@
             },
             success: function(data) {
                 // console.log(data);
-                var sequence = 1;
+                var sequenceGJBYM = 1;
+                var sequenceGJBXFQT = 1;
                 for (var item in data ) {
                     if (data[item].profile.type == "国际部-英美") {
-                        addSchool(sequence,data[item]);
-                        sequence ++;
+                        addSchool(sequenceGJBYM,data[item],'contentGJBYM');
+                        sequenceGJBYM ++;
+                    };
+                    if (data[item].profile.type == "国际部-西方其他") {
+                        addSchool(sequenceGJBXFQT,data[item],'contentGJBXFQT');
+                        sequenceGJBXFQT ++;
                     };
 
                 }
