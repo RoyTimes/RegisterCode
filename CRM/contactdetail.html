@@ -203,7 +203,7 @@
                     <option value="不详">有课程和培训</option>
                     <option value="不详">有外国人参加</option>
                 </select>
-                <label>学科</label>
+                <label>产品偏好</label>
              </div>
         </div>
 
@@ -375,6 +375,7 @@
                     $('#discipline').val(data.profile.discipline);
                     $('#employer').val(data.profile.employer);
                     $('#interests').val(data.profile.interests);
+                    $('#product_preference').val(data.profile.product_preference);
 
                     $.ajax({
             			url: "http://api.youthimpactchina.com/mail/template",
@@ -424,6 +425,7 @@
         data['discipline'] = $('#discipline').val();
         data['employer'] = $('#employer').val();
         data['interests'] = $('#interests').val();
+        data['product_preference'] = $('#product_preference').val();
         for (var item in data) {
             if (data[item] == null)
                 data[item] = "";
