@@ -4,7 +4,7 @@ function logout() {
 }
 function change_page (id) {
 	localStorage['school'] = id;
-	location.href = "detail.html?id=" + id;
+	window.open ("detail.html?id=" + id);
 }
 function addSchool (sequence,school,section) {
 	var HTMLContent = document.getElementById(section).innerHTML;

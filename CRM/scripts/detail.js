@@ -118,7 +118,6 @@ $(document).ready(function() {
 
 
 	var req = GetRequest();
-	console.log(req);
 	var getSchoolID = String(req['id']);
 	$.ajax({
 		url: "http://api.youthimpactchina.com/crm/school/get_info",
@@ -146,7 +145,7 @@ $(document).ready(function() {
 });
 function change(id) {
 	localStorage['case'] = id;
-	location.href = "add_case.html";
+	location.href = "add_case.html?id="+id;
 }
 function profile() {
 	location.href = "region.html";

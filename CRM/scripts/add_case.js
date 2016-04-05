@@ -111,8 +111,6 @@ function changeRelationship(){
 	$("relationship").val(getTeacher.profile.relationship);
 	$('select').material_select('destroy');
 	$('select').material_select();
-
-	// 应该是好了
 }
 function save() {
 	var type = $('#type').val();
@@ -145,7 +143,7 @@ function save() {
 			url: "http://api.youthimpactchina.com/crm/school/case/update",
 			method: "POST",
 			data: {
-				id: localStorage['case'], type: type, status: status, purpose: purpose, note: note,
+				id: GetRequest()['id'], type: type, status: status, purpose: purpose, note: note,
 				senderID: existUserId, schoolID: localStorage['school'], projectID: project, teacherID: teacher
 			},
 			success: function(data) {
