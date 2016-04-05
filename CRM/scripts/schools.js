@@ -4,7 +4,6 @@ function logout() {
 }
 function change_page (id) {
 	localStorage['school'] = id;
-	alert("detail.html?" + id);
 	location.href = "detail.html?id=" + id;
 }
 function addSchool (sequence,school,section) {
@@ -44,6 +43,7 @@ $(document).ready(function() {
 	if (!$.cookie('user') || $.cookie('user') == "no" || !$.cookie('id')) {
 		location.href = "index.html";
 	}
+
 	var getLocation = localStorage['to'];
 	localStorage['school'] = "new";
 	$.ajax({

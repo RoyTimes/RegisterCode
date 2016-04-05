@@ -118,7 +118,9 @@ $(document).ready(function() {
 	document.body.style.background = "-webkit-gradient(linear, 0% 0%, 0% 100%,from(#639AC8), to(" + pickColor + "))"
 
 
-	var getSchoolID = String(localStorage['school']);
+	var req = GetRequest();
+	console.log(req);
+	var getSchoolID = String(req['id']);
 	$.ajax({
 		url: "http://api.youthimpactchina.com/crm/school/get_info",
 		method: "GET",
