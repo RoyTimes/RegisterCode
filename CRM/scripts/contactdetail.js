@@ -64,7 +64,7 @@ $(document).ready(function() {
 	var pickColor = "rgb(151,205,251)";
 	document.body.style.background = "-webkit-gradient(linear, 0% 0%, 0% 100%,from(#639AC8), to(" + pickColor + "))"
 
-	var teacherID = localStorage['teacher'];
+	var teacherID = GetRequest()['id'];
 	if (teacherID != "new") {
 		$.ajax({
 			url: "http://api.youthimpactchina.com/crm/case/by_teacher",
@@ -211,5 +211,5 @@ function profile() {
 }
 function change(id) {
 	localStorage['case'] = id;
-	location.href = "add_case.html";
+	location.href = "add_case.html?id="+id;
 }

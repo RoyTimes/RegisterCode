@@ -1,6 +1,5 @@
 function redirect (id) {
-	localStorage['teacher'] = id;
-	location.href = 'contactdetail.html';
+	location.href = 'contactdetail.html?id=' + id;
 }
 function logout() {
 	$.cookie('user', 'no');
