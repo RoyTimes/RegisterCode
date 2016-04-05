@@ -78,7 +78,6 @@ $(document).ready(function() {
 							}
 						})
 					} else $('select').material_select();
-
 				}
 			})
 		}
@@ -106,6 +105,8 @@ function logout() {
 }
 
 function changeRelationship(){
+    if ($("#teacher").val() == 'office')
+        return;
 	var getTeacher = JSON.parse($("#teacher").val());
 	$("relationship").val(getTeacher.profile.relationship);
 	$('select').material_select('destroy');
