@@ -70,6 +70,10 @@ $(document).ready(function() {
 					addSchool(sequenceGJBZDPG,data[item],'contentGJBZDPG');
 					sequenceGJBZDPG ++;
 				};
+				if (data[item].profile.type == "国际学校") {
+					addSchool(sequenceGJXX,data[item],'contentGJXX');
+					sequenceGJXX ++;
+				};
 
 			}
 		}
