@@ -18,7 +18,7 @@
 
 <body>
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-4 col-xl-4" 
+        <div class="col-xs-12 col-sm-12 col-md-4 col-xl-4"
             style="background-color: rgba(0, 0, 0, 0.2); padding: 30px;">
             <header id="login_header">
                 <h1 style="font-size:200%;font-family:StructrMe;">School Management Platform</h1>
@@ -29,7 +29,7 @@
                 <div style="font-family:StructrBo;">
         			<input id="email" type="text" name="email" autocomplete="off" value="" placeholder="Account Email 账户邮件名称"><br>
         			<input id="password" type="password" name="password" autocomplete="off" value="" placeholder="Password 密码"><br>
-                    <input href="admin.html" type="button" id='login' value="Login 登录" />&nbsp;&nbsp;&nbsp;
+                    <input type="button" id='login' value="Login 登录" />&nbsp;&nbsp;&nbsp;
                 </div>
             </form>
         </div>
@@ -56,44 +56,7 @@
     <script src="assets/js/xml2on.min.js"></script>
     <script src="assets/js/jquery.cookie.js"></script>
 
+    <script src="scripts/index.js"></script>
 
-    <script type="text/javascript">
-        // document.getElementById('redir').addEventListener("click", redirFun, false);
-        document.getElementById('login').addEventListener("click", loginFun, false);
-
-        $(document).ready(function() {
-            // if ($.cookie('user') != undefined && 
-            //         $.cookie('user') != 'not login') {
-            //     location.href = 'admin.html';
-            // }
-        });
-
-        function loginFun(evt) {
-            location.href = 'admin.html';
-
-            
-            var password = document.getElementById('password').value;
-            var user_email = document.getElementById('email').value;
-            var user_password = hex_sha1(hex_sha1(hex_sha1(hex_sha1(password + "yiquan")+"yidaquan")));
-
-            $.ajax({
-                url: 'http://api.youthimpactchina.com/account/login/student',
-                method: "post",
-                data: {
-                    email: user_email,
-                    passwd: user_password
-                },
-                success: function(data, status, xhr) {
-                    if (data == "auth success") {
-                        $.cookie('user', user_email);
-                        location.href = "admin.html";                        
-                    } else {alert(data);}
-                }
-            });
-        }
-        function redirFun(evt) {
-            location.href = "signup.html";
-        }
-    </script>
 </body>
 </html>

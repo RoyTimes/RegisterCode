@@ -127,7 +127,7 @@
 					<label for="Writing_Students_Tested">Number of Students Tested</label>
 				</div>
 			</div>
-			
+
 		</div>
         <!-- End of Average Class of 2016 student SAT Scores -->
         <!-- Average Class of 2016 student SAT II (subject tests)-->
@@ -380,7 +380,7 @@
 					<label for="Writing1_Students_Tested">Students Tested</label>
 				</div>
 			</div>
-			
+
 		</div>
         <!-- End of Average Class of 2016 student ACT Scores -->
         <!-- Advanced Placement Exam Results-->
@@ -466,7 +466,7 @@
 					<label for="Percent_Of_4_5_2016">2016</label>
 				</div>
 			</div>
-			
+
 		</div>
         <!-- End of Advanced Placement Exam Results -->
          <!-- Subject (please list number of students earning the score)-->
@@ -1158,70 +1158,6 @@
 	<script src="assets/js/xml2on.min.js"></script>
 	<script src="assets/js/jquery.soap.min.js"></script>
 	<script src="assets/js/jquery.cookie.js"></script>
-
-
-	<script type="text/javascript">
-		$(document).ready(function() {
-			var pickColor = "rgb(170,79,98)";
-			$('.modal-trigger').leanModal();
-			// var Colors = ["rgb(60,152,136)",'#33CCCC','#00CCFF','#CC6666','#FFCC33','#FFFFCC'];
-			// var index = Math.floor((Math.random()*Colors.length));
-			// var pickColor = Colors[index];
-			// document.body.style.background = "-webkit-gradient(linear, 0% 0%, 0% 100%,from(" + pickColor + "), to(#FFFFFF))"
-			document.body.style.background = "-webkit-gradient(linear, 0% 0%, 0% 100%,from(#FFF), to("+ pickColor +"))"
-		});
-		document.getElementById('submit_b').addEventListener("click", saveBasicFun, false);
-
-		//  href="extracurricular.html"
-		function saveBasicFun(evt) {
-			// evt.preventDefault();
-			var Data = {};
-
-				Data['First_Name_in_English'] = document.getElementById('First_Name_in_English').value;
-				Data['Last_Name_in_English'] = document.getElementById('Last_Name_in_English').value;
-				Data['Full_Name_in_Chinese'] = document.getElementById('Full_Name_in_Chinese').value;
-				Data['email'] = document.getElementById('email').value;
-				Data['phone'] = document.getElementById('phone').value;
-				Data['qq'] = document.getElementById('qq').value;
-				Data['wechat'] = document.getElementById('wechat').value;
-				Data['Mailing_Address'] = document.getElementById('Mailing_Address').value;
-				Data['high_school_Chinese_name'] = document.getElementById('high_school_Chinese_name').value;
-				Data['high_school_English_name'] = document.getElementById('high_school_English_name').value;
-				Data['city'] = document.getElementById('city').value;
-				Data['province'] = document.getElementById('province').value;
-				Data['total_enrollment'] = document.getElementById('total_enrollment').value;
-				Data['expected_year'] = document.getElementById('expected_year').value;
-				Data['gender'] = $('[name="sex"]').filter(":checked").attr('id');
-
-
-				var user_name = $.cookie('user');
-				// var user_name = "zs";
-
-
-				// 568d42636b19fb9175e15a1b
-				$.soap({
-	    		    url: 'http://yiquandev.oneto-tech.com/MoSession_server.php',
-	    		    method: 'saveSOEData',
-	    		    appendMethodToURL: false,
-	    		    enableLogging: false,
-	    		    data: {
-						"user_name": user_name,
-						"raw_data": JSON.stringify(Data),
-						"step": 1
-	    		    },
-	    		    envAttributes: {
-	    		        'xmlns:soap': 'http://schemas.xmlsoap.org/soap/envelope/'
-	    		    },
-	    		    success: function (soapResponse) {
-	    				var getResult = soapResponse.toJSON()["#document"]["SOAP-ENV:Envelope"]["SOAP-ENV:Body"]["ns1:saveSOEDataResponse"]["return"]["_"];
-						location.href = "extracurricular.html";
-	    			},
-	    			error: function (SOAPResponse) {
-	    				console.error(SOAPResponse);
-	    			}
-	    		});
-
-		}
-	</script>
+	<script src="scripts/academic.js"></script>
 </body>
 </html>
