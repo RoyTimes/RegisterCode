@@ -5,13 +5,15 @@ $(document).ready(function() {
 	$.ajax({
 		url: "http://api.youthimpactchina.com/smp/projects",
 		method: "GET", success: function(data) {
-			for (var item in data) addProject(data[item]);
+			for (var item = data.length - 1; item >= 0 ; item -- ) {
+				if (!data[item].hidden)
+					addProject(data[item]);
+			}
 		}
 	});
 });
 
 function addProject(project) {
-	console.log(project);
 
 	var container = document.getElementById('project');
 	var newProject =
